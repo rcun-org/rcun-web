@@ -3,7 +3,7 @@ import React from 'react'
 export function App() {
     return (
         <div>
-            <h1>Rcun</h1>
+            <h1>Rcun web</h1>
         </div>
     )
 }
