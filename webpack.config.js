@@ -11,6 +11,9 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
     mode: mode,
     target: 'web',
+    output: {
+        publicPath: "/",
+    },
     module: {
         rules: [
             {
@@ -44,6 +47,7 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         static: "./dist",
-        hot: true
+        hot: true,
+        historyApiFallback: true,
     }
 }
