@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  grid-template-columns: 9fr 4fr;
+  height: 100%;
+}
+
+.roomsList {
+  display: flex;
+  align-content: flex-start;
+  gap:20px;
+  padding-right: 1.2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+.roomsList div{
+  //flex-grow: 1;
+}
+.roomBar {
+  //background-color: #8d3535;
+
+}

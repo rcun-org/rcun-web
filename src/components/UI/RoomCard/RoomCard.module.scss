@@ -1,0 +1,39 @@
+@import "src/styles/colors";
+.container {
+  background-color: #5d5d5d;
+  min-width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  flex-grow: 1;
+
+}
+
+.body {
+  height: 200px;
+}
+
+.footer {
+  display: flex;
+  box-sizing: border-box;
+  padding: 1.2rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  backdrop-filter: blur(15px);
+  color: $light-grey;
+  font-weight: 500;
+}
+
+.cardTextSmall {
+  font-size: 1rem;
+}
+
+.cardTextLarge {
+  font-size: 1.4rem;
+
+}
+
+.cardTextMedium {
+  font-size: 1.2rem;
+
+}
