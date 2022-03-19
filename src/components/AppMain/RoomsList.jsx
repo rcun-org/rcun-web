@@ -11,6 +11,7 @@ const RoomsList = (props) => {
             <RoomCard/>
             <RoomCard/>
             <RoomCard/>
+            <RoomCard/>
         </div>
     );
 };

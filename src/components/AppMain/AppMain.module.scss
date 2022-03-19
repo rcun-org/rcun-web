@@ -9,14 +9,9 @@
   align-content: flex-start;
   gap:20px;
   padding-right: 1.2rem;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   overflow-y: auto;
 }
-.roomsList div{
-  //flex-grow: 1;
-}
-.roomBar {
-  //background-color: #8d3535;
 
-}

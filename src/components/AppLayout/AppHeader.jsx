@@ -1,10 +1,14 @@
 import React from 'react';
 import classes from './AppLayout.module.scss'
+import {SiNintendogamecube} from "react-icons/si";
 
 const AppHeader = () => {
     return (
         <div className={classes.headerContainer}>
-            <span className={classes.headerContainerLogo}>RCUN</span>
+            <SiNintendogamecube size={'30px'}/>
+            <span className={classes.headerContainerLogo}>
+                RCUN
+            </span>
         </div>
     );
 };
