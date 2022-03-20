@@ -8,6 +8,7 @@ const RegistrationForm = ({className}) => {
             <BaseInput type='text' placeholder="Email"/>
             <BaseInput type='password' placeholder="Password"/>
             <BaseInput type='password' placeholder="Confirm Password"/>
+
         </div>
     );
 };
