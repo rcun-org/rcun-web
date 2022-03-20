@@ -2,10 +2,8 @@
 .container {
   background-color: #5d5d5d;
   min-width: 400px;
-  max-width: calc(70% - 1.2rem);
   height: 300px;
   border-radius: 10px;
-  flex-grow: 1;
 }
 
 .body {
@@ -35,5 +33,4 @@
 
 .cardTextMedium {
   font-size: 1.2rem;
-
 }

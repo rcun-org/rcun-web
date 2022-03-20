@@ -1,0 +1,53 @@
+@import "../../styles/colors";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 2.4rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1.2rem;
+  width: 30%;
+  min-width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  backdrop-filter: blur(25px);
+}
+
+.appTitleContainer {
+  align-self: center;
+  width: 30%;
+  min-width: 400px;
+  color: $light-grey;
+}
+
+.loginContainerHead {
+  display: flex;
+  gap: 1.2rem;
+
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: $light-grey;
+}
+
+.loginContainerHead > div {
+ cursor: pointer;
+}
+
+.authTypeActive {
+  border-bottom: 2px solid indianred;
+}
+
+.formContainerInputList {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}

@@ -1,0 +1,20 @@
+@import "src/styles/colors";
+.baseInput{
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid $light-grey;
+  padding-bottom: 4px;
+  font-size: 17px;
+  background-color: transparent;
+  color: $light-grey;
+}
+.baseInput:focus {
+  outline: none !important;
+  border-bottom: 2px solid rgb(124, 112, 229);
+  font-size: 17px;
+  color: $light-grey;
+}
+
+::placeholder {
+  color: $light-grey;
+}
