@@ -1,12 +1,13 @@
 @import "src/styles/colors";
 .baseButton{
-  border: 4px solid $light-grey;
+  border: 2px solid $light-grey;
   border-radius: 75px;
   background-color: transparent;
-  font-size: 14px;
+  font-size: 1rem;
   color: $light-grey;
   width: 80%;
   padding: 16px;
+  cursor: pointer;
 }
 .baseButton:focus {
   outline: none !important;
@@ -17,7 +18,7 @@
 
 .baseButton:hover {
   outline: none !important;
-  background-color: black;
+  background-color: #1a1a1a;
   font-size: 17px;
   color: $light-grey;
 }
