@@ -19,4 +19,12 @@
   max-width: calc(70% - 1.2rem); //todo
   flex-grow: 1;
 }
+.roomBar {
+  display: flex;
+  gap: 20px;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
 
