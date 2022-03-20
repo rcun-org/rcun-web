@@ -1,0 +1,23 @@
+@import "src/styles/colors";
+.baseButton{
+  border: 4px solid $light-grey;
+  border-radius: 75px;
+  background-color: transparent;
+  font-size: 14px;
+  color: $light-grey;
+  width: 80%;
+  padding: 16px;
+}
+.baseButton:focus {
+  outline: none !important;
+  background-color: black;
+  font-size: 17px;
+  color: $light-grey;
+}
+
+.baseButton:hover {
+  outline: none !important;
+  background-color: black;
+  font-size: 17px;
+  color: $light-grey;
+}
