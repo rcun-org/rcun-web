@@ -21,8 +21,10 @@
   "homepage": "https://github.com/rcun-org/rcun-web#readme",
   "dependencies": {
     "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^5.2.1",
     "react-transition-group": "^4.4.2",
@@ -36,6 +38,7 @@
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.0",
+    "dotenv-webpack": "^7.1.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "sass": "^1.49.9",

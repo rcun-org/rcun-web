@@ -1,7 +1,8 @@
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const Dotenv = require('dotenv-webpack');
 const {template} = require("@babel/core");
-
 let mode = "development"
 
 if (process.env.NODE_ENV === "production") {
@@ -34,12 +35,16 @@ module.exports = {
         ]
     },
     plugins: [
+        new Dotenv(),
+        // new webpack.DefinePlugin({
+        //     process: {env: {}}
+        // }),
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin(
             {
                 template: "./src/index.html"
             }
-        )
+        ),
     ],
     resolve: {
         extensions: [".js", ".jsx"]

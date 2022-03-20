@@ -23,8 +23,12 @@ const LoginContainer = (props) => {
                 </div>
             </div>
             <div>
-                {/*<LoginForm className = {classes.formContainerInputList}/>*/}
-                <RegistrationForm className = {classes.formContainerInputList}/>
+                {authType === 'login'
+                && <LoginForm className={classes.formContainerInputList}/>
+                }
+                {authType === 'signup'
+                && <RegistrationForm className={classes.formContainerInputList}/>
+                }
             </div>
 
         </div>
