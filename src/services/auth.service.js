@@ -1,25 +1,32 @@
 import axios from "axios";
+const API_URL = process.env["REACT_APP_API_SERVER"]
 
-const API_URL = process.env.react_app_api_server
-
-export const register = ({name, email, password, password2}) => {
-    return axios.post(API_URL + 'users', {
-        name,
-        email,
-        password,
-        password2
-    })
+export const register = async ({username, email, password, password2}) => {
+    try {
+        return await axios.post(API_URL + 'users', {
+            username,
+            email,
+            password,
+            password2
+        })
+    } catch (e) {
+        return false
+    }
 }
 
-export const login = async ({email, password}) => {
-    const response = axios.post(API_URL + 'users/login', {
-        email,
-        password
-    })
-    if (response.data.token) {
-        localStorage.setItem("rcunUserToken", JSON.stringify(response.data.token))
+export const login = async ({username, password}) => {
+    try {
+        const response = await axios.post(API_URL + 'users/login', {
+            username,
+            password
+        })
+        if (response.data.token) {
+            localStorage.setItem("rcunUserToken", JSON.stringify(response.data.token))
+        }
+        return response.data
+    } catch (e) {
+        return false
     }
-    return response.data
 }
 
 export const logout = () => {

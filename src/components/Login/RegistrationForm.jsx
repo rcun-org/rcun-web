@@ -1,14 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import BaseInput from "../UI/Input/BaseInput";
+import {register} from "../../services/auth.service";
+import BaseButton from "../UI/Button/BaseButton";
 
-const RegistrationForm = ({className}) => {
+const RegistrationForm = ({className, onRegister}) => {
+
+    const [registrationData, setRegistrationData] = useState({
+        username: '', password: '', password2: ''
+    })
+
+    const handleRegistration = async () => {
+        //todo add client-side validation
+        const registrationResult = await register(registrationData)
+
+        setRegistrationData({
+            username: '', password: '', password2: ''
+        })
+
+        if (registrationResult) {
+            onRegister()
+        }
+    }
+
     return (
         <div className={className}>
-            <BaseInput type='text' placeholder="User Name"/>
-            <BaseInput type='text' placeholder="Email"/>
-            <BaseInput type='password' placeholder="Password"/>
-            <BaseInput type='password' placeholder="Confirm Password"/>
-
+            <BaseInput value={registrationData.username}
+                       onChange={(event) => setRegistrationData({...registrationData, username: event.target.value})}
+                       type='text'
+                       placeholder="User Name"
+            />
+            <BaseInput value={registrationData.password}
+                       onChange={(event) => setRegistrationData({...registrationData, password: event.target.value})}
+                       type='password'
+                       placeholder="Password"
+            />
+            <BaseInput value={registrationData.password2}
+                       onChange={(event) => setRegistrationData({...registrationData, password2: event.target.value})}
+                       type='password'
+                       placeholder="Confirm Password"
+            />
+            <BaseButton onClick={handleRegistration}>Sign up</BaseButton>
         </div>
     );
 };

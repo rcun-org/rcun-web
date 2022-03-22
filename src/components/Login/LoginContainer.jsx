@@ -27,7 +27,8 @@ const LoginContainer = (props) => {
                 && <LoginForm className={classes.formContainerInputList}/>
                 }
                 {authType === 'signup'
-                && <RegistrationForm className={classes.formContainerInputList}/>
+                &&
+                <RegistrationForm className={classes.formContainerInputList} onRegister={() => setAuthType("login")}/>
                 }
             </div>
 

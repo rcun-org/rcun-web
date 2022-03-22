@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const Dotenv = require('dotenv-webpack');
+const path = require('path')
 const {template} = require("@babel/core");
 let mode = "development"
 
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
     mode: mode,
     target: 'web',
+    entry: ["regenerator-runtime/runtime.js", path.resolve(__dirname, 'src', 'index.js')],
     output: {
         publicPath: "/",
     },
