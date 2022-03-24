@@ -1,5 +1,5 @@
 .chat_window {
-  background-color: transparent;
+  background-color: #313131;
   width: 350px;
   height: 250px;
   display: flex;
@@ -13,7 +13,7 @@
 .msg_history {
   width: 95%;
   margin: 0 auto;
-  overflow: scroll;
+  overflow: clip;
   height: 80%;
 }
 
