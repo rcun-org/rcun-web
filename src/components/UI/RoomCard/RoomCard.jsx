@@ -13,15 +13,15 @@ const RoomCard = (props) => {
             <div className={classes.footer}>
                 <div>
                     <div className={classes.cardTextLarge}>
-                        Video 1
+                        {props.room.title}
                     </div>
                     <div className={classes.cardTextSmall}>
-                        Room 1
+                        Room {props.index + 1}
                     </div>
                 </div>
                 <div>
                     <div className={classes.cardTextMedium}>
-                        3 persons
+                        {props.room.audience.length} persons
                     </div>
                 </div>
             </div>
