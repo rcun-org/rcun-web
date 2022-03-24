@@ -1,0 +1,24 @@
+.chat_window {
+  background-color: #313131;
+  width: 350px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+}
+
+.msg_history {
+  width: 95%;
+  margin: 0 auto;
+  overflow: clip;
+  height: 80%;
+}
+
+.msg_item {
+  height: 30px;
+  color: white;
+}
+

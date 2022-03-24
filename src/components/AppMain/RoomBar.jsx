@@ -1,6 +1,7 @@
 import React from 'react';
 import BaseButton from "../UI/Button/BaseButton";
 import BaseInput from "../UI/Input/BaseInput";
+import Chat from '../Chat'
 
 const RoomBar = (props) => {
     return (
@@ -9,6 +10,7 @@ const RoomBar = (props) => {
             <BaseButton>Create a new room</BaseButton>
             <BaseButton>My rooms</BaseButton>
             <BaseButton>Create a new room</BaseButton>
+            <Chat />
         </div>
     );
 };
