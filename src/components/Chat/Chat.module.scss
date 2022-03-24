@@ -1,24 +1,24 @@
-.chat_window{
-    background-color:transparent;
-    width: 400px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 100px;
-    right: 100px;
+.chat_window {
+  background-color: transparent;
+  width: 350px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
 }
 
-.msg_history{
-    width: 95%;
-    margin: 0 auto;
-    overflow: scroll;
-    height: 80%;
+.msg_history {
+  width: 95%;
+  margin: 0 auto;
+  overflow: scroll;
+  height: 80%;
 }
 
-.msg_item{
-    height: 30px;
-    color: white;
+.msg_item {
+  height: 30px;
+  color: white;
 }
 
