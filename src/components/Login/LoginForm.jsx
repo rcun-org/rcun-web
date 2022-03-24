@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import BaseInput from "../UI/Input/BaseInput";
 import {login} from "../../services/auth.service";
+import BaseButton from "../UI/Button/BaseButton";
 
 const LoginForm = ({className, onLogin}) => {
     const [loginData, setLoginData] = useState({
@@ -9,14 +10,14 @@ const LoginForm = ({className, onLogin}) => {
 
     const handleLogin = async () => {
         //todo add client-side validation
-        const loginResult = await login(loginData)
+        const userToken = await login(loginData)
 
         setLoginData({
             username: '', password: ''
         })
 
-        if (loginResult) {
-            onLogin()
+        if (userToken) {
+            onLogin(userToken)
         }
     }
     return (
@@ -31,6 +32,7 @@ const LoginForm = ({className, onLogin}) => {
                        type='password'
                        placeholder="Password"
             />
+            <BaseButton onClick={handleLogin}>Login</BaseButton>
         </div>
     );
 };

@@ -23,11 +23,17 @@ export const login = async ({username, password}) => {
         if (response.data.token) {
             localStorage.setItem("rcunUserToken", JSON.stringify(response.data.token))
         }
-        return response.data
+        return response.data.token
     } catch (e) {
         return false
     }
 }
+
+export const getCurrentUserToken = () => {
+    return JSON.parse(localStorage.getItem("rcunUserToken"));
+};
+
+
 
 export const logout = () => {
     localStorage.removeItem('rcunUserToken')
