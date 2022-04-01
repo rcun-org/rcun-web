@@ -11,13 +11,16 @@ import './styles/index.scss'
 
 const App = () => {
     const [userToken, setUserToken] = useState(null)
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         setUserToken(getCurrentUserToken())
+        setLoading(false)
     }, [])
     return (
         <AuthContext.Provider value={{
             userToken,
-            setUserToken
+            setUserToken,
+            loading
         }}>
             <BrowserRouter>
                 <AppLayout>
