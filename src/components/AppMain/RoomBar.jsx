@@ -1,12 +1,14 @@
 import React from 'react';
 import BaseButton from "../UI/Button/BaseButton";
-import BaseInput from "../UI/Input/BaseInput";
 import Chat from '../Chat'
-
+import { useHistory } from "react-router-dom";
 const RoomBar = (props) => {
+    let history = useHistory();
+
+
     return (
         <div {...props}>
-            <BaseButton onClick={()=>alert("clicked")}>Create a new room</BaseButton>
+            <BaseButton onClick={()=>history.push("/new_room")}>Create a new room</BaseButton>
             <BaseButton>Create a new room</BaseButton>
             <BaseButton>My rooms</BaseButton>
             <BaseButton>Create a new room</BaseButton>
