@@ -6,8 +6,10 @@ import {AuthContext} from "../context";
 
 const AppRouter = () => {
     //...........................................................................................//
-    const {userToken} = useContext(AuthContext)
-
+    const {userToken, loading} = useContext(AuthContext)
+    if (loading) {
+        return <div>Loading...</div>
+    }
     return (
         userToken ?
             <Switch>
