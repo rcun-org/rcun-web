@@ -1,12 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useContext, useEffect, useRef, useState } from "react";
+import {AuthContext} from "../../context/"
 import classes from "./Chat.module.scss";
 
 function Chat(props) {
   let socketRef = useRef(new SockJS("http://localhost:5000/ws/room"));
 
+  let autoScroll = useRef()
+  
+  let {userToken} = useContext(AuthContext)
+
+  console.log(userToken)
 
   let [msgHistory,setMsgHistory] = useState([])
+
+
+  useEffect(()=>autoScroll.current.scrollIntoView({ behavior: "smooth" }),[msgHistory])
+  
 
   useEffect(() => {
     socketRef.current.onopen = function () {
@@ -15,7 +24,9 @@ function Chat(props) {
 
     socketRef.current.onmessage = function (e) {
       let msg = e.data;
+      console.log(e.data)
       setMsgHistory(prev => prev.concat([msg]))
+
     };
 
     socketRef.current.onclose = function () {
@@ -38,18 +49,27 @@ function Chat(props) {
     }
   }
 
+  
+
 
   return (
     <div className={classes.chat_window}>
       <div className={classes.msg_history}>
       {console.log(msgHistory)}
       {console.log(typeof(msgHistory))}
-        {msgHistory.map((item)=>
-            <div className={classes.msg_item} key={item}>
-              {'Message: '+item}
+        {msgHistory.map((item,index)=>
+            <div className={classes.msg_item} key={index} >
+              {'Message: '+ item}
             </div>)
+            
+          
         }
-      </div>  
+        <div style={{ float:"left", clear: "both", opacity: '0'}} ref={autoScroll}>
+          
+        </div>
+          
+      </div>
+      
       <input type="text" onKeyDown={handleEnterPush} ref={chatInputRef} placeholder='type smth...'/>
     </div>
   );

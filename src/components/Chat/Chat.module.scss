@@ -8,13 +8,15 @@
   position: absolute;
   bottom: 50px;
   right: 10px;
+  padding-top:3px ;
 }
 
 .msg_history {
   width: 95%;
   margin: 0 auto;
-  overflow: clip;
-  height: 80%;
+  overflow: scroll;
+  height: 85%;
+  overflow-x: hidden;
 }
 
 .msg_item {
@@ -22,3 +24,22 @@
   color: white;
 }
 
+.msg_history::-webkit-scrollbar-track {
+  
+  padding: 2px 0;
+  background-color: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
+}
+
+.msg_history::-webkit-scrollbar {
+  width: 10px;
+}
+
+.msg_history::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px white;
+  background-color: white;
+  border: transparent;
+}

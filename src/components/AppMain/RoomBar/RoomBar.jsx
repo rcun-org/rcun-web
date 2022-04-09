@@ -13,7 +13,6 @@ const RoomBar = (props) => {
             <JoinRoom/>
             <BaseButton>My rooms</BaseButton>
             <BaseButton>Search</BaseButton>
-            <Chat/>
         </div>
     );
 };
