@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The web interdace of rcun platform. Writen on React as part of the FWD course of Innopolis University.",
   "main": "index.js",
+  "engines": {
+    "node": "14.5.0"
+  },
   "scripts": {
     "start:production": "npm install && npm run build && npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
