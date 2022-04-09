@@ -3,7 +3,6 @@ import BaseButton from "../../UI/Button/BaseButton";
 import BaseModal from "../../UI/Modal/BaseModal";
 import CreateRoomForm from "../../CreateRoom/CreateRoomForm";
 import classes from "../../Login/Login.module.scss";
-import {createRoom} from "../../../services/room.services";
 
 const CreateRoom = () => {
     const [modalActive, setModalActive] = useState(false)

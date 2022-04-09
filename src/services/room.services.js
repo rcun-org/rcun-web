@@ -6,7 +6,9 @@ export const createRoom = async ({title, yt_video_id}) => {
     try {
         return await axios.post(API_URL + 'room',
             {title, yt_video_id},
-            {headers: authHeader()}
+            {
+                headers: authHeader(),
+            }
         )
     } catch (e) {
         return false

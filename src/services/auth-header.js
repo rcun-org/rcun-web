@@ -3,7 +3,6 @@ export default () => {
     if (userToken) {
         return {
             Authorization: userToken
-            //Authorization:'Bearer' userToken
         }
     } else {
         return {}
