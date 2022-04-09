@@ -4,6 +4,8 @@
   "description": "The web interdace of rcun platform. Writen on React as part of the FWD course of Innopolis University.",
   "main": "index.js",
   "scripts": {
+    "start:production": "npm install && npm run build && npm run start:prod",
+    "start:prod": "cross-env NODE_ENV=production node server",
     "start": "webpack serve",
     "watch": "webpack watch",
     "build": "cross-env NODE_ENV=production webpack",
