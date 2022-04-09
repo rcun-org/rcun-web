@@ -44,7 +44,11 @@ function Chat(props) {
       <div className={classes.msg_history}>
       {console.log(msgHistory)}
       {console.log(typeof(msgHistory))}
-        {msgHistory.map((item)=><div className={classes.msg_item}>{'Message: '+item}</div>)}
+        {msgHistory.map((item)=>
+            <div className={classes.msg_item} key={item}>
+              {'Message: '+item}
+            </div>)
+        }
       </div>  
       <input type="text" onKeyDown={handleEnterPush} ref={chatInputRef} placeholder='type smth...'/>
     </div>
