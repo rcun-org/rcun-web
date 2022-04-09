@@ -1,18 +1,19 @@
 import React,{useRef,useEffect} from 'react' 
 import classes from './InputButton.module.scss'
 import Input from '@jimsheen/react-dynamic-input-width';
-
+import {useHistory} from 'react-router-dom'
 
 function InputButton(props){
   let inputFieldRef = useRef()
   let inputBtnRef = useRef()
-
+  let history = useHistory()
   function putFocusOnInput(){
     inputFieldRef.current.focus()
   }
 
   function handleEnterPush(event){
-    event.key === "Enter"? console.log(`room ID is ${event.target.value}`):null
+    event.key === "Enter"? history.push(`/room/${inputFieldRef.current.value}`):null
+    
   }
 
   useEffect(() => {
