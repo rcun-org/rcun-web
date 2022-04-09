@@ -1,23 +1,21 @@
 import React, {useState} from 'react';
 import BaseInput from "../UI/Input/BaseInput";
-import {login} from "../../services/auth.service";
 import BaseButton from "../UI/Button/BaseButton";
 import {createRoom} from "../../services/room.services";
+import classes from "../Login/Login.module.scss";
 
-const CreateRoomForm = ({className, onLogin}) => {
+const CreateRoomForm = ({roomCreated}) => {
     const [roomData, setRoomData] = useState({
         title: '', yt_video_id: ''
     })
 
     const handleCreate = async () => {
         await createRoom(roomData)
-
-        // setRoomData({
-        //     title: '', yt_video_id: ''
-        // })
+        roomCreated(true)
     }
+
     return (
-        <div className={className}>
+        <div className={classes.formContainerInputList}>
             <BaseInput value={roomData.username}
                        onChange={(event) => setRoomData({...roomData, title: event.target.value})}
                        type='text'
