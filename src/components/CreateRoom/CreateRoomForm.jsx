@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import BaseInput from "../UI/Input/BaseInput";
 import BaseButton from "../UI/Button/BaseButton";
 import {createRoom} from "../../services/room.services";
 import classes from "../Login/Login.module.scss";
+import {RoomsContext} from "../../context";
 
 const CreateRoomForm = ({roomCreated}) => {
+    const {rooms, setRooms} = useContext(RoomsContext)
+
     const [roomData, setRoomData] = useState({
         title: '', yt_video_id: ''
     })
 
     const handleCreate = async () => {
-        await createRoom(roomData)
+        const newRoomsList = await createRoom(roomData)
+        setRooms(newRoomsList)
         roomCreated(true)
     }
 
