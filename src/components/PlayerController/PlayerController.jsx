@@ -28,14 +28,10 @@ function PlayerController(props) {
         };
     }, []);
 
-    let chatInputRef = useRef(null);
-
     function sendPlayerEvent() {
-        let msg = chatInputRef.current.value;
+        let msg = playerState;
         socketRef.current.send(msg);
-        chatInputRef.current.value = "";
     }
-
 
     function handleBackArrowPush(event) {
         setPlayerState(prev => {
@@ -44,6 +40,7 @@ function PlayerController(props) {
                 playerTimecode: (prev.playerTimecode - 5 < 0) ? 0 : prev.playerTimecode - 5
             };
         });
+        sendPlayerEvent();
     }
 
     function handleForwardArrowPush(event) {
@@ -53,6 +50,7 @@ function PlayerController(props) {
                 playerTimecode: prev.playerTimecode + 5
             };
         });
+        sendPlayerEvent();
     }
 
     function handlePlayPausePush(event) {
@@ -62,6 +60,7 @@ function PlayerController(props) {
                 isPaused: !prev.isPaused
             };
         });
+        sendPlayerEvent();
     }
 
 
