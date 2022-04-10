@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import InputButton from "../../UI/InputButton";
 import BaseButton from "../../UI/Button/BaseButton";
+import {useHistory} from "react-router-dom"
 
 const JoinRoom = () => {
-
+    let history = useHistory()
     let [joinBtnPushed, setJoinBtnPushed] = useState(false)
 
     const handleJoinBtnPush = () => {
@@ -14,8 +15,11 @@ const JoinRoom = () => {
         setJoinBtnPushed(false)
     }
 
+    const handleInputPush = (query) => {
+        history.push(`/room/${query}`)
+    }
     return (
-        <>{joinBtnPushed ? <InputButton hideJoinBtn={hideJoinBtn}/>
+        <>{joinBtnPushed ? <InputButton hideBtn={hideJoinBtn} handlePush={handleInputPush}/>
             : <BaseButton onClick={handleJoinBtnPush}>Join by room identifier</BaseButton>}
         </>
     );
