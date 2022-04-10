@@ -33,16 +33,6 @@ export const getRooms = async () => {
             headers: authHeader(),
         })
 
-        async function getThumbnail(videoId){
-            console.log(videoId)
-            const thumbnail = await axios.get(`https://img.youtube.com/vi/${videoId}/default.jpg`)
-            return thumbnail
-        }
-
-        for (const room of roomsData.data) {
-            room.thumbnail = await getThumbnail(room.yt_video_id)
-        }
-
         return roomsData.data
     } catch (e) {
 

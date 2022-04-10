@@ -12,7 +12,10 @@ const RoomCard = (props) => {
         <div
             onClick={() => redirectToVideo()}
             className={classes.container}
-            style={{backgroundImage: `url(${previewImage})`, backgroundSize: 'cover'}}
+            style={{
+                backgroundImage: `url(${`https://img.youtube.com/vi/${props.room.yt_video_id}/sddefault.jpg`})`,
+                backgroundSize: 'cover'
+            }}
         >
             <div
                 className={classes.body}
