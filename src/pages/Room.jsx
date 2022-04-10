@@ -5,7 +5,7 @@ const Room = () => {
     return (
         <div>
             room:
-            <VideoPlayer/>
+            <VideoPlayer />
             <Chat/>
         </div>
     );
