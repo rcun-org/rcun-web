@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/";
 import classes from "./Chat.module.scss";
 
+const WS_URL = process.env["REACT_APP_WS_SERVER"]
 function Chat(props) {
-  let socketRef = useRef(new SockJS("http://localhost:5000/ws/room"));
+  let socketRef = useRef(new SockJS(WS_URL + "room"));
 
   let autoScroll = useRef();
 
