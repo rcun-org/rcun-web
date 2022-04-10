@@ -7,7 +7,7 @@
     "node": "14.5.0"
   },
   "scripts": {
-    "start:production": "npm install && npm run build && npm run start:prod",
+    "start:production": "npm install && npm run start:prod",
     "start:prod": "node server",
     "start": "webpack serve",
     "watch": "webpack watch",
