@@ -42,23 +42,25 @@ function PlayerController(props) {
 
 
     function handleBackArrowPush(event){
-        setPlayerState(prev => {
-            prev.playerTimecode -= 5
-            return prev
-        })
+        setPlayerState(prev => {return {
+            ...prev,
+            playerTimecode:(prev.playerTimecode - 5 < 0)? 0:prev.playerTimecode - 5
+        }})
     }
 
     function handleForwardArrowPush(event){
-        setPlayerState(prev => {
-            prev.playerTimecode += 5
-            return prev
-        })
+        setPlayerState(prev => {return {
+            ...prev,
+            playerTimecode:prev.playerTimecode + 5
+        }})
     }
 
     function handlePlayPausePush(event){
         setPlayerState(prev => {
-            prev.isPaused = !prev.isPaused
-            return prev
+            return {
+                ...prev,
+                isPaused:!prev.isPaused
+            }
         })
     }
 
@@ -76,7 +78,7 @@ function PlayerController(props) {
 
                 <button onClick={handlePlayPausePush}>
                     
-                  {(playerState.isPaused)? 'U+25B6': '||'}
+                  {(playerState.isPaused)? `>`: '||'}
                   
                 </button>
 
