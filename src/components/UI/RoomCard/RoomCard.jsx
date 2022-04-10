@@ -6,7 +6,7 @@ import previewImage from '../../../assets/imgs/img_1.png';
 const RoomCard = (props) => {
     let history = useHistory()
     const redirectToVideo = () => {
-        history.push(`/room/${props.room.yt_video_id}`)
+        history.push(`/room/${props.room._id}`)
     }
     return (
         <div
