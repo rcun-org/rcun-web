@@ -5,6 +5,7 @@ import InputButton from '../../UI/InputButton';
 import {useHistory} from "react-router-dom";
 import JoinRoom from "./JoinRoom";
 import CreateRoom from "./CreateRoom";
+import Logout from "../../Logout/Logout";
 
 const RoomBar = (props) => {
     return (
@@ -13,6 +14,7 @@ const RoomBar = (props) => {
             <JoinRoom/>
             <BaseButton>My rooms</BaseButton>
             <BaseButton>Search</BaseButton>
+            <Logout/>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const API_URL = process.env["REACT_APP_API_SERVER"]
 
 export const register = async ({username, email, password, password2}) => {
@@ -30,12 +31,11 @@ export const login = async ({username, password}) => {
     }
 }
 
+export const logout = () => {
+    localStorage.removeItem("rcunUserToken")
+}
+
 export const getCurrentUserToken = () => {
     return localStorage.getItem("rcunUserToken");
 };
 
-
-
-export const logout = () => {
-    localStorage.removeItem('rcunUserToken')
-}

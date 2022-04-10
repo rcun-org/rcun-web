@@ -1,22 +1,22 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import {AuthContext} from "../../context/"
+import { AuthContext } from "../../context/";
 import classes from "./Chat.module.scss";
 
 function Chat(props) {
   let socketRef = useRef(new SockJS("http://localhost:5000/ws/room"));
 
-  let autoScroll = useRef()
-  
-  let {userToken} = useContext(AuthContext)
+  let autoScroll = useRef();
 
-  console.log(userToken)
+  let { userToken } = useContext(AuthContext);
 
-  let [msgHistory,setMsgHistory] = useState([])
+  console.log(userToken);
 
+  let [msgHistory, setMsgHistory] = useState([]);
 
-
-  useEffect(()=>autoScroll.current.scrollIntoView({ behavior: "smooth" }),[msgHistory])
-  
+  useEffect(
+    () => autoScroll.current.scrollIntoView({ behavior: "smooth" }),
+    [msgHistory]
+  );
 
   useEffect(() => {
     socketRef.current.onopen = function () {
@@ -25,9 +25,8 @@ function Chat(props) {
 
     socketRef.current.onmessage = function (e) {
       let msg = e.data;
-      console.log(e.data)
-      setMsgHistory(prev => prev.concat([msg]))
-
+      console.log(e.data);
+      setMsgHistory((prev) => prev.concat([msg]));
     };
 
     socketRef.current.onclose = function () {
@@ -40,38 +39,40 @@ function Chat(props) {
   function sendMessage() {
     let msg = chatInputRef.current.value;
     socketRef.current.send(msg);
-    chatInputRef.current.value=''
+    chatInputRef.current.value = "";
   }
 
   //  Checks if pressed button is 'Enter' to send the message
   function handleEnterPush(event) {
     if (event.key === "Enter") {
-        sendMessage();
+      sendMessage();
     }
   }
 
-  
-
-
   return (
     <div className={classes.chat_window}>
-      <div className={classes.msg_history} tabIndex='0'>
-
-        {msgHistory.map((item,index)=>
-            <div className={classes.msg_item} key={index} >
-              {'Message: '+ item}
-            </div>)
-            
-          
-        }
-        <div style={{ float:"left", clear: "both", opacity: '0'}} ref={autoScroll}>
-          
+      <div className={classes.history_wrapper}>
+        <div className={classes.msg_history} tabIndex="0">
+          {msgHistory.map((item, index) => (
+            <div className={classes.msg_item} key={index}>
+              {"Message: " + item}
+            </div>
+          ))}
+          <div
+            style={{ float: "left", clear: "both", opacity: "0" }}
+            ref={autoScroll}
+          ></div>
         </div>
       </div>
+
       <div className={classes.msg_entry}>
-        <input type="text" onKeyDown={handleEnterPush} ref={chatInputRef} placeholder='Say something...'/>
+        <input
+          type="text"
+          onKeyDown={handleEnterPush}
+          ref={chatInputRef}
+          placeholder="Say something..."
+        />
       </div>
-      
     </div>
   );
 }
