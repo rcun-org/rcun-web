@@ -17,6 +17,7 @@ const RoomsList = (props) => {
     function getRooms() {
         async function getting(){
             let roomList = await axios.get(API_URL + 'room').then(response=>response.data)
+            console.log('room list', roomList);
             setRooms(roomList)
         }
         getting()
