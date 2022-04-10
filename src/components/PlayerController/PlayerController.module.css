@@ -8,8 +8,23 @@
 .player_controller{
     height: 110px;
     background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    
 }
 
 .control_buttons button:nth-of-type(2){
     margin: 0 15px;
+}
+
+.control_buttons button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+
 }
