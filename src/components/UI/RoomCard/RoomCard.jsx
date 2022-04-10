@@ -1,11 +1,19 @@
 import React from 'react';
 import classes from './RoomCard.module.scss'
-
+import {useHistory} from 'react-router-dom'
 import previewImage from '../../../assets/imgs/img_1.png';
 
 const RoomCard = (props) => {
+    let history = useHistory()
+    const redirectToVideo = () => {
+        history.replace(`/room/${props.room.yt_video_id}`)
+    }
     return (
-        <div className={classes.container} style={{backgroundImage: `url(${previewImage})`, backgroundSize: 'cover'}}>
+        <div
+            onClick={() => redirectToVideo()}
+            className={classes.container}
+            style={{backgroundImage: `url(${previewImage})`, backgroundSize: 'cover'}}
+        >
             <div
                 className={classes.body}
             >
