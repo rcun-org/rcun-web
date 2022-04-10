@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useRef, useState} from "react";
 import {AuthContext} from "../../context/";
 import classes from "./PlayerController.module.css";
 
-const WS_URL = process.env["REACT_APP_WS_SERVER"]
+const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 function PlayerController(props) {
     let socketRef = useRef(new SockJS(WS_URL + "room"));
@@ -37,53 +37,49 @@ function PlayerController(props) {
     }
 
 
-    
-
-
-
-    function handleBackArrowPush(event){
-        setPlayerState(prev => {return {
-            ...prev,
-            playerTimecode:(prev.playerTimecode - 5 < 0)? 0:prev.playerTimecode - 5
-        }})
-    }
-
-    function handleForwardArrowPush(event){
-        setPlayerState(prev => {return {
-            ...prev,
-            playerTimecode:prev.playerTimecode + 5
-        }})
-    }
-
-    function handlePlayPausePush(event){
+    function handleBackArrowPush(event) {
         setPlayerState(prev => {
             return {
                 ...prev,
-                isPaused:!prev.isPaused
-            }
-        })
+                playerTimecode: (prev.playerTimecode - 5 < 0) ? 0 : prev.playerTimecode - 5
+            };
+        });
     }
 
+    function handleForwardArrowPush(event) {
+        setPlayerState(prev => {
+            return {
+                ...prev,
+                playerTimecode: prev.playerTimecode + 5
+            };
+        });
+    }
 
-    
-
+    function handlePlayPausePush(event) {
+        setPlayerState(prev => {
+            return {
+                ...prev,
+                isPaused: !prev.isPaused
+            };
+        });
+    }
 
 
     return (
         <div className={classes.player_controller}>
             <div className={classes.control_buttons}>
                 <button onClick={handleBackArrowPush}>
-                 &#60;
+                    &#60;
                 </button>
 
                 <button onClick={handlePlayPausePush}>
-                    
-                  {(playerState.isPaused)? `>`: '||'}
-                  
+
+                    {(playerState.isPaused) ? `>` : '||'}
+
                 </button>
 
                 <button onClick={handleForwardArrowPush}>
-                 &#62;
+                    &#62;
                 </button>
             </div>
         </div>
