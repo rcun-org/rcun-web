@@ -38,3 +38,12 @@ export const getRooms = async () => {
     }
 }
 
+export const getRoomById = async (roomId) => {
+    try {
+        const roomData = await axios.get(`${API_URL}room/${roomId}`)
+        return roomData.data
+    }catch (e) {
+
+    }
+}
+
