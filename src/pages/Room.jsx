@@ -1,26 +1,27 @@
 import React, {useEffect, useState, useRef} from 'react';
 import VideoPlayer from "./VideoPlayer";
-import {useParams} from 'react-router-dom'
-import Chat from '../components/Chat'
+import {useParams} from 'react-router-dom';
+import Chat from '../components/Chat';
 import {getRoomById} from "../services/room.services";
 import PlayerController from '../components/PlayerController';
+
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 const Room = () => {
 
-    const {id} = useParams()
-    const [roomData, setRoomData] = useState()
-    const [loading, setLoading] = useState(true)
+    const {id} = useParams();
+    const [roomData, setRoomData] = useState();
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchRoomData = async () => {
-            setLoading(true)
-            const roomData = await getRoomById(id)
-            setRoomData(roomData)
-            setLoading(false)
-        }
-        fetchRoomData().catch()
+            setLoading(true);
+            const roomData = await getRoomById(id);
+            setRoomData(roomData);
+            setLoading(false);
+        };
+        fetchRoomData().catch();
 
-    }, [])
+    }, []);
 
     let socketRef = useRef(new SockJS(WS_URL + "room"));
 
@@ -36,12 +37,10 @@ const Room = () => {
 
         socketRef.current.onmessage = function (e) {
             let playerEvent = JSON.parse(e.data);
-            console.log("player event data received", playerEvent);
-            // setPlayerState((prev) => playerEvent);
             if (playerEvent.isPaused !== playerState.isPaused) {
-                setPlayerState(prev => {
-                    return playerEvent;
-                });
+                console.log("change state from", playerState, "to", playerEvent);
+                setPlayerState(prev => playerEvent);
+                setTimeout(() => console.log("new player state:", playerState), 1000);
             }
         };
 
@@ -50,43 +49,31 @@ const Room = () => {
         };
     }, []);
 
-    function sendPlayerEvent() {
-        let msg = JSON.stringify(playerState);
+    function sendPlayerEvent(playerEvent) {
+        let msg = JSON.stringify(playerEvent);
         socketRef.current.send(msg);
     }
 
     function handleBackArrowPush(event) {
-        setPlayerState(prev => {
-            return {
-                ...prev,
-                playerTimecode: (prev.playerTimecode - 5 < 0) ? 0 : prev.playerTimecode - 5
-            };
+        sendPlayerEvent({
+            ...playerState,
+            playerTimecode: playerState.playerTimecode - 5
         });
-        sendPlayerEvent();
     }
 
     function handleForwardArrowPush(event) {
-        setPlayerState(prev => {
-            return {
-                ...prev,
-                playerTimecode: prev.playerTimecode + 5
-            };
+        sendPlayerEvent({
+            ...playerState,
+            playerTimecode: playerState.playerTimecode + 5
         });
-        sendPlayerEvent();
     }
 
     function handlePlayPausePush(event) {
-        setPlayerState(prev => {
-            return {
-                ...prev,
-                isPaused: !prev.isPaused
-            };
+        sendPlayerEvent({
+            ...playerState,
+            isPaused: !playerState.isPaused,
         });
-        sendPlayerEvent();
     }
-
-
-
 
 
     return (
