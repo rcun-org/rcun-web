@@ -9,7 +9,7 @@ const API_URL = process.env["REACT_APP_API_SERVER"]
 
 
 const RoomsList = (props) => {
-    const {rooms, setRooms} = useContext(RoomsContext)
+    const {rooms, setRooms, searchedVideos} = useContext(RoomsContext)
     const [loading, setLoading] = useState(false)
 
     async function fetchRooms() {
@@ -27,7 +27,7 @@ const RoomsList = (props) => {
         <div {...props}>
             {
                 loading ? <h3 style={{color:'white'}}>Loading rooms...</h3>
-                    : rooms.map((room, index) => {
+                    : searchedVideos.map((room, index) => {
                         return <RoomCard key={index} room={room} index={index}/>
                     })
             }

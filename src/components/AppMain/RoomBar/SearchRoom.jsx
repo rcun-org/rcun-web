@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import InputButton from "../../UI/InputButton";
 import BaseButton from "../../UI/Button/BaseButton";
+import {RoomsContext} from "../../../context";
 
 const SearchRoom = () => {
     let [searchBtnPushed, setSearchBtnPushed] = useState(false)
+    const {setRoomSearch} = useContext(RoomsContext)
 
     const searchBtnPush = () => {
         setSearchBtnPushed(true)
@@ -11,12 +13,14 @@ const SearchRoom = () => {
 
     const hideSearchBtn = () => {
         setSearchBtnPushed(false)
+        setRoomSearch('')
     }
 
     return (
         <>
             {searchBtnPushed ? <InputButton hideBtn={hideSearchBtn}
-                                            handlePush={(query)=>console.log(query)}/>
+                                            handlePush={(query)=>setRoomSearch(query)}
+                />
                 : <BaseButton onClick={searchBtnPush}>Search room</BaseButton>
             }
         </>

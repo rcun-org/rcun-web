@@ -9,11 +9,11 @@ import {RoomsContext} from "../../context";
 const AppMainContainer = () => {
     const [rooms, setRooms] = useState([])
     const [roomSearch, setRoomSearch] = useState('')
-    const searchedVideo = useMemo(() => {
+    const searchedVideos = useMemo(() => {
         if (!roomSearch) {
             return rooms
         }
-        return searchedVideo.filter(room => room.title.toLowerCase().includes(roomSearch.toLowerCase()))
+        return rooms.filter(room => room.title.toLowerCase().includes(roomSearch.toLowerCase()))
     }, [roomSearch, rooms])
 
 
@@ -21,7 +21,8 @@ const AppMainContainer = () => {
         <div className={classes.container}>
             <RoomsContext.Provider value={
                 {
-                    rooms, setRooms
+                    rooms, setRooms,
+                    searchedVideos, setRoomSearch
                 }
             }
             >
