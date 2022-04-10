@@ -2,7 +2,8 @@ import axios from "axios";
 import authHeader from './auth-header';
 
 function prepareData(s) {
-    if (s.indexOf("?v=") === -1) {
+    if (s.length === 0) {
+    // if (s.indexOf("?v=") === -1) {
         alert("Invalid link :c");
         return "";
     }
