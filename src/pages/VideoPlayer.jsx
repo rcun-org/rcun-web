@@ -11,7 +11,7 @@ const VideoPlayer = ({videoId}) => {
     return (
         <div>
             <ReactPlayer
-                url="https://www.youtube.com/watch?v=dz3v0EY_Msg"
+                url={videoId}
                 // videoId={videoId}
                 // opts={opts}
                 // onReady={() => console.log("youtube ready")}
