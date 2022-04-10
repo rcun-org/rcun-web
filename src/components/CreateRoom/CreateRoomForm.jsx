@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import BaseInput from "../UI/Input/BaseInput";
 import BaseButton from "../UI/Button/BaseButton";
-import {createRoom} from "../../services/room.services";
+import {createRoom, getRooms} from "../../services/room.services";
 import classes from "../Login/Login.module.scss";
 import {RoomsContext} from "../../context";
 
@@ -13,7 +13,8 @@ const CreateRoomForm = ({roomCreated}) => {
     })
 
     const handleCreate = async () => {
-        const newRoomsList = await createRoom(roomData)
+        const newRoom = await createRoom(roomData)
+        const newRoomsList = await getRooms()
         setRooms(newRoomsList)
         roomCreated(true)
     }
