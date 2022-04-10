@@ -21,7 +21,8 @@ export const login = async ({username, password}) => {
             password
         })
         if (response.data.token) {
-            localStorage.setItem("rcunUserToken", JSON.stringify(response.data.token))
+            // console.log("response.data.token", response.data.token, typeof response.data.token);
+            localStorage.setItem("rcunUserToken", response.data.token)
         }
         return response.data.token
     } catch (e) {
@@ -30,7 +31,7 @@ export const login = async ({username, password}) => {
 }
 
 export const getCurrentUserToken = () => {
-    return JSON.parse(localStorage.getItem("rcunUserToken"));
+    return localStorage.getItem("rcunUserToken");
 };
 
 
