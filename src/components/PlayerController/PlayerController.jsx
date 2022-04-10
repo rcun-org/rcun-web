@@ -1,14 +1,14 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
 import {AuthContext} from "../../context/";
-import classes from "./Chat.module.scss";
+import classes from "./PlayerController.module.css";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"]
 
-function Chat(props) {
+function PlayerController(props) {
     let socketRef = useRef(new SockJS(WS_URL + "room"));
 
     let [playerState, setPlayerState] = useState({
-        playerStatus: "paused",
+        isPaused: true,
         playerTimecode: 0,
     });
 
@@ -36,39 +36,56 @@ function Chat(props) {
         chatInputRef.current.value = "";
     }
 
-    //  Checks if pressed button is 'Enter' to send the message
-    function handleEnterPush(event) {
-        if (event.key === "Enter") {
-            sendPlayerEvent();
-        }
+
+    
+
+
+
+    function handleBackArrowPush(event){
+        setPlayerState(prev => {
+            prev.playerTimecode -= 5
+            return prev
+        })
     }
 
-    return (
-        <div className={classes.chat_window}>
-            <div className={classes.history_wrapper}>
-                <div className={classes.msg_history} tabIndex="0">
-                    {msgHistory.map((item, index) => (
-                        <div className={classes.msg_item} key={index}>
-                            {"Message: " + item}
-                        </div>
-                    ))}
-                    <div
-                        style={{float: "left", clear: "both", opacity: "0"}}
-                        ref={autoScroll}
-                    ></div>
-                </div>
-            </div>
+    function handleForwardArrowPush(event){
+        setPlayerState(prev => {
+            prev.playerTimecode += 5
+            return prev
+        })
+    }
 
-            <div className={classes.msg_entry}>
-                <input
-                    type="text"
-                    onKeyDown={handleEnterPush}
-                    ref={chatInputRef}
-                    placeholder="Say something..."
-                />
+    function handlePlayPausePush(event){
+        setPlayerState(prev => {
+            prev.isPaused = !prev.isPaused
+            return prev
+        })
+    }
+
+
+    
+
+
+
+    return (
+        <div className={classes.player_controller}>
+            <div className={classes.control_buttons}>
+                <button onClick={handleBackArrowPush}>
+                 &#60;
+                </button>
+
+                <button onClick={handlePlayPausePush}>
+                    
+                  {(playerState.isPaused)? 'U+25B6': '||'}
+                  
+                </button>
+
+                <button onClick={handleForwardArrowPush}>
+                 &#62;
+                </button>
             </div>
         </div>
     );
 }
 
-export default Chat;
+export default PlayerController;

@@ -3,6 +3,7 @@ import VideoPlayer from "./VideoPlayer";
 import {useParams} from 'react-router-dom'
 import Chat from '../components/Chat'
 import {getRoomById} from "../services/room.services";
+import PlayerController from '../components/PlayerController';
 
 const Room = () => {
     const {id} = useParams()
@@ -25,6 +26,7 @@ const Room = () => {
                 <div>
                     <VideoPlayer videoId={roomData.yt_video_id}/>
                     <Chat/>
+                    <PlayerController />
                 </div>
             }
         </div>
