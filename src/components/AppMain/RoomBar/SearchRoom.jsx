@@ -6,7 +6,7 @@ const SearchRoom = () => {
     let [searchBtnPushed, setSearchBtnPushed] = useState(false)
 
     const searchBtnPush = () => {
-        searchBtnPush(true)
+        setSearchBtnPushed(true)
     }
 
     const hideSearchBtn = () => {
@@ -15,7 +15,8 @@ const SearchRoom = () => {
 
     return (
         <>
-            {searchBtnPushed ? <InputButton hideJoinBtn={hideSearchBtn}/>
+            {searchBtnPushed ? <InputButton hideBtn={hideSearchBtn}
+                                            handlePush={(query)=>console.log(query)}/>
                 : <BaseButton onClick={searchBtnPush}>Search room</BaseButton>
             }
         </>

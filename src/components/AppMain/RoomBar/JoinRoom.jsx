@@ -16,7 +16,6 @@ const JoinRoom = () => {
     }
 
     const handleInputPush = (query) => {
-        console.log('HERE')
         history.push(`/room/${query}`)
     }
     return (
