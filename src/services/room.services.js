@@ -2,12 +2,12 @@ import axios from "axios";
 import authHeader from './auth-header'
 
 function prepareData(s) {
-    if (s.indexOf("?v=") == -1) {
+    if (s.indexOf("?v=") === -1) {
         alert("Invalid link :c");
         return "";
     }
     s = s.substring(s.indexOf("?v=") + 3);
-    console.log("yt video id transformed:", s);
+    s = s.split('&')[0]
     return s;
 }
 
