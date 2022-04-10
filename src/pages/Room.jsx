@@ -36,8 +36,13 @@ const Room = () => {
 
         socketRef.current.onmessage = function (e) {
             let playerEvent = JSON.parse(e.data);
-            console.log("player event data received", e.data);
+            console.log("player event data received", playerEvent);
             // setPlayerState((prev) => playerEvent);
+            if (playerEvent.isPaused !== playerState.isPaused) {
+                setPlayerState(prev => {
+                    return playerEvent;
+                });
+            }
         };
 
         socketRef.current.onclose = function () {
@@ -95,7 +100,9 @@ const Room = () => {
                         handlePlayPausePush={handlePlayPausePush}
                         handleForwardArrowPush={handleForwardArrowPush}
                         handleBackArrowPush={handleBackArrowPush}
-                        isPaused={playerState.isPaused}/>
+                        isPaused={playerState.isPaused}
+
+                    />
                 </div>
             }
         </div>
