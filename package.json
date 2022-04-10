@@ -7,8 +7,8 @@
     "node": "14.5.0"
   },
   "scripts": {
-    "start:production": "npm install && npm run build && npm run start:prod",
-    "start:prod": "cross-env NODE_ENV=production node server",
+    "start:production": "npm install && npm run start:prod",
+    "start:prod": "node server",
     "start": "webpack serve",
     "watch": "webpack watch",
     "build": "cross-env NODE_ENV=production webpack",
@@ -28,6 +28,7 @@
     "@jimsheen/react-dynamic-input-width": "^1.0.2",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
