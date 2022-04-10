@@ -16,7 +16,7 @@ const CreateRoomForm = ({roomCreated}) => {
         const newRoom = await createRoom(roomData)
         const newRoomsList = await getRooms()
         setRooms(newRoomsList)
-        roomCreated(true)
+        roomCreated(newRoom.yt_video_id)
     }
 
     return (

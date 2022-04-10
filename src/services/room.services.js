@@ -28,7 +28,6 @@ export const createRoom = async ({title, yt_video_id}) => {
 }
 
 export const getRooms = async () => {
-    console.log('here')
     try {
         const roomsData = await axios.get(API_URL + 'room', {
             headers: authHeader(),
