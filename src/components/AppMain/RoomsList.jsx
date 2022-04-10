@@ -19,6 +19,7 @@ const RoomsList = (props) => {
         fetchData().catch()
     }, [])
 
+    console.log(rooms)
 
     return (
         <div {...props}>
