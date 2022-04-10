@@ -1,17 +1,6 @@
 import axios from "axios";
 import authHeader from './auth-header';
 
-// function prepareData(s) {
-    // if (s.length === 0) {
-    // if (s.indexOf("?v=") === -1) {
-    //     alert("Invalid link :c");
-    //     return "";
-    // }
-    // s = s.substring(s.indexOf("?v=") + 3);
-    // s = s.split('&')[0];
-    // return s;
-// }
-
 const API_URL = process.env["REACT_APP_API_SERVER"];
 export const createRoom = async ({title, yt_video_id}) => {
     // yt_video_id = prepareData(yt_video_id);
@@ -34,7 +23,6 @@ export const getRooms = async () => {
         const roomsData = await axios.get(API_URL + 'room', {
             headers: authHeader(),
         });
-
         return roomsData.data;
     }
     catch (e) {

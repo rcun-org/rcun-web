@@ -8,12 +8,23 @@ const RoomCard = (props) => {
     const redirectToVideo = () => {
         history.push(`/room/${props.room._id}`)
     }
+
+    function prepareData(s) {
+        if (s.indexOf("?v=") === -1) {
+            alert("Invalid link :c");
+            return "";
+        }
+        s = s.substring(s.indexOf("?v=") + 3);
+        s = s.split('&')[0];
+        return s;
+    }
+
     return (
         <div
             onClick={() => redirectToVideo()}
             className={classes.container}
             style={{
-                backgroundImage: `url(${`https://img.youtube.com/vi/${props.room.yt_video_id}/sddefault.jpg`})`,
+                backgroundImage: `url(${`https://img.youtube.com/vi/${prepareData(props.room.yt_video_id)}/sddefault.jpg`})`,
                 backgroundSize: '100%',
                 backgroundPosition: 'center'
             }}
