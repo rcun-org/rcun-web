@@ -14,6 +14,7 @@ function Chat(props) {
   let [msgHistory,setMsgHistory] = useState([])
 
 
+
   useEffect(()=>autoScroll.current.scrollIntoView({ behavior: "smooth" }),[msgHistory])
   
 
@@ -54,9 +55,8 @@ function Chat(props) {
 
   return (
     <div className={classes.chat_window}>
-      <div className={classes.msg_history}>
-      {console.log(msgHistory)}
-      {console.log(typeof(msgHistory))}
+      <div className={classes.msg_history} tabIndex='0'>
+
         {msgHistory.map((item,index)=>
             <div className={classes.msg_item} key={index} >
               {'Message: '+ item}
@@ -67,10 +67,11 @@ function Chat(props) {
         <div style={{ float:"left", clear: "both", opacity: '0'}} ref={autoScroll}>
           
         </div>
-          
+      </div>
+      <div className={classes.msg_entry}>
+        <input type="text" onKeyDown={handleEnterPush} ref={chatInputRef} placeholder='Say something...'/>
       </div>
       
-      <input type="text" onKeyDown={handleEnterPush} ref={chatInputRef} placeholder='type smth...'/>
     </div>
   );
 }
