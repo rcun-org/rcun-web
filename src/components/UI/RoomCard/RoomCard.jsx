@@ -14,7 +14,8 @@ const RoomCard = (props) => {
             className={classes.container}
             style={{
                 backgroundImage: `url(${`https://img.youtube.com/vi/${props.room.yt_video_id}/sddefault.jpg`})`,
-                backgroundSize: 'cover'
+                backgroundSize: '100%',
+                backgroundPosition: 'center'
             }}
         >
             <div
