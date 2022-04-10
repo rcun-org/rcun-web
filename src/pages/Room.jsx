@@ -89,7 +89,7 @@ const Room = () => {
             {loading ?
                 'loading...' :
                 <div>
-                    <VideoPlayer videoId={roomData.yt_video_id}/>
+                    <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}/>
                     <Chat/>
                     <PlayerController handlePlayPausePush={handlePlayPausePush} handleForwardArrowPush={handleForwardArrowPush} handleBackArrowPush={handleBackArrowPush} isPaused={playerState.isPaused}/>
                 </div>
