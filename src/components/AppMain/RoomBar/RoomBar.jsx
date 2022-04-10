@@ -6,6 +6,7 @@ import {useHistory} from "react-router-dom";
 import JoinRoom from "./JoinRoom";
 import CreateRoom from "./CreateRoom";
 import Logout from "../../Logout/Logout";
+import SearchRoom from "./SearchRoom";
 
 const RoomBar = (props) => {
     return (
@@ -13,7 +14,7 @@ const RoomBar = (props) => {
             <CreateRoom/>
             <JoinRoom/>
             <BaseButton>My rooms</BaseButton>
-            <BaseButton>Search</BaseButton>
+            <SearchRoom/>
             <Logout/>
         </div>
     );
