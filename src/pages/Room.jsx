@@ -35,9 +35,9 @@ const Room = () => {
         };
 
         socketRef.current.onmessage = function (e) {
-            let playerEvent = e.data;
+            let playerEvent = JSON.parse(e.data);
             console.log("player event data received", e.data);
-            //setPlayerState((prev) => playerEvent);
+            // setPlayerState((prev) => playerEvent);
         };
 
         socketRef.current.onclose = function () {
@@ -46,7 +46,7 @@ const Room = () => {
     }, []);
 
     function sendPlayerEvent() {
-        let msg = playerState;
+        let msg = JSON.stringify(playerState);
         socketRef.current.send(msg);
     }
 
@@ -91,7 +91,11 @@ const Room = () => {
                 <div>
                     <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}/>
                     <Chat/>
-                    <PlayerController handlePlayPausePush={handlePlayPausePush} handleForwardArrowPush={handleForwardArrowPush} handleBackArrowPush={handleBackArrowPush} isPaused={playerState.isPaused}/>
+                    <PlayerController
+                        handlePlayPausePush={handlePlayPausePush}
+                        handleForwardArrowPush={handleForwardArrowPush}
+                        handleBackArrowPush={handleBackArrowPush}
+                        isPaused={playerState.isPaused}/>
                 </div>
             }
         </div>
