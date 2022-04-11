@@ -10,18 +10,17 @@ const WS_URL = process.env["REACT_APP_WS_SERVER"];
 const Room = () => {
 
     const {id} = useParams();
-    const [roomData, setRoomData] = useState();
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
+    const [roomData, setRoomData] = useState(null);
+    
+
+    useEffect(()=>{
         const fetchRoomData = async () => {
-            setLoading(true);
             const roomData = await getRoomById(id);
             setRoomData(roomData);
-            setLoading(false);
         };
         fetchRoomData().catch();
+    }, [])
 
-    }, []);
 
     let socketRef = useRef(new SockJS(WS_URL + "room"));
 
@@ -30,6 +29,7 @@ const Room = () => {
         playerTimecode: 0,
     });
 
+
     useEffect(() => {
         socketRef.current.onopen = function () {
             console.log("open");
@@ -37,10 +37,10 @@ const Room = () => {
 
         socketRef.current.onmessage = function (e) {
             let playerEvent = JSON.parse(e.data);
+
             if (playerEvent.isPaused !== playerState.isPaused) {
                 console.log("change state from", playerState, "to", playerEvent);
-                setPlayerState(prev => playerEvent);
-                setTimeout(() => console.log("new player state:", playerState), 1000);
+                setPlayerState(playerEvent);
             }
         };
 
@@ -49,38 +49,56 @@ const Room = () => {
         };
     }, []);
 
-    function sendPlayerEvent(playerEvent) {
-        setPlayerState(prev => playerEvent);
-        setTimeout(() => console.log("new player state:", playerState), 1000);
-        let msg = JSON.stringify(playerEvent);
+    const useIsMount = () => {
+        const isMountRef = useRef(true);
+        useEffect(() => {
+          isMountRef.current = false;
+        }, []);
+        return isMountRef.current;
+      };
+
+
+    let isFirstMount = useIsMount()
+
+
+    function broadcastChange(state){
+        let msg = JSON.stringify(state);
         socketRef.current.send(msg);
     }
 
+    
+
     function handleBackArrowPush(event) {
-        sendPlayerEvent({
+        setPlayerState({
             ...playerState,
             playerTimecode: playerState.playerTimecode - 5
         });
+        
     }
 
     function handleForwardArrowPush(event) {
-        sendPlayerEvent({
+        setPlayerState({
             ...playerState,
             playerTimecode: playerState.playerTimecode + 5
         });
     }
 
     function handlePlayPausePush(event) {
-        sendPlayerEvent({
+        setPlayerState({
             ...playerState,
             isPaused: !playerState.isPaused,
         });
+
+        broadcastChange({
+            ...playerState,
+            isPaused: !playerState.isPaused,
+        })
     }
 
 
     return (
         <div>
-            {loading ?
+            {!roomData ?
                 'loading...' :
                 <div>
                     <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}/>
