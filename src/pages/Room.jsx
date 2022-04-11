@@ -50,6 +50,8 @@ const Room = () => {
     }, []);
 
     function sendPlayerEvent(playerEvent) {
+        setPlayerState(prev => playerEvent);
+        setTimeout(() => console.log("new player state:", playerState), 1000);
         let msg = JSON.stringify(playerEvent);
         socketRef.current.send(msg);
     }
