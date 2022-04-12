@@ -1,18 +1,33 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useContext} from 'react';
 import VideoPlayer from "./VideoPlayer";
 import {useParams} from 'react-router-dom';
 import Chat from '../components/Chat';
 import {getRoomById} from "../services/room.services";
 import PlayerController from '../components/PlayerController';
-
+import { AuthContext } from '../context';
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 const Room = () => {
 
     const {id} = useParams();
     const [roomData, setRoomData] = useState(null);
-    
 
+    let { userData } = useContext(AuthContext);
+    
+    userData.then((userData)=>console.log('userdata' + JSON.stringify(userData)))
+
+    let userNameRef = useRef()
+    
+    useEffect(()=>{
+        async function extractUserName(){
+            let {data:{username}} = await userData
+            userNameRef.current = username
+        }
+        extractUserName()
+    },[])
+
+
+    
     useEffect(()=>{
         const fetchRoomData = async () => {
             const roomData = await getRoomById(id);
@@ -35,33 +50,25 @@ const Room = () => {
             console.log("open");
         };
 
-        socketRef.current.onmessage = function (e) {
-            let playerEvent = JSON.parse(e.data);
-
-            if (playerEvent.isPaused !== playerState.isPaused) {
-                console.log("change state from", playerState, "to", playerEvent);
-                setPlayerState(playerEvent);
-            }
-        };
-
         socketRef.current.onclose = function () {
             console.log("close");
         };
     }, []);
 
-    const useIsMount = () => {
-        const isMountRef = useRef(true);
-        useEffect(() => {
-          isMountRef.current = false;
-        }, []);
-        return isMountRef.current;
-      };
+    socketRef.current.onmessage = function (e) {
+        let playerEvent = JSON.parse(e.data);
+
+        if (playerEvent.sender !== userNameRef.current &&  playerEvent.isPaused !== playerState.isPaused) {
+            console.log("change state from", playerState, "to", playerEvent);
+            setPlayerState(playerEvent);
+        }
+    };
 
 
-    let isFirstMount = useIsMount()
 
 
     function broadcastChange(state){
+        state.sender = userNameRef.current
         let msg = JSON.stringify(state);
         socketRef.current.send(msg);
     }
