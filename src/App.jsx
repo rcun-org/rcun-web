@@ -8,16 +8,25 @@ import {getCurrentUserToken} from "./services/auth.service";
 
 import './styles/index.scss'
 import {getUser} from "./services/api.user_service";
+import {getRooms} from "./services/room.services";
 
 
 const App = () => {
     const [userToken, setUserToken] = useState(null)
     const [userData, setUserData] = useState(null)
     const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        setUserToken(getCurrentUserToken())
-        setUserData(getUser())
+
+    async function bootApp() {
+        setLoading(true)
+        const userData = await getUser()
+        const userToken = getCurrentUserToken()
+        setUserData(userData.data)
+        setUserToken(userToken)
         setLoading(false)
+    }
+
+    useEffect(() => {
+        bootApp().catch()
     }, [])
     return (
         <AuthContext.Provider value={{
