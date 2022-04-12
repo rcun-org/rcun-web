@@ -7,20 +7,24 @@ import AppLayout from "./components/AppLayout/AppLayout";
 import {getCurrentUserToken} from "./services/auth.service";
 
 import './styles/index.scss'
+import {getUser} from "./services/api.user_service";
 
 
 const App = () => {
     const [userToken, setUserToken] = useState(null)
+    const [userData, setUserData] = useState(null)
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         setUserToken(getCurrentUserToken())
+        setUserData(getUser())
         setLoading(false)
     }, [])
     return (
         <AuthContext.Provider value={{
             userToken,
             setUserToken,
-            loading
+            loading,
+            userData
         }}>
             <BrowserRouter>
                 <AppLayout>

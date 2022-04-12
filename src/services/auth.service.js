@@ -22,8 +22,6 @@ export const login = async ({username, password}) => {
             password
         })
         if (response.data.token) {
-            // console.log("response.data.token", response.data.token, typeof response.data.token);
-            console.log(response.data)
             localStorage.setItem("rcunUserToken", response.data.token)
         }
         return response.data.token
