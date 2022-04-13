@@ -10,6 +10,13 @@ function Chat(props) {
 
   let { userToken } = useContext(AuthContext);
 
+
+  let { userData:{username} } = useContext(AuthContext);
+  
+  
+
+  let userNameRef = useRef(username)
+
   console.log(userToken);
 
   let [msgHistory, setMsgHistory] = useState([]);
@@ -38,7 +45,7 @@ function Chat(props) {
   let chatInputRef = useRef(null);
 
   function sendMessage() {
-    let msg = chatInputRef.current.value;
+    let msg = userNameRef.current + ': ' + chatInputRef.current.value;
     socketRef.current.send(msg);
     chatInputRef.current.value = "";
   }
@@ -56,7 +63,7 @@ function Chat(props) {
         <div className={classes.msg_history} tabIndex="0">
           {msgHistory.map((item, index) => (
             <div className={classes.msg_item} key={index}>
-              {"Message: " + item}
+              {item}
             </div>
           ))}
           <div

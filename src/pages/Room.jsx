@@ -12,19 +12,13 @@ const Room = () => {
     const {id} = useParams();
     const [roomData, setRoomData] = useState(null);
 
-    let { userData } = useContext(AuthContext);
+    let { userData:{username} } = useContext(AuthContext);
     
-    userData.then((userData)=>console.log('userdata' + JSON.stringify(userData)))
+    console.log(username)
 
-    let userNameRef = useRef()
+    let userNameRef = useRef(username)
     
-    useEffect(()=>{
-        async function extractUserName(){
-            let {data:{username}} = await userData
-            userNameRef.current = username
-        }
-        extractUserName()
-    },[])
+   
 
 
     
