@@ -1,27 +1,28 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
-import {AuthContext} from "../../context/";
 import classes from "./PlayerController.module.css";
-
+import {AiOutlinePlaySquare, AiOutlinePauseCircle, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 
 function PlayerController(props) {
-    
 
 
     return (
         <div className={classes.player_controller}>
             <div className={classes.control_buttons}>
                 <button onClick={props.handleBackArrowPush}>
-                    &#60;
+                    <AiOutlineArrowLeft/>
                 </button>
 
                 <button onClick={props.handlePlayPausePush}>
 
-                    {(props.isPaused) ? `>` : '||'}
+                    {(props.isPaused) ?
+                        <AiOutlinePlaySquare/> :
+                        <AiOutlinePauseCircle/>
+                    }
 
                 </button>
 
                 <button onClick={props.handleForwardArrowPush}>
-                    &#62;
+                    <AiOutlineArrowRight/>
                 </button>
             </div>
         </div>
