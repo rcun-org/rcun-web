@@ -18,13 +18,14 @@ const App = () => {
 
     async function bootApp() {
         setLoading(true)
-        const userData = await getUser()
-        const userToken = getCurrentUserToken()
-        setUserData(userData.data)
+        const userToken = await getCurrentUserToken()
         setUserToken(userToken)
+        if (userToken) {
+            const userData = await getUser()
+            setUserData(userData.data)
+        }
         setLoading(false)
     }
-
     useEffect(() => {
         bootApp().catch()
     }, [])

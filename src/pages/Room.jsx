@@ -4,7 +4,8 @@ import {useParams} from 'react-router-dom';
 import Chat from '../components/Chat';
 import {getRoomById} from "../services/room.services";
 import PlayerController from '../components/PlayerController';
-import { AuthContext } from '../context';
+import {AuthContext} from '../context';
+
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 const Room = () => {
@@ -12,17 +13,14 @@ const Room = () => {
     const {id} = useParams();
     const [roomData, setRoomData] = useState(null);
 
-    let { userData:{username} } = useContext(AuthContext);
-    
+    let {userData: {username}} = useContext(AuthContext);
+
     console.log(username)
 
     let userNameRef = useRef(username)
-    
-   
 
 
-    
-    useEffect(()=>{
+    useEffect(() => {
         const fetchRoomData = async () => {
             const roomData = await getRoomById(id);
             setRoomData(roomData);
@@ -52,29 +50,26 @@ const Room = () => {
     socketRef.current.onmessage = function (e) {
         let playerEvent = JSON.parse(e.data);
 
-        if (playerEvent.sender !== userNameRef.current &&  playerEvent.isPaused !== playerState.isPaused) {
+        if (playerEvent.sender !== userNameRef.current && playerEvent.isPaused !== playerState.isPaused) {
             console.log("change state from", playerState, "to", playerEvent);
             setPlayerState(playerEvent);
         }
     };
 
 
-
-
-    function broadcastChange(state){
+    function broadcastChange(state) {
         state.sender = userNameRef.current
         let msg = JSON.stringify(state);
         socketRef.current.send(msg);
     }
 
-    
 
     function handleBackArrowPush(event) {
         setPlayerState({
             ...playerState,
             playerTimecode: playerState.playerTimecode - 5
         });
-        
+
     }
 
     function handleForwardArrowPush(event) {
