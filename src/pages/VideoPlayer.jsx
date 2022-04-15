@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ReactPlayer from "react-player";
 import {useParams} from "react-router-dom";
 
-const VideoPlayer = ({videoId,isPlaying}) => {
+const VideoPlayer = ({videoId,isPlaying,forwardedRef}) => {
     const [roomData, setRoomData] = useState();
     const opts = {
         width: '640',
@@ -19,6 +19,7 @@ const VideoPlayer = ({videoId,isPlaying}) => {
                 height='100%'
                 controls={true}
                 playing={isPlaying}
+                ref={forwardedRef}
             />
         </div>
     );

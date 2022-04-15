@@ -50,10 +50,12 @@ const Room = () => {
     socketRef.current.onmessage = function (e) {
         let playerEvent = JSON.parse(e.data);
 
-        if (playerEvent.sender !== userNameRef.current && playerEvent.isPaused !== playerState.isPaused) {
+        if (playerEvent.sender !== userNameRef.current ) {
             console.log("change state from", playerState, "to", playerEvent);
+            playerRef.current.seekTo( playerEvent.playerTimecode)
             setPlayerState(playerEvent);
         }
+        
     };
 
 
@@ -65,18 +67,30 @@ const Room = () => {
 
 
     function handleBackArrowPush(event) {
-        setPlayerState({
+        let currentTime = playerRef.current.getCurrentTime()
+        let newState = {
             ...playerState,
-            playerTimecode: playerState.playerTimecode - 5
-        });
+            playerTimecode: currentTime - 5
+        }
+
+        setPlayerState(newState);
+
+        broadcastChange(newState)
+
+        playerRef.current.seekTo(currentTime - 5)
 
     }
 
     function handleForwardArrowPush(event) {
-        setPlayerState({
+        let currentTime = playerRef.current.getCurrentTime()
+        let newState = {
             ...playerState,
-            playerTimecode: playerState.playerTimecode + 5
-        });
+            playerTimecode: currentTime + 5
+        }
+        setPlayerState(newState);
+        broadcastChange(newState)
+        playerRef.current.seekTo(currentTime + 5)
+        
     }
 
     function handlePlayPausePush(event) {
@@ -91,13 +105,16 @@ const Room = () => {
         })
     }
 
+    let playerRef = useRef()
+
+    
 
     return (
         <div>
             {!roomData ?
                 'loading...' :
                 <div>
-                    <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}/>
+                    <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused} forwardedRef={playerRef}/>
                     <Chat/>
                     <PlayerController
                         handlePlayPausePush={handlePlayPausePush}
