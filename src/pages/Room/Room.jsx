@@ -6,9 +6,11 @@ import {getRoomById} from "../../services/room.services";
 import PlayerController from '../../components/PlayerController';
 import {AuthContext} from '../../context';
 
-import classes from './room.module.scss'
+import classes from './room.module.scss';
 import BaseButton from "../../components/UI/Button/BaseButton";
+
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
+const ALLOWED_DELAY = 3;
 
 const Room = () => {
 
@@ -17,28 +19,32 @@ const Room = () => {
 
     let {userData: {username}} = useContext(AuthContext);
 
-    let history = useHistory()
+    let history = useHistory();
 
-    let userNameRef = useRef(username)
+    let userNameRef = useRef(username);
 
 
+    // fetch room information
     useEffect(() => {
         const fetchRoomData = async () => {
             const roomData = await getRoomById(id);
             setRoomData(roomData);
         };
         fetchRoomData().catch();
-    }, [])
+    }, []);
 
 
+    // establish ws connection
     let socketRef = useRef(new SockJS(WS_URL + "room"));
 
+    // player state
     let [playerState, setPlayerState] = useState({
         isPaused: true,
         playerTimecode: 0,
     });
 
 
+    // ws hooks
     useEffect(() => {
         socketRef.current.onopen = function () {
             console.log("open");
@@ -52,64 +58,73 @@ const Room = () => {
 
     // on receive event
     socketRef.current.onmessage = function (e) {
-        let playerEvent = JSON.parse(e.data);
+        let playerEventChange = JSON.parse(e.data);
 
-        if (playerEvent.sender !== userNameRef.current) {
-            console.log("change state from", playerState, "to", playerEvent);
-            playerRef.current.seekTo(playerEvent.playerTimecode)
-            setPlayerState(playerEvent);
+        if (playerEventChange.sender !== userNameRef.current) {
+            let newState = playerState;
+            for (let k in playerEventChange.keys()) {
+                newState[k] = playerEventChange[k];
+            }
+            console.log("change state from", playerState, "to", newState);
+            if (Math.abs(playerState.playerTimecode - newState.playerTimecode) > ALLOWED_DELAY) {
+                playerRef.current.seekTo(newState.playerTimecode);
+            }
+            setPlayerState(newState);
         }
     };
 
-    function broadcastChange(state) {
-        state.sender = userNameRef.current
-        let msg = JSON.stringify(state);
+    // send function
+    function broadcastChange(change) {
+        change.sender = userNameRef.current;
+        let msg = JSON.stringify(change);
         socketRef.current.send(msg);
     }
 
-
+    // button handlers
     function handleBackArrowPush(event) {
-        let currentTime = playerRef.current.getCurrentTime()
+        let currentTime = playerRef.current.getCurrentTime();
+        let change = {
+            playerTimecode: currentTime - 5,
+        };
         let newState = {
             ...playerState,
-            playerTimecode: currentTime - 5
-        }
-
+            ...change,
+        };
         setPlayerState(newState);
-
-        broadcastChange(newState)
-
-        playerRef.current.seekTo(currentTime - 5)
-
+        broadcastChange(change);
+        playerRef.current.seekTo(currentTime - 5); // perform action
     }
 
     function handleForwardArrowPush(event) {
-        let currentTime = playerRef.current.getCurrentTime()
+        let currentTime = playerRef.current.getCurrentTime();
+        let change = {
+            playerTimecode: currentTime + 5,
+        };
         let newState = {
             ...playerState,
-            playerTimecode: currentTime + 5
-        }
+            ...change,
+        };
         setPlayerState(newState);
-        broadcastChange(newState)
-        playerRef.current.seekTo(currentTime + 5)
+        broadcastChange(change);
+        playerRef.current.seekTo(currentTime + 5);
 
     }
 
     function handlePlayPausePush(event) {
-        setPlayerState({
-            ...playerState,
+        let change = {
             isPaused: !playerState.isPaused,
-        });
-
-        broadcastChange({
+        };
+        let newState = {
             ...playerState,
-            isPaused: !playerState.isPaused,
-        })
+            ...change,
+        };
+        setPlayerState(newState);
+        broadcastChange(change);
     }
 
-    let playerRef = useRef()
+    let playerRef = useRef();
 
-
+    // ui
     return (
         <div className={classes.container}>
             {!roomData ?
@@ -125,8 +140,8 @@ const Room = () => {
 
                     />
                     <BaseButton
-                        style={{width: '100px', fontSize:'12px', marginTop:'8px'}}
-                        onClick={()=>history.push('/')}
+                        style={{width: '100px', fontSize: '12px', marginTop: '8px'}}
+                        onClick={() => history.push('/')}
                     >
                         Back
                     </BaseButton>
