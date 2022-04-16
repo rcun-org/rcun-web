@@ -1,5 +1,5 @@
 import AppMain from "../pages/AppMain";
-import Room from "../pages/Room";
+import Room from "../pages/Room/Room";
 import Login from "../pages/Login";
 
 export const privateRoutes = [

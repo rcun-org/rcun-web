@@ -1,11 +1,12 @@
 import React, {useEffect, useState, useRef, useContext} from 'react';
-import VideoPlayer from "./VideoPlayer";
+import VideoPlayer from "../VideoPlayer";
 import {useParams} from 'react-router-dom';
-import Chat from '../components/Chat';
-import {getRoomById} from "../services/room.services";
-import PlayerController from '../components/PlayerController';
-import {AuthContext} from '../context';
+import Chat from '../../components/Chat';
+import {getRoomById} from "../../services/room.services";
+import PlayerController from '../../components/PlayerController';
+import {AuthContext} from '../../context';
 
+import classes from './room.module.scss'
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 const Room = () => {
@@ -50,12 +51,12 @@ const Room = () => {
     socketRef.current.onmessage = function (e) {
         let playerEvent = JSON.parse(e.data);
 
-        if (playerEvent.sender !== userNameRef.current ) {
+        if (playerEvent.sender !== userNameRef.current) {
             console.log("change state from", playerState, "to", playerEvent);
-            playerRef.current.seekTo( playerEvent.playerTimecode)
+            playerRef.current.seekTo(playerEvent.playerTimecode)
             setPlayerState(playerEvent);
         }
-        
+
     };
 
 
@@ -90,7 +91,7 @@ const Room = () => {
         setPlayerState(newState);
         broadcastChange(newState)
         playerRef.current.seekTo(currentTime + 5)
-        
+
     }
 
     function handlePlayPausePush(event) {
@@ -107,15 +108,14 @@ const Room = () => {
 
     let playerRef = useRef()
 
-    
 
     return (
-        <div>
+        <div className={classes.container}>
             {!roomData ?
-                'loading...' :
+                <h3 style={{color: 'white'}}>loading...</h3> :
                 <div>
-                    <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused} forwardedRef={playerRef}/>
-                    <Chat/>
+                    <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}
+                                 forwardedRef={playerRef}/>
                     <PlayerController
                         handlePlayPausePush={handlePlayPausePush}
                         handleForwardArrowPush={handleForwardArrowPush}
@@ -123,6 +123,8 @@ const Room = () => {
                         isPaused={playerState.isPaused}
 
                     />
+                    <Chat/>
+
                 </div>
             }
         </div>

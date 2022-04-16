@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
-import classes from "./PlayerController.module.css";
+import classes from "./PlayerController.module.scss";
 import {AiOutlinePlaySquare, AiOutlinePauseCircle, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 
 function PlayerController(props) {
@@ -15,8 +15,8 @@ function PlayerController(props) {
                 <button onClick={props.handlePlayPausePush}>
 
                     {(props.isPaused) ?
-                        <AiOutlinePlaySquare/> :
-                        <AiOutlinePauseCircle/>
+                        <AiOutlinePlaySquare size={30}/> :
+                        <AiOutlinePauseCircle size={30}/>
                     }
 
                 </button>

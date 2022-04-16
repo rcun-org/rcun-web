@@ -1,14 +1,14 @@
+@import "../../styles/colors.scss";
+
 .chat_window {
-  background-color: transparent;
   width: 430px;
   height: 250px;
-
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   right: 10px;
-  padding-top: 3px;
   color: #c4c4c4;
   padding: 8px;
   font-size: 16px;
@@ -55,20 +55,20 @@
 }
 
 .msg_entry {
-  margin-top: 15px;
-  height: 85px;
   width: 100%;
   align-items: center;
   display: flex;
 }
 
 .history_wrapper {
-  height: 120px;
+  height: 180px;
   position: relative;
 }
 
 .msg_entry input {
-  background: transparent;
+  background: $base-grey;
+  opacity: 0.8;
+  padding: 4px;
   border: none;
   color: #c4c4c4;
   width: 100%;

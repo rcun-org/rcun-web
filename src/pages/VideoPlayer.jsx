@@ -13,10 +13,10 @@ const VideoPlayer = ({videoId,isPlaying,forwardedRef}) => {
             <ReactPlayer
                 url={videoId}
                 // videoId={videoId}
-                // opts={opts}
+                opts={opts}
                 // onReady={() => console.log("youtube ready")}
                 width='100%'
-                height='100%'
+                height='480px'
                 controls={true}
                 playing={isPlaying}
                 ref={forwardedRef}
