@@ -49,6 +49,8 @@ const Room = () => {
         };
     }, []);
 
+
+    // on receive event
     socketRef.current.onmessage = function (e) {
         let playerEvent = JSON.parse(e.data);
 
@@ -57,9 +59,7 @@ const Room = () => {
             playerRef.current.seekTo(playerEvent.playerTimecode)
             setPlayerState(playerEvent);
         }
-
     };
-
 
     function broadcastChange(state) {
         state.sender = userNameRef.current
