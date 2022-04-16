@@ -1,12 +1,13 @@
 import React, {useEffect, useState, useRef, useContext} from 'react';
 import VideoPlayer from "../VideoPlayer";
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import Chat from '../../components/Chat';
 import {getRoomById} from "../../services/room.services";
 import PlayerController from '../../components/PlayerController';
 import {AuthContext} from '../../context';
 
 import classes from './room.module.scss'
+import BaseButton from "../../components/UI/Button/BaseButton";
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 const Room = () => {
@@ -16,7 +17,7 @@ const Room = () => {
 
     let {userData: {username}} = useContext(AuthContext);
 
-    console.log(username)
+    let history = useHistory()
 
     let userNameRef = useRef(username)
 
@@ -123,6 +124,12 @@ const Room = () => {
                         isPaused={playerState.isPaused}
 
                     />
+                    <BaseButton
+                        style={{width: '100px', fontSize:'12px', marginTop:'8px'}}
+                        onClick={()=>history.push('/')}
+                    >
+                        Back
+                    </BaseButton>
                     <Chat/>
 
                 </div>
