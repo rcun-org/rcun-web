@@ -13,7 +13,6 @@ const SearchRoom = () => {
 
     const hideSearchBtn = () => {
         setSearchBtnPushed(false)
-        setRoomSearch('')
     }
 
     return (

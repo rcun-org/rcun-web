@@ -5,7 +5,8 @@ import previewImage from '../../../assets/imgs/img_1.png';
 
 const RoomCard = (props) => {
     let history = useHistory()
-    const redirectToVideo = () => {
+    const redirectToVideo = (event) => {
+        event.stopPropagation()
         history.push(`/room/${props.room._id}`)
     }
 
@@ -21,7 +22,7 @@ const RoomCard = (props) => {
 
     return (
         <div
-            onClick={() => redirectToVideo()}
+            onClick={(e) => redirectToVideo(e)}
             className={classes.container}
             style={{
                 backgroundImage: `url(${`https://img.youtube.com/vi/${prepareData(props.room.yt_video_id)}/sddefault.jpg`})`,

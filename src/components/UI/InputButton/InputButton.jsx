@@ -6,7 +6,6 @@ import {useHistory} from 'react-router-dom'
 function InputButton(props) {
     let inputFieldRef = useRef()
     let inputBtnRef = useRef()
-    let history = useHistory()
 
     function putFocusOnInput() {
         inputFieldRef.current.focus()
