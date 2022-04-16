@@ -33,6 +33,7 @@ const Room = () => {
         fetchRoomData().catch();
     }, []);
 
+  
 
     // establish ws connection
     let socketRef = useRef(new SockJS(WS_URL + "room"));
@@ -67,11 +68,11 @@ const Room = () => {
                     newState[k] = playerEventChange[k];
                 }
             }
-            console.log("change state from", playerState, "to", newState);
-            if (Math.abs(playerState.playerTimecode - newState.playerTimecode) > ALLOWED_DELAY) {
+            
+            if (Math.abs(playerRef.current.getCurrentTime() - newState.playerTimecode) > ALLOWED_DELAY) {
                 playerRef.current.seekTo(newState.playerTimecode);
             }
-            setPlayerState(newState);
+            setPlayerState({...newState});
         }
     };
 
