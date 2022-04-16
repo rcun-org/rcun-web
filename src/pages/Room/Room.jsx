@@ -62,7 +62,7 @@ const Room = () => {
 
         if (playerEventChange.sender !== userNameRef.current) {
             let newState = playerState;
-            for (let k in playerEventChange.keys()) {
+            for (let k in playerEventChange) {
                 newState[k] = playerEventChange[k];
             }
             console.log("change state from", playerState, "to", newState);
