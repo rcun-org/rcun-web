@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
 const path = require('path')
 const {template} = require("@babel/core");
@@ -47,6 +48,11 @@ module.exports = {
                 template: "./src/index.html"
             }
         ),
+        new CopyPlugin({
+            patterns: [
+                { from: "netlify_config", to: "" },
+            ],
+        }),
     ],
     resolve: {
         extensions: [".js", ".jsx"]
