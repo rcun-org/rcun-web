@@ -41,7 +41,7 @@ const RoomCard = (props) => {
                     </div>
                     <div className={classes.cardTextSmall}>
                         Room {props.index + 1}
-                    </div>e
+                    </div>
                 </div>
                 <div>
                     <div className={classes.cardTextMedium}>
