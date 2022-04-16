@@ -15,8 +15,8 @@ function PlayerController(props) {
                 <button onClick={props.handlePlayPausePush}>
 
                     {(props.isPaused) ?
-                        <AiOutlinePlaySquare size={30}/> :
-                        <AiOutlinePauseCircle size={30}/>
+                        <AiOutlinePlaySquare size={20}/> :
+                        <AiOutlinePauseCircle size={20}/>
                     }
 
                 </button>

@@ -1,3 +1,9 @@
 .container {
   height: 100%;
 }
+
+.video_and_player {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 90% 10%;
+}

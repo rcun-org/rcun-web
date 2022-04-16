@@ -33,7 +33,6 @@ const Room = () => {
         fetchRoomData().catch();
     }, []);
 
-  
 
     // establish ws connection
     let socketRef = useRef(new SockJS(WS_URL + "room"));
@@ -68,7 +67,7 @@ const Room = () => {
                     newState[k] = playerEventChange[k];
                 }
             }
-            
+
             if (Math.abs(playerRef.current.getCurrentTime() - newState.playerTimecode) > ALLOWED_DELAY) {
                 playerRef.current.seekTo(newState.playerTimecode);
             }
@@ -133,22 +132,24 @@ const Room = () => {
         <div className={classes.container}>
             {!roomData ?
                 <h3 style={{color: 'white'}}>loading...</h3> :
-                <div>
-                    <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}
-                                 forwardedRef={playerRef}/>
-                    <PlayerController
-                        handlePlayPausePush={handlePlayPausePush}
-                        handleForwardArrowPush={handleForwardArrowPush}
-                        handleBackArrowPush={handleBackArrowPush}
-                        isPaused={playerState.isPaused}
+                <div style={{height: '100%'}}>
+                    <div className={classes.video_and_player}>
+                        <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}
+                                     forwardedRef={playerRef}/>
+                        <PlayerController
+                            handlePlayPausePush={handlePlayPausePush}
+                            handleForwardArrowPush={handleForwardArrowPush}
+                            handleBackArrowPush={handleBackArrowPush}
+                            isPaused={playerState.isPaused}
 
-                    />
-                    <BaseButton
-                        style={{width: '100px', fontSize: '12px', marginTop: '8px'}}
-                        onClick={() => history.push('/')}
-                    >
-                        Back
-                    </BaseButton>
+                        />
+                    </div>
+                    {/*<BaseButton*/}
+                    {/*    style={{width: '100px', fontSize: '12px', marginTop: '8px'}}*/}
+                    {/*    onClick={() => history.push('/')}*/}
+                    {/*>*/}
+                    {/*    Back*/}
+                    {/*</BaseButton>*/}
                     <Chat/>
 
                 </div>

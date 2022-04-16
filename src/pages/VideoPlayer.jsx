@@ -16,7 +16,7 @@ const VideoPlayer = ({videoId,isPlaying,forwardedRef}) => {
                 opts={opts}
                 // onReady={() => console.log("youtube ready")}
                 width='100%'
-                height='480px'
+                height='100%'
                 controls={true}
                 playing={isPlaying}
                 ref={forwardedRef}

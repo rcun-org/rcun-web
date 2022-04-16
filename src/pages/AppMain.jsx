@@ -3,7 +3,7 @@ import AppMainContainer from "../components/AppMain/AppMainContainer";
 
 const AppMain = () => {
     return (
-        <AppMainContainer/>
+            <AppMainContainer/>
     );
 };
 

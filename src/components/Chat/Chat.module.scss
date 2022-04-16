@@ -5,7 +5,7 @@
   height: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   position: absolute;
   bottom: 0;
   right: 10px;
@@ -25,6 +25,7 @@
   position: absolute;
   bottom: 0;
 }
+
 .msg_history:focus .msg_item {
   opacity: 1;
 }
@@ -66,7 +67,7 @@
 }
 
 .msg_entry input {
-  background: $base-grey;
+  background: transparent;
   opacity: 0.8;
   padding: 4px;
   border: none;
@@ -84,12 +85,15 @@
 .msg_item {
   transition: all 0.5s;
 }
+
 .msg_item:nth-last-child(2) {
   opacity: 0.9;
 }
+
 .msg_item:nth-last-child(3) {
   opacity: 0.6;
 }
+
 .msg_item:nth-last-child(4) {
   opacity: 0.35;
 }

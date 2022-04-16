@@ -1,5 +1,7 @@
 .container {
   display: grid;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
   grid-template-columns: 9fr 4fr;
   height: 100%;
 }

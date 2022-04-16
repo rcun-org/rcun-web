@@ -5,7 +5,7 @@
   height: 100vh;
   background-color: $dark-grey;
   display: grid;
-  grid-template-rows: 8% 87% 5%;
+  grid-template-rows: 8% 92%;
 }
 
 .headerContainer {
@@ -16,17 +16,10 @@
 }
 
 .bodyContainer {
-  padding-left:1.2rem;
-  padding-right:1.2rem;
+  //padding-left:1.2rem;
+  //padding-right:1.2rem;
 }
 
-.footerContainer {
-  display: flex;
-  align-items: center;
-  padding-left:1.2rem;
-  padding-right:1.2rem;
-  color: $footer-base-color;
-}
 
 .headerContainerLogo {
   font-size: 1.4rem;
