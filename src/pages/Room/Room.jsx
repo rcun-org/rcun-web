@@ -63,7 +63,9 @@ const Room = () => {
         if (playerEventChange.sender !== userNameRef.current) {
             let newState = playerState;
             for (let k in playerEventChange) {
-                newState[k] = playerEventChange[k];
+                if (k !== "sender") {
+                    newState[k] = playerEventChange[k];
+                }
             }
             console.log("change state from", playerState, "to", newState);
             if (Math.abs(playerState.playerTimecode - newState.playerTimecode) > ALLOWED_DELAY) {
