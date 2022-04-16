@@ -116,6 +116,7 @@ const Room = () => {
     function handlePlayPausePush(event) {
         let change = {
             isPaused: !playerState.isPaused,
+            playerTimecode: playerRef.current.getCurrentTime()
         };
         let newState = {
             ...playerState,
