@@ -16,7 +16,7 @@
 }
 
 .msg_history {
-  width: 98%;
+  width: 100%;
 
   overflow: scroll;
   max-height: 120px;
@@ -24,21 +24,14 @@
   user-select: none;
   position: absolute;
   bottom: 0;
+  transition: all 0.5s;
+  overflow-y: hidden;
 }
 
 .msg_history:focus .msg_item {
   opacity: 1;
 }
 
-.msg_item {
-  
-}
-
-.msg_history {
-  transition: all 0.5s;
-  overflow-y: hidden;
-  width: 100%;
-}
 
 .msg_history:focus {
   transition: all 0.5s;
@@ -88,7 +81,7 @@
   width: 95%;
   display:flex;
   transition: all 0.5s;
-  max-width: 300px;
+  max-width: 90%;
   margin-top: 5px;
   gap:3px;
 }
@@ -116,7 +109,7 @@
 .msg_item_text{
   overflow: visible;
   word-wrap: break-word;
-  max-width: 350px;
+  max-width: 320px;
 }
 
 .msg_item_username{
