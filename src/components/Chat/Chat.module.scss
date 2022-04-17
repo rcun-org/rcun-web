@@ -16,7 +16,7 @@
 }
 
 .msg_history {
-  width: 95%;
+  width: 98%;
 
   overflow: scroll;
   max-height: 120px;
@@ -31,12 +31,13 @@
 }
 
 .msg_item {
-  height: 30px;
+  
 }
 
 .msg_history {
   transition: all 0.5s;
   overflow-y: hidden;
+  width: 100%;
 }
 
 .msg_history:focus {
@@ -62,6 +63,7 @@
 }
 
 .history_wrapper {
+  width: 100%;
   height: 180px;
   position: relative;
 }
@@ -83,7 +85,12 @@
 }
 
 .msg_item {
+  width: 95%;
+  display:flex;
   transition: all 0.5s;
+  max-width: 300px;
+  margin-top: 5px;
+  gap:3px;
 }
 
 .msg_item:nth-last-child(2) {
@@ -104,4 +111,16 @@
 
 .msg_item:nth-last-child(n + 6) {
   opacity: 0.1;
+}
+
+.msg_item_text{
+  overflow: visible;
+  word-wrap: break-word;
+  max-width: 350px;
+}
+
+.msg_item_username{
+  width:80px;
+  flex-shrink:0 ;
+  text-align: right;
 }

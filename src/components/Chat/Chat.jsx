@@ -32,8 +32,7 @@ function Chat(props) {
     };
 
     socketRef.current.onmessage = function (e) {
-      let msg = e.data;
-      console.log(e.data);
+      let msg = JSON.parse(e.data);
       setMsgHistory((prev) => prev.concat([msg]));
     };
 
@@ -45,8 +44,9 @@ function Chat(props) {
   let chatInputRef = useRef(null);
 
   function sendMessage() {
-    let msg = userNameRef.current + ': ' + chatInputRef.current.value;
-    socketRef.current.send(msg);
+    
+    let msg = {username:userNameRef.current, text:chatInputRef.current.value }
+    socketRef.current.send(JSON.stringify(msg));
     chatInputRef.current.value = "";
   }
 
@@ -61,9 +61,10 @@ function Chat(props) {
     <div className={classes.chat_window}>
       <div className={classes.history_wrapper}>
         <div className={classes.msg_history} tabIndex="0">
-          {msgHistory.map((item, index) => (
+          {msgHistory.map(({username, text}, index) => (
             <div className={classes.msg_item} key={index}>
-              {item}
+              <div className={classes.msg_item_username}>{username + ': '}</div>
+              <div className={classes.msg_item_text}>{text}</div>
             </div>
           ))}
           <div
