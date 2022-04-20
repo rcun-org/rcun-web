@@ -5,7 +5,7 @@ import classes from './AppLayout.module.scss'
 const AppLayout = (props) => {
     return (
         <div className={classes.mainContainer}>
-            {/*<AppHeader/>*/}
+            <AppHeader/>
             <div className={classes.bodyContainer}>
                 {props.children}
             </div>

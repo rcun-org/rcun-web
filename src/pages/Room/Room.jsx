@@ -8,6 +8,7 @@ import {AuthContext} from '../../context';
 
 import classes from './room.module.scss';
 import BaseButton from "../../components/UI/Button/BaseButton";
+import AppHeader from "../../components/AppLayout/AppHeader";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 const ALLOWED_DELAY = 3;
