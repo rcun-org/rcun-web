@@ -19,11 +19,16 @@
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  backdrop-filter: blur(25px);
-  background-color: $dark-grey;
-  opacity: 0.8;
   color: white;
   font-weight: 500;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  /* From https://css.glass */
+  background: rgba(32, 32, 32, 0.57);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.9px);
+  -webkit-backdrop-filter: blur(13.9px);
 }
 
 .cardTextSmall {
