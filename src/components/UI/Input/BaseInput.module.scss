@@ -1,16 +1,23 @@
 @import "src/styles/colors";
-.baseInput{
-  border: none;
-  width: 100%;
-  border-bottom: 2px solid $light-grey;
-  padding-bottom: 4px;
+
+.baseInput {
+  padding: 1rem;
+  user-select: none;
+  border-radius: 75px;
+  border: 4px solid white;
+  background-color: $dark-grey;
+  outline: none;
   font-size: 17px;
-  background-color: transparent;
   color: $light-grey;
 }
+
 .baseInput:focus {
-  outline: none !important;
-  border-bottom: 2px solid rgb(124, 112, 229);
+  border: 4px solid $accent-color;
+  padding: 1rem;
+  user-select: none;
+  border-radius: 75px;
+  background-color: $dark-grey;
+  outline: none;
   font-size: 17px;
   color: $light-grey;
 }
