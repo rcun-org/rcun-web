@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginContainer from "../components/Login/LoginContainer";
 import classes from "../components/Login/Login.module.scss";
-import loginBg from "../assets/imgs/login-bg.jpg";
+import loginBg from "../assets/imgs/logo.svg";
 import LoginAppPreview from "../components/Login/LoginAppPreview";
 
 const Login = () => {
