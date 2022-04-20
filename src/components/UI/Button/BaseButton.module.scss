@@ -1,6 +1,7 @@
 @import "src/styles/colors";
-.baseButton{
-  border: 2px solid $light-grey;
+
+.baseButton {
+  border: 4px solid $light-grey;
   border-radius: 75px;
   background-color: transparent;
   font-size: 1rem;
@@ -8,11 +9,23 @@
   width: 100%;
   padding: 16px;
   cursor: pointer;
+
+  /* From https://css.glass */
+  border-radius: 75px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
 }
 
 
 .baseButton:hover {
   outline: none !important;
-  background-color: #1a1a1a;
+  background-color: $dark-grey;
   color: $light-grey;
+
+  /* From https://css.glass */
+  border-radius: 75px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
 }

@@ -3,7 +3,6 @@
 .modal {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -13,6 +12,13 @@
   pointer-events: none;
   opacity: 0;
   transition: 0.3ms all;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* From https://css.glass */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .modal.active {
