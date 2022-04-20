@@ -5,9 +5,9 @@ import {GiRaccoonHead} from "react-icons/gi";
 const AppHeader = () => {
     return (
         <div className={classes.headerContainer}>
-            <GiRaccoonHead size={'30px'}/>
+            {/*<GiRaccoonHead size={'30px'}/>*/}
             <span className={classes.headerContainerLogo}>
-                RCUN
+                {/*Rooms @ RCUN*/}
             </span>
         </div>
     );
