@@ -6,9 +6,9 @@ const AppHeader = () => {
     return (
         <div className={classes.headerContainer}>
             <GiRaccoonHead size={'30px'}/>
-            <span className={classes.headerContainerLogo}>
-                RCUN
-            </span>
+            {/*<span className={classes.headerContainerLogo}>*/}
+            {/*    RCUN*/}
+            {/*</span>*/}
         </div>
     );
 };
