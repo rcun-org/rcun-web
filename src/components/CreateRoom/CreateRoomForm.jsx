@@ -25,12 +25,12 @@ const CreateRoomForm = ({roomCreated}) => {
                        onChange={(event) => setRoomData({...roomData, title: event.target.value})}
                        type='text'
                        placeholder="Room title"/>
-
             <BaseInput value={roomData.password}
                        onChange={(event) => setRoomData({...roomData, yt_video_id: event.target.value})}
                        type='text'
                        placeholder="Youtube video link"
             />
+            <br/>
             <BaseButton onClick={handleCreate}>Create room</BaseButton>
         </div>
     );

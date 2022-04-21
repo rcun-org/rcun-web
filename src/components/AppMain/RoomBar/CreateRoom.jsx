@@ -21,7 +21,7 @@ const CreateRoom = () => {
             <BaseButton onClick={() => setModalActive(true)}>Create a new room</BaseButton>
             <BaseModal active={modalActive} setActive={setModalActive}>
                 <div className={classes.loginContainerHead}>
-                    Create new Room
+                    Create a new room
                 </div>
                 {
                     !roomCreatedId ?
