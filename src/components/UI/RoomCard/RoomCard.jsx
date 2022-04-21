@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './RoomCard.module.scss'
 import {useHistory} from 'react-router-dom'
 import previewImage from '../../../assets/imgs/img_1.png';
+import {GiPerson, GiRaccoonHead} from "react-icons/gi";
 
 const RoomCard = (props) => {
     let history = useHistory()
@@ -45,7 +46,8 @@ const RoomCard = (props) => {
                 </div>
                 <div>
                     <div className={classes.cardTextMedium}>
-                        {props.room.audience.length} persons
+                        {/*<GiRaccoonHead/> */}
+                        {props.room.audience.length}/8
                     </div>
                 </div>
             </div>
