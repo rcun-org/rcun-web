@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "The web interdace of rcun platform. Writen on React as part of the FWD course of Innopolis University.",
   "main": "index.js",
-  "engines": {
-    "node": "14.5.0"
-  },
+  "engines": {},
   "scripts": {
     "start:production": "npm install && npm run start:prod",
     "start:prod": "node server",
@@ -55,6 +53,7 @@
     "sass-loader": "^12.6.0",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
+    "webpack-dev-middleware": "^6.0.1",
     "webpack-dev-server": "^4.7.4"
   }
 }
