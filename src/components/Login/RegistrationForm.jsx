@@ -27,7 +27,7 @@ const RegistrationForm = ({className, onRegister}) => {
             <BaseInput value={registrationData.username}
                        onChange={(event) => setRegistrationData({...registrationData, username: event.target.value})}
                        type='text'
-                       placeholder="User Name"
+                       placeholder="Username"
             />
             <BaseInput value={registrationData.password}
                        onChange={(event) => setRegistrationData({...registrationData, password: event.target.value})}
@@ -37,7 +37,7 @@ const RegistrationForm = ({className, onRegister}) => {
             <BaseInput value={registrationData.password2}
                        onChange={(event) => setRegistrationData({...registrationData, password2: event.target.value})}
                        type='password'
-                       placeholder="Confirm Password"
+                       placeholder="Confirm password"
             />
             <BaseButton onClick={handleRegistration}>Sign up</BaseButton>
         </div>

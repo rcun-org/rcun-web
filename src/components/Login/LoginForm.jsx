@@ -9,7 +9,7 @@ const LoginForm = ({className, onLogin}) => {
     })
 
     const handleLogin = async () => {
-        //todo add client-side validation
+        // todo add client-side validation
         const userToken = await login(loginData)
 
         setLoginData({
@@ -25,7 +25,7 @@ const LoginForm = ({className, onLogin}) => {
             <BaseInput value={loginData.username}
                        onChange={(event) => setLoginData({...loginData, username: event.target.value})}
                        type='text'
-                       placeholder="User Name"/>
+                       placeholder="Username"/>
 
             <BaseInput value={loginData.password}
                        onChange={(event) => setLoginData({...loginData, password: event.target.value})}
