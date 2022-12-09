@@ -4,12 +4,16 @@
   padding: 1rem 2rem 1rem 2rem;
   user-select: none;
   border-radius: 75px;
-  border: 4px solid white;
+  border: 4px solid $light-grey;
   background-color: $dark-grey;
   outline: none;
   font-size: 17px;
   color: $light-grey;
-  transition: 200ms;
+  transition: 150ms;
+}
+
+.baseInput:hover {
+  background-color: $dark-grey-lighter;
 }
 
 .baseInput:focus {
@@ -22,6 +26,6 @@
   color: $dark-grey;
 }
 
-::placeholder {
+input::placeholder {
   color: $light-grey;
 }
