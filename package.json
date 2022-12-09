@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/rcun-org/rcun-web#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@jimsheen/react-dynamic-input-width": "^1.0.2",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
@@ -30,7 +33,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
-    "react-icons": "^4.3.1",
+    "react-icons": "^4.7.1",
     "react-player": "^2.10.0",
     "react-router-dom": "^5.2.1",
     "react-transition-group": "^4.4.2",

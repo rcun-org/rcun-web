@@ -1,28 +1,31 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
 import classes from "./PlayerController.module.scss";
 import {AiOutlinePlaySquare, AiOutlinePauseCircle, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPlay} from '@fortawesome/free-solid-svg-icons'
+import {faPause} from '@fortawesome/free-solid-svg-icons'
+import {faChevronLeft} from '@fortawesome/free-solid-svg-icons'
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 function PlayerController(props) {
-
-
     return (
         <div className={classes.player_controller}>
             <div className={classes.control_buttons}>
                 <button onClick={props.handleBackArrowPush}>
-                    <AiOutlineArrowLeft/>
+                    <FontAwesomeIcon icon={faChevronLeft}/>
                 </button>
 
                 <button onClick={props.handlePlayPausePush}>
 
                     {(props.isPaused) ?
-                        <AiOutlinePlaySquare size={20}/> :
-                        <AiOutlinePauseCircle size={20}/>
+                        <FontAwesomeIcon icon={faPlay} size={"lg"} />:
+                        <FontAwesomeIcon icon={faPause} size={"xl"} />
                     }
 
                 </button>
 
                 <button onClick={props.handleForwardArrowPush}>
-                    <AiOutlineArrowRight/>
+                    <FontAwesomeIcon icon={faChevronRight}/>
                 </button>
             </div>
         </div>
