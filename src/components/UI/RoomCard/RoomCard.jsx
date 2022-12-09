@@ -13,7 +13,7 @@ const RoomCard = (props) => {
 
     function prepareData(s) {
         if (s.indexOf("?v=") === -1) {
-            alert("Invalid link :c");
+            // alert("Invalid link :c");
             return "";
         }
         s = s.substring(s.indexOf("?v=") + 3);
