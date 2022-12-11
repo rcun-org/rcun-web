@@ -26,7 +26,7 @@ const RoomsList = (props) => {
     return (
         <div {...props}>
             {
-                loading ? <h3 style={{color:'white'}}>Loading rooms...</h3>
+                loading ? <h3 style={{color:'white'}}></h3>
                     : searchedVideos.map((room, index) => {
                         return <RoomCard key={index} room={room} index={index}/>
                     })

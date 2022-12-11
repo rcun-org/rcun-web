@@ -1,15 +1,14 @@
 @import "src/styles/colors";
 .container {
   background-color: #5d5d5d;
-  width: 400px;
-  min-width: 400px;
-  height: 300px;
+  width: 250px;
+  height: 160px;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .body {
-  height: 200px;
+  height: 80px;
 }
 
 .footer {
@@ -18,7 +17,7 @@
   padding: 1.2rem;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 80px;
   color: white;
   font-weight: 500;
   border-bottom-left-radius: 10px;

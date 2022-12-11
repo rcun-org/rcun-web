@@ -1,15 +1,15 @@
 import React from 'react';
-import classes from './RoomCard.module.scss'
-import {useHistory} from 'react-router-dom'
+import classes from './RoomCard.module.scss';
+import {useHistory} from 'react-router-dom';
 import previewImage from '../../../assets/imgs/img_1.png';
 import {GiPerson, GiRaccoonHead} from "react-icons/gi";
 
 const RoomCard = (props) => {
-    let history = useHistory()
+    let history = useHistory();
     const redirectToVideo = (event) => {
-        event.stopPropagation()
-        history.push(`/room/${props.room._id}`)
-    }
+        event.stopPropagation();
+        history.push(`/room/${props.room._id}`);
+    };
 
     function prepareData(s) {
         if (s.indexOf("?v=") === -1) {
