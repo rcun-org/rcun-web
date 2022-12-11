@@ -11,28 +11,31 @@
   justify-content: center;
   pointer-events: none;
   opacity: 0;
-  transition: 0.3ms all;
+  transition: 0.5s all;
 
   background-color: rgba(0, 0, 0, 0.5);
 
-  /* From https://css.glass */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* From https://css.glass */
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
 }
 
 .modal.active {
   opacity: 1;
   pointer-events: all;
+
+  backdrop-filter: blur(13.9px);
+  -webkit-backdrop-filter: blur(13.9px);
 }
 
 .modal__content {
-  padding: 2.0rem;
+  padding: 1.7rem;
   border-radius: 20px;
   background-color: $dark-grey;
   min-width: 400px;
-  transform: scale(0.5);
-  transition: 0.2s all;
+  transform: scale(0.7);
+  transition: 1s all;
 }
 
 .modal__content.active {
