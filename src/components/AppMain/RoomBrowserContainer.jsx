@@ -1,12 +1,12 @@
 import React, {useMemo, useState} from 'react';
 import classes from './AppMain.module.scss';
 import RoomsList from "./RoomsList";
-import RoomBar from "./RoomBar/RoomBar";
+import RoomRightHalf from "./RoomBar/RoomBar";
 
 import {RoomsContext} from "../../context";
 
 
-const AppMainContainer = () => {
+const RoomBrowserContainer = () => {
     const [rooms, setRooms] = useState([]);
     const [roomSearch, setRoomSearch] = useState('');
     const searchedVideos = useMemo(() => {
@@ -27,10 +27,10 @@ const AppMainContainer = () => {
             }
             >
                 <RoomsList className={classes.roomsList}/>
-                <RoomBar className={classes.roomBar}/>
+                <RoomRightHalf className={classes.roomBar}/>
             </RoomsContext.Provider>
         </div>
     );
 };
 
-export default AppMainContainer;
+export default RoomBrowserContainer;
