@@ -23,7 +23,13 @@ export const getRooms = async () => {
         const roomsData = await axios.get(API_URL + 'room', {
             headers: authHeader(),
         });
-        return roomsData.data;
+        // preprocessing: add yt video title
+        let rooms = roomsData.data
+        for (let i = 0; i < rooms.length; i++) {
+            const yt_video_info = (await axios.get('https://noembed.com/embed?url=' + rooms[i].yt_video_id)).data
+            rooms[i].yt_video_title = yt_video_info.title
+        }
+        return rooms;
     }
     catch (e) {
 

@@ -26,7 +26,7 @@ const RoomCard = (props) => {
             onClick={(e) => redirectToVideo(e)}
             className={classes.container}
             style={{
-                backgroundImage: `url(${`https://img.youtube.com/vi/${prepareData(props.room.yt_video_id)}/sddefault.jpg`})`,
+                backgroundImage: `url(${`https://img.youtube.com/vi/${prepareData(props.room.yt_video_id)}/hqdefault.jpg`})`,
                 backgroundSize: '100%',
                 backgroundPosition: 'center'
             }}
@@ -38,15 +38,23 @@ const RoomCard = (props) => {
             <div className={classes.footer}>
                 <div>
                     <div className={classes.cardTextLarge}>
-                        {props.room.title}
+                        <marquee className={classes.cardTitleMarquee}
+                                 direction="left"
+                                 behavior="scroll"
+                                 scrollamount="5"
+                                 scrolldelay="1"
+                                 loop="infinite"
+                        >
+                            {props.room.yt_video_title}
+                        </marquee>
                     </div>
                     <div className={classes.cardTextSmall}>
-                        Room {props.index + 1}
+                        {props.room.title}
                     </div>
                 </div>
                 <div>
                     <div className={classes.cardTextMedium}>
-                        {/*<GiRaccoonHead/> */}
+                        {/*<GiRaccoonHead/>*/}
                         {props.room.audience.length}/8
                     </div>
                 </div>
