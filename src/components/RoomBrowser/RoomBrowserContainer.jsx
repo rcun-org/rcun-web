@@ -1,9 +1,10 @@
 import React, {useMemo, useState} from 'react';
-import classes from './AppMain.module.scss';
+import classes from './RoomBrowser.module.scss';
 import RoomsList from "./RoomsList";
 import RoomRightHalf from "./RoomBar/RoomBar";
 
 import {RoomsContext} from "../../context";
+import AppHeader from "../AppLayout/AppHeader";
 
 
 const RoomBrowserContainer = () => {
@@ -26,6 +27,8 @@ const RoomBrowserContainer = () => {
                 }
             }
             >
+                <div className={classes.header}>Browse @ RCUN</div>
+                <br/>
                 <RoomsList className={classes.roomsList}/>
                 <RoomRightHalf className={classes.roomBar}/>
             </RoomsContext.Provider>

@@ -8,18 +8,18 @@
 }
 
 .body {
-  height: 80px;
+  height: 100px;
 }
 
 .footer {
   display: flex;
   box-sizing: border-box;
-  padding: 1.2rem;
+  padding: 0.8rem;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 60px;
   color: white;
-  font-weight: 500;
+  font-weight: 400;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 
@@ -31,11 +31,11 @@
 }
 
 .cardTextSmall {
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 .cardTextLarge {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   max-width: 300px;
   overflow: hidden;
 }

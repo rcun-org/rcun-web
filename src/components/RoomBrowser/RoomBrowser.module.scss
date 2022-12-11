@@ -1,0 +1,58 @@
+@import "src/styles/colors";
+
+.header {
+  padding-top: 1.6rem;
+  padding-bottom: 2rem;
+
+  color: $light-grey;
+
+  font-family: "Exo 2", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.255em;
+}
+
+.container {
+  display: grid;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+  grid-template-columns: 10fr 4fr;
+  height: 100%;
+}
+
+.roomsList {
+  display: flex;
+  align-content: flex-start;
+  gap: 20px;
+  padding-right: 1.2rem;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* hide scrollbar for IE and Edge */
+  scrollbar-width: none;  /* hide scrollbar for Firefox */
+}
+
+.roomsList::-webkit-scrollbar {
+  //hide scrollbar for Chrome, Safari, Opera
+  display: none;
+}
+
+.roomsList > div {
+  max-width: calc(70% - 1.2rem); //todo
+  flex-grow: 1;
+}
+
+.roomBar {
+  display: flex;
+  padding-left: 20px;
+  gap: 20px;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
