@@ -26,9 +26,12 @@ const RoomsList = (props) => {
     return (
         <div {...props}>
             {
-                loading ? <h3 style={{color:'white'}}></h3>
+                loading ? <h3 style={{color: 'white'}}></h3>
                     : searchedVideos.map((room, index) => {
-                        return <RoomCard key={index} room={room} index={index}/>
+                        return <RoomCard
+                            key={index}
+                            index={index}
+                            room={room}/>
                     })
             }
         </div>

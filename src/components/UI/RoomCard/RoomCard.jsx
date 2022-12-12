@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import classes from './RoomCard.module.scss';
 import {useHistory} from 'react-router-dom';
 import previewImage from '../../../assets/imgs/img_1.png';
 import {GiPerson, GiRaccoonHead} from "react-icons/gi";
+import {RoomsContext} from "../../../context";
 
 const RoomCard = (props) => {
     let history = useHistory();
+
+    const {performanceSwitch} = useContext(RoomsContext)
+
     const redirectToVideo = (event) => {
         event.stopPropagation();
         history.push(`/room/${props.room._id}`);
@@ -35,18 +39,13 @@ const RoomCard = (props) => {
                 className={classes.body}
             >
             </div>
-            <div className={classes.footer}>
+            <div className={`${classes.footer} ${performanceSwitch ? classes.glassy : ''}`}>
                 <div>
-                    <div className={classes.cardTextLarge}>
-                        <marquee className={classes.cardTitleMarquee}
-                                 direction="left"
-                                 behavior="scroll"
-                                 scrollamount="5"
-                                 scrolldelay="1"
-                                 loop="infinite"
-                        >
-                            {props.room.yt_video_title}
-                        </marquee>
+                    <div className={`${classes.cardTextLarge} ${classes.cardTitleMarquee}`}>
+                        <div>
+                            <span>{props.room.yt_video_title}</span>
+                            <span>{props.room.yt_video_title}</span>
+                        </div>
                     </div>
                     <div className={classes.cardTextSmall}>
                         {props.room.title}

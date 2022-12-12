@@ -132,11 +132,19 @@ const Room = () => {
     return (
         <div className={classes.container}>
             {!roomData ?
-                <h3 style={{color: 'white'}}>loading...</h3> :
+                <h3 style={{color: 'white'}}></h3> :
                 <div style={{height: '100%'}}>
                     <div className={classes.video_and_player}>
                         <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}
                                      forwardedRef={playerRef}/>
+
+                        <BaseButton
+                            style={{position: 'absolute', width: '100px', fontSize: '12px', marginBottom: '8px'}}
+                            onClick={() => history.push('/')}
+                        >
+                            {"<"}
+                        </BaseButton>
+
                         <PlayerController
                             handlePlayPausePush={handlePlayPausePush}
                             handleForwardArrowPush={handleForwardArrowPush}
@@ -145,12 +153,6 @@ const Room = () => {
 
                         />
                     </div>
-                    {/*<BaseButton*/}
-                    {/*    style={{width: '100px', fontSize: '12px', marginTop: '8px'}}*/}
-                    {/*    onClick={() => history.push('/')}*/}
-                    {/*>*/}
-                    {/*    Back*/}
-                    {/*</BaseButton>*/}
                     <Chat/>
 
                 </div>

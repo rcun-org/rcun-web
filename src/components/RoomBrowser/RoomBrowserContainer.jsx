@@ -5,11 +5,13 @@ import RoomRightHalf from "./RoomBar/RoomBar";
 
 import {RoomsContext} from "../../context";
 import AppHeader from "../AppLayout/AppHeader";
-
+import {Switch} from "@mui/material";
 
 const RoomBrowserContainer = () => {
     const [rooms, setRooms] = useState([]);
     const [roomSearch, setRoomSearch] = useState('');
+    const [performanceSwitch, setPerformanceSwitch] = useState(true)
+
     const searchedVideos = useMemo(() => {
         if (!roomSearch) {
             return rooms;
@@ -17,17 +19,24 @@ const RoomBrowserContainer = () => {
         return rooms.filter(room => room.title.toLowerCase().includes(roomSearch.toLowerCase()));
     }, [roomSearch, rooms]);
 
-
     return (
         <div className={classes.container}>
-            <RoomsContext.Provider value={
-                {
-                    rooms, setRooms,
-                    searchedVideos, setRoomSearch
-                }
-            }
+            <RoomsContext.Provider value={{
+                rooms, setRooms,
+                searchedVideos, setRoomSearch,
+                performanceSwitch,
+            }}
             >
-                <div className={classes.header}>Browse @ RCUN</div>
+                <div className={classes.header}>
+                    Browse @ RCUN |
+                    <Switch
+                        label="Performance"
+                        color="error"
+                        checked={performanceSwitch}
+                        onChange={(e, val) => setPerformanceSwitch(val)}
+                        name="performance"
+                    />
+                </div>
                 <br/>
                 <RoomsList className={classes.roomsList}/>
                 <RoomRightHalf className={classes.roomBar}/>

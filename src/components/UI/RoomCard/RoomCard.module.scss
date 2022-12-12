@@ -1,4 +1,5 @@
 @import "src/styles/colors";
+
 .container {
   background-color: #5d5d5d;
   width: 250px;
@@ -23,9 +24,15 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 
-  /* From https://css.glass */
-  background: rgba(32, 32, 32, 0.57);
+  ///* From https://css.glass */
+  background: rgba(32, 32, 32, 0.67);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glassy {
+  transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  ///* From https://css.glass */
   backdrop-filter: blur(13.9px);
   -webkit-backdrop-filter: blur(13.9px);
 }
@@ -44,6 +51,37 @@
   font-size: 1.2rem;
 }
 
+
 .cardTitleMarquee {
-  max-width: calc(250px - 1.75rem);
+  width: calc(250px - 1.75rem);
+  height: 25px;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.cardTitleMarquee div {
+
+  display: block;
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 5s linear infinite;
+}
+
+.cardTitleMarquee span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
 }
