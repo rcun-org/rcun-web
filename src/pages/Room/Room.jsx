@@ -59,6 +59,8 @@ const Room = () => {
 
     // on receive event
     socketRef.current.onmessage = function (e) {
+        console.log("received socket msg", JSON.parse(e.data));
+
         let playerEventChange = JSON.parse(e.data);
 
         if (playerEventChange.sender !== userNameRef.current) {
@@ -80,6 +82,7 @@ const Room = () => {
     function broadcastChange(change) {
         change.sender = userNameRef.current;
         let msg = JSON.stringify(change);
+        console.log("SENT socket msg", JSON.parse(msg));
         socketRef.current.send(msg);
     }
 

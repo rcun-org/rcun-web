@@ -10,14 +10,9 @@ function Chat(props) {
 
   let { userToken } = useContext(AuthContext);
 
-
   let { userData:{username} } = useContext(AuthContext);
-  
-  
 
   let userNameRef = useRef(username)
-
-  console.log(userToken);
 
   let [msgHistory, setMsgHistory] = useState([]);
 
@@ -34,6 +29,7 @@ function Chat(props) {
     socketRef.current.onmessage = function (e) {
       let msg = JSON.parse(e.data);
       setMsgHistory((prev) => prev.concat([msg]));
+      console.log("new chat msg", msg);
     };
 
     socketRef.current.onclose = function () {
@@ -44,9 +40,9 @@ function Chat(props) {
   let chatInputRef = useRef(null);
 
   function sendMessage() {
-    
     let msg = {username:userNameRef.current, text:chatInputRef.current.value }
     socketRef.current.send(JSON.stringify(msg));
+    console.log("sending chat msg", msg);
     chatInputRef.current.value = "";
   }
 
