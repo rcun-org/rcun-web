@@ -48,11 +48,11 @@ const Room = () => {
     // ws hooks
     useEffect(() => {
         socketRef.current.onopen = function () {
-            console.log("open");
+            console.log("open", new Date());
         };
 
         socketRef.current.onclose = function () {
-            console.log("close");
+            console.log("close", new Date());
         };
     }, []);
 
