@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef, useContext} from 'react';
 import VideoPlayer from "../VideoPlayer";
-import {useParams, useHistory} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import Chat from '../../components/Chat';
 import {getRoomById} from "../../services/room.services";
 import PlayerController from '../../components/PlayerController';
@@ -17,7 +17,6 @@ const Room = () => {
     const {id} = useParams();
     const [roomData, setRoomData] = useState(null);
     let {userData: {username}} = useContext(AuthContext);
-    let history = useHistory();
     let userNameRef = useRef(username);
 
     // fetch room information
@@ -140,23 +139,14 @@ const Room = () => {
                         <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}
                                      forwardedRef={playerRef}/>
 
-                        <BaseButton
-                            style={{position: 'absolute', width: '100px', fontSize: '12px', marginBottom: '8px'}}
-                            onClick={() => history.push('/')}
-                        >
-                            {"<"}
-                        </BaseButton>
-
                         <PlayerController
                             handlePlayPausePush={handlePlayPausePush}
                             handleForwardArrowPush={handleForwardArrowPush}
                             handleBackArrowPush={handleBackArrowPush}
                             isPaused={playerState.isPaused}
-
                         />
                     </div>
                     <Chat/>
-
                 </div>
             }
         </div>
