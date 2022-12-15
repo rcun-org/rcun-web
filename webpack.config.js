@@ -1,14 +1,14 @@
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
-const path = require('path')
+const path = require('path');
 const {template} = require("@babel/core");
-let mode = "development"
+let mode = "development";
 
 if (process.env.NODE_ENV === "production") {
-    mode = "production"
+    mode = "production";
 }
 
 module.exports = {
@@ -43,14 +43,13 @@ module.exports = {
         //     process: {env: {}}
         // }),
         new MiniCssExtractPlugin(),
-        new HtmlWebpackPlugin(
-            {
-                template: "./src/index.html"
-            }
-        ),
+        new HtmlWebpackPlugin({
+            template: "./src/index.html",
+            favicon: "./src/assets/favicon/favicon.ico",
+        }),
         new CopyPlugin({
             patterns: [
-                { from: "netlify_config", to: "" },
+                {from: "netlify_config", to: ""},
             ],
         }),
     ],
@@ -63,4 +62,4 @@ module.exports = {
         hot: true,
         historyApiFallback: true,
     }
-}
+};
