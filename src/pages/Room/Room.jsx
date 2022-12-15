@@ -14,16 +14,11 @@ const WS_URL = process.env["REACT_APP_WS_SERVER"];
 const ALLOWED_DELAY = 3;
 
 const Room = () => {
-
     const {id} = useParams();
     const [roomData, setRoomData] = useState(null);
-
     let {userData: {username}} = useContext(AuthContext);
-
     let history = useHistory();
-
     let userNameRef = useRef(username);
-
 
     // fetch room information
     useEffect(() => {
@@ -34,23 +29,19 @@ const Room = () => {
         fetchRoomData().catch();
     }, []);
 
-
-    // establish ws connection
-    let socketRef;
-
-    function setupWs() {
-        let newConnection = new SockJS(WS_URL + "room");
-        socketRef = useRef(newConnection);
-    }
-
-    setupWs();
-
     // player state
     let [playerState, setPlayerState] = useState({
         isPaused: true,
         playerTimecode: 0,
     });
 
+    // establish ws connection
+    let socketRef = useRef(new SockJS(WS_URL + "room"));
+
+    function establishConnection() {
+        console.log('setup ws connection');
+        socketRef.current = new SockJS(WS_URL + "room");
+    }
 
     // ws hooks
     useEffect(() => {
@@ -60,7 +51,7 @@ const Room = () => {
 
         socketRef.current.onclose = function () {
             console.log("close", new Date());
-            setupWs();
+            establishConnection();
         };
     }, []);
 

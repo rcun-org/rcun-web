@@ -6,6 +6,11 @@ const WS_URL = process.env["REACT_APP_WS_SERVER"]
 function Chat(props) {
   let socketRef = useRef(new SockJS(WS_URL + "chat"));
 
+  function establishConnection() {
+    console.log('setup ws connection');
+    socketRef = useRef(new SockJS(WS_URL + "chat"));
+  }
+
   let autoScroll = useRef();
 
   let { userToken } = useContext(AuthContext);
@@ -34,6 +39,7 @@ function Chat(props) {
 
     socketRef.current.onclose = function () {
       console.log("close");
+      establishConnection();
     };
   }, []);
 
