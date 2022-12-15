@@ -36,7 +36,14 @@ const Room = () => {
 
 
     // establish ws connection
-    let socketRef = useRef(new SockJS(WS_URL + "room"));
+    let socketRef;
+
+    function setupWs() {
+        let newConnection = new SockJS(WS_URL + "room");
+        socketRef = useRef(newConnection);
+    }
+
+    setupWs();
 
     // player state
     let [playerState, setPlayerState] = useState({
@@ -53,6 +60,7 @@ const Room = () => {
 
         socketRef.current.onclose = function () {
             console.log("close", new Date());
+            setupWs();
         };
     }, []);
 
