@@ -10,7 +10,7 @@ import {Switch} from "@mui/material";
 const RoomBrowserContainer = () => {
     const [rooms, setRooms] = useState([]);
     const [roomSearch, setRoomSearch] = useState('');
-    const [performanceSwitch, setPerformanceSwitch] = useState(true)
+    const [performanceSwitch, setPerformanceSwitch] = useState(false);
 
     const searchedVideos = useMemo(() => {
         if (!roomSearch) {
@@ -31,7 +31,8 @@ const RoomBrowserContainer = () => {
                     Browse @ RCUN |
                     <Switch
                         label="Performance"
-                        color="error"
+                        color="default"
+                        // style={{color: "yellow"}}
                         checked={performanceSwitch}
                         onChange={(e, val) => setPerformanceSwitch(val)}
                         name="performance"
