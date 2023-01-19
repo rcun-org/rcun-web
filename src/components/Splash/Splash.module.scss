@@ -1,0 +1,95 @@
+@import "../../styles/colors";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splashIconDesign {
+  stroke: $light-grey;
+  stroke-width: 7;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.splashIconAnimation {
+  animation-timing-function: ease-in-out;
+  animation-name: pathAnimation, pathAppearance;
+  animation-fill-mode: forwards;
+}
+
+.splashIconHeadPath {
+  @extend .splashIconAnimation;
+  stroke-dasharray: 750.0419921875;
+  stroke-dashoffset: 750.0419921875;
+  animation-duration: 1s;
+  animation-delay: 0.9s;
+}
+
+.splashIconSmallElementsPath {
+  @extend .splashIconAnimation;
+  stroke-dasharray: 277.06597900390625;
+  stroke-dashoffset: 277.06597900390625;
+  animation-duration: 1s;
+  animation-delay: 0.9s;
+}
+
+.splashIconEyePath {
+  @extend .splashIconAnimation;
+  stroke-dasharray: 68.6319808959961;
+  stroke-dashoffset: 68.6319808959961;
+  animation-duration: 0.35s;
+  animation-delay: 0.5s;
+}
+
+.splashIconEyeLightning {
+  @extend .splashIconEyePath;
+  stroke-width: 20;
+  filter: blur(5px);
+  stroke: $accent-color;
+}
+
+@keyframes pathAppearance {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+
+@keyframes pathAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.splashContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.splashContainerText {
+  color: $light-grey;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  animation: textAppearance 2s ease-in-out;
+}
+
+@keyframes textAppearance {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
