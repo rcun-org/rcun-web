@@ -36,7 +36,7 @@ const Room = () => {
         if (!!roomData) {
             console.log("roomData not null", roomData)
             // establish connection
-            socketRef.current = new io('localhost:5001/ws', {
+            socketRef.current = new io(WS_URL, {
                 transports: ["websocket", "polling"],
             })
 
