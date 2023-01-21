@@ -22,7 +22,7 @@ function Chat({/*socketRef*/}) {
     );
 
     // ws connection
-    let socketRef = useRef(new io('localhost:5001/ws', {
+    let socketRef = useRef(new io(WS_URL, {
         transports: ["websocket", "polling"],
     }));
 
