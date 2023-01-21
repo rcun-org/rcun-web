@@ -32,9 +32,11 @@ const Room = () => {
 
     // ws
     useEffect(() => {
+        console.log("effect 2!")
         if (!!roomData) {
+            console.log("roomData not null", roomData)
             // establish connection
-            socketRef.current = new io(WS_URL, {
+            socketRef.current = new io('localhost:5001/ws', {
                 transports: ["websocket", "polling"],
             })
 
@@ -150,7 +152,7 @@ const Room = () => {
                             isPaused={playerState.isPaused}
                         />
                     </div>
-                    <Chat/>
+                    {/*<Chat/>*/}
                 </div>
             }
         </div>
