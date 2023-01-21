@@ -37,8 +37,11 @@ const Room = () => {
             console.log("roomData not null", roomData)
             // establish connection
             socketRef.current = new io(WS_URL, {
-                transports: ["websocket", "polling"],
+                transports: ["polling", "websocket"],
             })
+            // socketRef.current = new io(WS_URL, {
+            //     transports: ["websocket", "polling"],
+            // })
 
             // ws hooks
             socketRef.current.on("connect", function () {
