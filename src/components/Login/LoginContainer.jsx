@@ -3,14 +3,19 @@ import classes from './Login.module.scss'
 import LoginForm from "./LoginForm";
 import RegistrationForm from "./RegistrationForm";
 import {AuthContext} from "../../context";
+import {getUser} from "../../services/api.user_service";
 
 
 const LoginContainer = (props) => {
     const [authType, setAuthType] = useState('login')
-    const {setUserToken} = useContext(AuthContext)
+    const {setUserToken, setUserData} = useContext(AuthContext)
 
-    const onLogin = (userToken) => {
+    const onLogin = async (userToken) => {
         setUserToken(userToken)
+        if (userToken) {
+            const userData = await getUser()
+            setUserData(userData.data)
+        }
     }
     return (
         <div className={props.className}>

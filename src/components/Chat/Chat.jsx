@@ -1,10 +1,11 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
 import {AuthContext} from "../../context/";
 import classes from "./Chat.module.scss";
+import {io} from "socket.io-client";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
-function Chat(props) {
+function Chat({/*socketRef*/}) {
     let autoScroll = useRef();
 
     let {userToken} = useContext(AuthContext);
@@ -20,12 +21,10 @@ function Chat(props) {
         [msgHistory]
     );
 
-    let socketRef = useRef(new SockJS(WS_URL + "chat"));
-
-    function establishConnection() {
-        console.log('setup ws connection');
-        socketRef.current = new SockJS(WS_URL + "chat");
-    }
+    // ws connection
+    let socketRef = useRef(new io('localhost:5001/ws', {
+        transports: ["websocket", "polling"],
+    }));
 
     useEffect(() => {
         socketRef.current.onopen = function () {
@@ -41,7 +40,6 @@ function Chat(props) {
 
         socketRef.current.onclose = function () {
             console.log("close");
-            establishConnection();
         };
     }, []);
 

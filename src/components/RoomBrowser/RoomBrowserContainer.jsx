@@ -25,8 +25,7 @@ const RoomBrowserContainer = () => {
                 rooms, setRooms,
                 searchedVideos, setRoomSearch,
                 performanceSwitch,
-            }}
-            >
+            }}>
                 <div className={classes.header}>
                     Browse @ RCUN |
                     <Switch

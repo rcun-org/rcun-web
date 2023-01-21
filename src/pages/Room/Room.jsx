@@ -7,8 +7,6 @@ import PlayerController from '../../components/PlayerController';
 import {AuthContext} from '../../context';
 
 import classes from './room.module.scss';
-import BaseButton from "../../components/UI/Button/BaseButton";
-import AppHeader from "../../components/AppLayout/AppHeader";
 import {io} from "socket.io-client";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
@@ -20,14 +18,61 @@ const Room = () => {
     let {userData: {username}} = useContext(AuthContext);
     let userNameRef = useRef(username);
 
-    // fetch room information
+    // ws connection
+    let socketRef = useRef(0);
+
+    // get room from api
     useEffect(() => {
         const fetchRoomData = async () => {
-            const roomData = await getRoomById(id);
-            setRoomData(roomData);
+            let rd = await getRoomById(id)
+            setRoomData(rd);
         };
         fetchRoomData().catch();
     }, []);
+
+    // ws
+    useEffect(() => {
+        if (!!roomData) {
+            // establish connection
+            socketRef.current = new io('localhost:5001/ws', {
+                transports: ["websocket", "polling"],
+            })
+
+            // ws hooks
+            socketRef.current.on("connect", function () {
+                console.log("on connect")
+                console.log("room data", roomData)
+                socketRef.current.emit('room:join', roomData['_id']);
+            });
+            socketRef.current.on("close", function () {
+                console.log('close');
+            });
+            socketRef.current.on("connect_error", () => {
+                socketRef.current.io.opts.transports = ["polling", "websocket"];
+            });
+
+            // on receive event
+            socketRef.current.on('player:event', function (e) {
+                console.log("received socket msg", JSON.parse(e));
+
+                let playerEventChange = JSON.parse(e);
+
+                // if (playerEventChange.sender !== userNameRef.current) {
+                let newState = playerState;
+                for (let k in playerEventChange) {
+                    if (k !== "sender") {
+                        newState[k] = playerEventChange[k];
+                    }
+                }
+
+                if (Math.abs(playerRef.current.getCurrentTime() - newState.playerTimecode) > ALLOWED_DELAY) {
+                    playerRef.current.seekTo(newState.playerTimecode);
+                }
+                setPlayerState({...newState});
+                // }
+            });
+        }
+    }, [roomData])
 
     // player state
     let [playerState, setPlayerState] = useState({
@@ -35,63 +80,12 @@ const Room = () => {
         playerTimecode: 0,
     });
 
-    // establish ws connection
-
-    let socketRef = useRef(new io('localhost:5001/ws', {
-        transports: ["websocket", "polling"],
-    }));
-
-    // ws hooks
-    useEffect(() => {
-        socketRef.current.on("connect_error", () => {
-            // default upgrading scheme
-            socketRef.current.io.opts.transports = ["polling", "websocket"];
-        });
-
-        socketRef.current.on("connect", function () {
-            r = Math.random() > 0.5 ? 1 : 2;
-            console.log('open room:', r);
-            socketRef.current.emit('room:join', r);
-            socketRef.current.emit('chat:msg', 'i connected', r);
-        });
-
-        socketRef.current.on("chat:msg", function (msg) {
-            console.log('chat:msg', msg);
-        });
-
-        socketRef.current.on("close", function () {
-            console.log('close');
-        });
-    }, []);
-
-
-    // on receive event
-    socketRef.current.on('room:event', function (e) {
-        console.log("received socket msg", JSON.parse(e.data));
-
-        let playerEventChange = JSON.parse(e.data);
-
-        if (playerEventChange.sender !== userNameRef.current) {
-            let newState = playerState;
-            for (let k in playerEventChange) {
-                if (k !== "sender") {
-                    newState[k] = playerEventChange[k];
-                }
-            }
-
-            if (Math.abs(playerRef.current.getCurrentTime() - newState.playerTimecode) > ALLOWED_DELAY) {
-                playerRef.current.seekTo(newState.playerTimecode);
-            }
-            setPlayerState({...newState});
-        }
-    });
-
     // send function
     function broadcastChange(change) {
         change.sender = userNameRef.current;
         let msg = JSON.stringify(change);
         console.log("SENT socket msg", JSON.parse(msg));
-        socketRef.current.send(msg);
+        socketRef.current.emit('player:event', msg, roomData['_id']);
     }
 
     // button handlers

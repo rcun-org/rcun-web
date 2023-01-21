@@ -1,5 +1,5 @@
 import {BrowserRouter} from "react-router-dom";
-import {AuthContext} from "./context";
+import {AuthContext, ConnectionContext} from "./context";
 import {useEffect, useState} from "react";
 import AppRouter from "./components/AppRouter";
 
@@ -18,7 +18,7 @@ const App = () => {
 
     async function bootApp() {
         setLoading(true)
-        const userToken = await getCurrentUserToken()
+        const userToken = getCurrentUserToken()
         setUserToken(userToken)
         if (userToken) {
             const userData = await getUser()
@@ -26,6 +26,7 @@ const App = () => {
         }
         setLoading(false)
     }
+
     useEffect(() => {
         bootApp().catch()
     }, [])
@@ -33,6 +34,7 @@ const App = () => {
         <AuthContext.Provider value={{
             userToken,
             setUserToken,
+            setUserData,
             loading,
             userData
         }}>
