@@ -43,7 +43,8 @@
     "react-router-dom": "^5.2.1",
     "react-transition-group": "^4.4.2",
     "react-youtube": "^7.14.0",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "socket.io-client": "^4.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

@@ -9,6 +9,7 @@ import {AuthContext} from '../../context';
 import classes from './room.module.scss';
 import BaseButton from "../../components/UI/Button/BaseButton";
 import AppHeader from "../../components/AppLayout/AppHeader";
+import {io} from "socket.io-client";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 const ALLOWED_DELAY = 3;
@@ -35,28 +36,37 @@ const Room = () => {
     });
 
     // establish ws connection
-    let socketRef = useRef(new SockJS(WS_URL + "room"));
 
-    function establishConnection() {
-        console.log('setup ws connection');
-        socketRef.current = new SockJS(WS_URL + "room");
-    }
+    let socketRef = useRef(new io('localhost:5001/ws', {
+        transports: ["websocket", "polling"],
+    }));
 
     // ws hooks
     useEffect(() => {
-        socketRef.current.onopen = function () {
-            console.log("open", new Date());
-        };
+        socketRef.current.on("connect_error", () => {
+            // default upgrading scheme
+            socketRef.current.io.opts.transports = ["polling", "websocket"];
+        });
 
-        socketRef.current.onclose = function () {
-            console.log("close", new Date());
-            establishConnection();
-        };
+        socketRef.current.on("connect", function () {
+            r = Math.random() > 0.5 ? 1 : 2;
+            console.log('open room:', r);
+            socketRef.current.emit('room:join', r);
+            socketRef.current.emit('chat:msg', 'i connected', r);
+        });
+
+        socketRef.current.on("chat:msg", function (msg) {
+            console.log('chat:msg', msg);
+        });
+
+        socketRef.current.on("close", function () {
+            console.log('close');
+        });
     }, []);
 
 
     // on receive event
-    socketRef.current.onmessage = function (e) {
+    socketRef.current.on('room:event', function (e) {
         console.log("received socket msg", JSON.parse(e.data));
 
         let playerEventChange = JSON.parse(e.data);
@@ -74,7 +84,7 @@ const Room = () => {
             }
             setPlayerState({...newState});
         }
-    };
+    });
 
     // send function
     function broadcastChange(change) {
