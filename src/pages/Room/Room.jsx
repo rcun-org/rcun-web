@@ -24,7 +24,7 @@ const Room = () => {
     // get room from api
     useEffect(() => {
         const fetchRoomData = async () => {
-            let rd = await getRoomById(id)
+            let rd = await getRoomById(id);
             setRoomData(rd);
         };
         fetchRoomData().catch();
@@ -32,27 +32,29 @@ const Room = () => {
 
     // ws
     useEffect(() => {
-        console.log("effect 2!")
+        console.log("effect 2!");
         if (!!roomData) {
-            console.log("roomData not null", roomData)
+            console.log("roomData not null", roomData);
             // establish connection
-            socketRef.current = new io(WS_URL, {
-                transports: ["polling", "websocket"],
-            })
             // socketRef.current = new io(WS_URL, {
-            //     transports: ["websocket", "polling"],
+            //     transports: ["polling", "websocket"],
             // })
+            console.log("trying connect to", WS_URL);
+            socketRef.current = new io(WS_URL, {
+                transports: ["websocket", "polling"],
+            });
 
             // ws hooks
             socketRef.current.on("connect", function () {
-                console.log("on connect")
-                console.log("room data", roomData)
+                console.log("on connect success");
+                console.log("room data", roomData);
                 socketRef.current.emit('room:join', roomData['_id']);
             });
             socketRef.current.on("close", function () {
                 console.log('close');
             });
-            socketRef.current.on("connect_error", () => {
+            socketRef.current.on("connect_error", (e) => {
+                console.error("socketIO ERROR connecting!", e);
                 socketRef.current.io.opts.transports = ["polling", "websocket"];
             });
 
@@ -77,7 +79,7 @@ const Room = () => {
                 // }
             });
         }
-    }, [roomData])
+    }, [roomData]);
 
     // player state
     let [playerState, setPlayerState] = useState({
@@ -90,7 +92,7 @@ const Room = () => {
         change.sender = userNameRef.current;
         let msg = JSON.stringify(change);
         console.log("SENT socket msg", JSON.parse(msg));
-        socketRef.current.emit('player:event', msg, roomData['_id']);
+        socketRef.current.emit('player:event', msg);
     }
 
     // button handlers
