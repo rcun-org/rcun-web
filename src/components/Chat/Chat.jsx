@@ -27,26 +27,29 @@ function Chat({/*socketRef*/}) {
     }));
 
     useEffect(() => {
-        socketRef.current.onopen = function () {
-            console.log("open");
+        socketRef.current.on("connect", function () {
+            console.log("chat connection open");
             sendMessage("connected.");
-        };
+        });
 
-        socketRef.current.onmessage = function (e) {
+        socketRef.current.on("chat:msg", function (e) {
             let msg = JSON.parse(e.data);
             setMsgHistory((prev) => prev.concat([msg]));
             console.log("new chat msg", msg);
-        };
+        });
 
-        socketRef.current.onclose = function () {
+        socketRef.current.on("close", function () {
             console.log("close");
-        };
+        });
     }, []);
 
     let chatInputRef = useRef(null);
 
     function sendMessage(text) {
-        let msg = {username: userNameRef.current, text: text || chatInputRef.current.value};
+        let msg = {
+            username: userNameRef.current,
+            text: text || chatInputRef.current.value
+        };
         socketRef.current.send(JSON.stringify(msg));
         console.log("sending chat msg", msg);
         chatInputRef.current.value = "";
@@ -81,7 +84,7 @@ function Chat({/*socketRef*/}) {
                     type="text"
                     onKeyDown={handleEnterPush}
                     ref={chatInputRef}
-                    placeholder="Say something..."
+                    placeholder="..."
                 />
             </div>
         </div>
