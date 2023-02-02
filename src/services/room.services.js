@@ -6,7 +6,7 @@ export const createRoom = async ({title, yt_video_id}) => {
     // yt_video_id = prepareData(yt_video_id);
     try {
         const room = await axios.post(API_URL + 'room',
-            {title, yt_video_id},
+            {title, backupVideo: yt_video_id},
             {
                 headers: authHeader(),
             }
@@ -26,7 +26,7 @@ export const getRooms = async () => {
         // preprocessing: add yt video title
         let rooms = roomsData.data
         for (let i = 0; i < rooms.length; i++) {
-            const yt_video_info = (await axios.get('https://noembed.com/embed?url=' + rooms[i].yt_video_id)).data
+            const yt_video_info = (await axios.get('https://noembed.com/embed?url=' + rooms[i].backupVideo)).data
             rooms[i].yt_video_title = yt_video_info.title
         }
         return rooms;

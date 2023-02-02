@@ -8,7 +8,7 @@ import {RoomsContext} from "../../../context";
 const RoomCard = (props) => {
     let history = useHistory();
 
-    const {performanceSwitch} = useContext(RoomsContext)
+    const {performanceSwitch} = useContext(RoomsContext);
 
     const redirectToVideo = (event) => {
         event.stopPropagation();
@@ -16,8 +16,9 @@ const RoomCard = (props) => {
     };
 
     function prepareData(s) {
+        s ||= "";
         if (s.indexOf("?v=") === -1) {
-            // alert("Invalid link :c");
+            console.log("Invalid link :c", s);
             return "";
         }
         s = s.substring(s.indexOf("?v=") + 3);
@@ -30,7 +31,7 @@ const RoomCard = (props) => {
             onClick={(e) => redirectToVideo(e)}
             className={classes.container}
             style={{
-                backgroundImage: `url(${`https://img.youtube.com/vi/${prepareData(props.room.yt_video_id)}/hqdefault.jpg`})`,
+                backgroundImage: `url(${`https://img.youtube.com/vi/${prepareData(props.room.backupVideo)}/hqdefault.jpg`})`,
                 backgroundSize: '100%',
                 backgroundPosition: 'center'
             }}
@@ -54,7 +55,8 @@ const RoomCard = (props) => {
                 <div>
                     <div className={classes.cardTextMedium}>
                         {/*<GiRaccoonHead/>*/}
-                        {props.room.audience.length}/8
+                        {/*{props.room.audience.length}/8*/}
+                        0/8
                     </div>
                 </div>
             </div>

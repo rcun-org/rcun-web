@@ -147,7 +147,7 @@ const Room = () => {
                 <h3 style={{color: 'white'}}></h3> :
                 <div style={{height: '100%'}}>
                     <div className={classes.video_and_player}>
-                        <VideoPlayer videoId={roomData.yt_video_id} isPlaying={!playerState.isPaused}
+                        <VideoPlayer videoId={roomData.backupVideo} isPlaying={!playerState.isPaused}
                                      forwardedRef={playerRef}/>
 
                         <PlayerController
