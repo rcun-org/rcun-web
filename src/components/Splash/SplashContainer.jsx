@@ -7,7 +7,7 @@ const SplashContainer = () => {
         <div className={classes.splashContainer}>
             <SplashIcon className={classes.splashIconDesign} />
             <div className={classes.splashContainerText}>
-                Wait a moment while we load the app.
+                {/*r c u n*/}
             </div>
         </div>
     );

@@ -5,14 +5,14 @@ import loginBg from "../assets/imgs/logo.svg";
 import LoginAppPreview from "../components/Login/LoginAppPreview";
 
 const Login = () => {
-    const containerStyle =  {
-        backgroundImage: `linear-gradient(to bottom, rgba(150, 150, 150, 0.2), rgba(243, 243, 243, 0.2)), url(${loginBg})`,
+    const containerStyle = {
+        // backgroundImage: `linear-gradient(to bottom, $dark-grey, $dark-grey)`, // , url(${loginBg})
         backgroundSize: 'cover'
     }
     return (
         <div className={classes.container} style={containerStyle}>
-            <LoginContainer className = {classes.formContainer}/>
-            <LoginAppPreview className = {classes.appTitleContainer}/>
+            <LoginContainer className={classes.formContainer}/>
+            <LoginAppPreview className={classes.appTitleContainer}/>
         </div>
     );
 };

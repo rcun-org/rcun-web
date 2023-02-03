@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: scale(3);
 }
 
 .splashIconDesign {
@@ -57,7 +58,7 @@
   0% {
     opacity: 0;
   }
-  50% {
+  20% {
     opacity: 0.8;
   }
   70% {
@@ -81,15 +82,16 @@
 .splashContainerText {
   color: $light-grey;
   font-size: 0.8rem;
+  opacity: 0;
   text-transform: uppercase;
-  animation: textAppearance 2s ease-in-out;
+  animation: textAppearance 1s ease-in-out 2s;
 }
 
 @keyframes textAppearance {
   0% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }

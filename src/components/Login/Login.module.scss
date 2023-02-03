@@ -8,6 +8,17 @@
   flex-wrap: wrap;
   overflow-y: auto;
   gap: 2.4rem;
+  animation: fade-in 2s;
+  background: linear-gradient(to bottom, $dark-grey, #303030)
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .formContainer {
@@ -17,13 +28,13 @@
   padding: 1.2rem;
   width: 30%;
   min-width: 400px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   /* From https://css.glass */
-  background: rgba(67, 67, 67, 0.36);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  //background: rgba(67, 67, 67, 0.36);
+  //box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  //backdrop-filter: blur(15px);
+  //-webkit-backdrop-filter: blur(15px);
 }
 
 .appTitleContainer {
