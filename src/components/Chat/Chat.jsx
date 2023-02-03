@@ -2,19 +2,19 @@ import React, {useContext, useEffect, useRef, useState} from "react";
 import {AuthContext} from "../../context/";
 import classes from "./Chat.module.scss";
 import {io} from "socket.io-client";
+import {getRoomById} from "../../services/room.services";
+import {useParams} from "react-router-dom";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 function Chat({/*socketRef*/}) {
     let autoScroll = useRef();
-
+    const {id} = useParams();
     let {userToken} = useContext(AuthContext);
-
     let {userData: {username}} = useContext(AuthContext);
-
     let userNameRef = useRef(username);
-
     let [msgHistory, setMsgHistory] = useState([]);
+    const [roomData, setRoomData] = useState(null);
 
     useEffect(
         () => autoScroll.current.scrollIntoView({behavior: "smooth"}),
@@ -22,26 +22,37 @@ function Chat({/*socketRef*/}) {
     );
 
     // ws connection
-    let socketRef = useRef(new io(WS_URL, {
-        transports: ["websocket", "polling"],
-    }));
+    let socketRef = useRef(0);
 
+    // get room from api
     useEffect(() => {
-        socketRef.current.on("connect", function () {
-            console.log("chat connection open");
-            sendMessage("connected.");
-        });
-
-        socketRef.current.on("chat:msg", function (e) {
-            let msg = JSON.parse(e.data);
-            setMsgHistory((prev) => prev.concat([msg]));
-            console.log("new chat msg", msg);
-        });
-
-        socketRef.current.on("close", function () {
-            console.log("close");
-        });
+        const fetchRoomData = async () => {
+            let rd = await getRoomById(id);
+            setRoomData(rd);
+        };
+        fetchRoomData().catch();
     }, []);
+
+    // ws
+    useEffect(() => {
+        if (!!roomData) {
+            socketRef.current = new io(WS_URL, {
+                transports: ["websocket", "polling"],
+            });
+            socketRef.current.on("connect", function () {
+                console.log("chat connection open");
+                socketRef.current.emit('room:join', roomData['_id']);
+                sendMessage("connected.");
+            });
+            socketRef.current.on("chat:msg", function (msg) {
+                setMsgHistory((prev) => prev.concat([msg]));
+                console.log("new chat msg", msg);
+            });
+            socketRef.current.on("close", function () {
+                console.log("close");
+            });
+        }
+    }, [roomData]);
 
     let chatInputRef = useRef(null);
 
@@ -50,8 +61,9 @@ function Chat({/*socketRef*/}) {
             username: userNameRef.current,
             text: text || chatInputRef.current.value
         };
-        socketRef.current.send(JSON.stringify(msg));
+        // socketRef.current.send(JSON.stringify(msg));
         console.log("sending chat msg", msg);
+        socketRef.current.emit('chat:msg', msg);
         chatInputRef.current.value = "";
     }
 
@@ -84,7 +96,7 @@ function Chat({/*socketRef*/}) {
                     type="text"
                     onKeyDown={handleEnterPush}
                     ref={chatInputRef}
-                    placeholder="..."
+                    placeholder="Hello?"
                 />
             </div>
         </div>
