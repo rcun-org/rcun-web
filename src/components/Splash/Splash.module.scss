@@ -7,6 +7,16 @@
   justify-content: center;
   align-items: center;
   transform: scale(3);
+  animation: fade-out 1s linear 2s;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .splashIconDesign {
