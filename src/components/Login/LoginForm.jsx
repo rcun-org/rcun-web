@@ -31,7 +31,7 @@ const LoginForm = ({className, onLogin}) => {
     return (
         <div className={className}>
             <div className={classes.loginText}>
-                We know you?
+                Let's get acquainted! 🤪
             </div>
 
             <BaseInput
