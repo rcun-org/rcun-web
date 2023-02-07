@@ -12,7 +12,7 @@ const Login = () => {
     return (
         <div className={classes.container} style={containerStyle}>
             <LoginContainer className={classes.formContainer}/>
-            <LoginAppPreview className={classes.appTitleContainer}/>
+            {/*<LoginAppPreview className={classes.appTitleContainer}/>*/}
         </div>
     );
 };

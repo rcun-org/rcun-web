@@ -20,19 +20,22 @@ const LoginForm = ({className, onLogin}) => {
             onLogin(userToken)
         }
     }
+
     return (
         <div className={className}>
-            <BaseInput value={loginData.username}
-                       onChange={(event) => setLoginData({...loginData, username: event.target.value})}
-                       type='text'
-                       placeholder="Username"/>
+            <BaseInput
+                value={loginData.username}
+                onChange={(event) => setLoginData({...loginData, username: event.target.value})}
+                type='text'
+                placeholder="Username"/>
 
-            <BaseInput value={loginData.password}
-                       onChange={(event) => setLoginData({...loginData, password: event.target.value})}
-                       type='password'
-                       placeholder="Password"
+            <BaseInput
+                value={loginData.password}
+                onChange={(event) => setLoginData({...loginData, password: event.target.value})}
+                type='password'
+                placeholder="Password"
             />
-            <BaseButton onClick={handleLogin}>Login</BaseButton>
+            <BaseButton onClick={handleLogin}>Continue</BaseButton>
         </div>
     );
 };

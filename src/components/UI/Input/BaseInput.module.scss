@@ -1,5 +1,19 @@
 @import "src/styles/colors";
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #a6a6a6;
+  opacity: 1; /* Firefox */
+}
+
+.fancy::placeholder {
+  color: $light-grey;
+}
+
+.fancy {
+  transition: 150ms;
+  text-align: center;
+}
+
 .baseInput {
   padding: 1rem 2rem 1rem 2rem;
   user-select: none;
@@ -7,7 +21,7 @@
   border: 4px solid $light-grey;
   background-color: $dark-grey;
   outline: none;
-  font-size: 17px;
+  font-size: 1rem;
   color: $light-grey;
   transition: 150ms;
 }
@@ -20,12 +34,9 @@
   padding: 1rem 2rem 1rem 2rem;
   user-select: none;
   border-radius: 75px;
+  border: 4px solid $light-grey;
   background-color: $light-grey;
   outline: none;
-  font-size: 17px;
+  font-size: 1rem;
   color: $dark-grey;
-}
-
-input::placeholder {
-  color: $light-grey;
 }

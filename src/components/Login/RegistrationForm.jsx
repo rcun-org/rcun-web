@@ -39,7 +39,7 @@ const RegistrationForm = ({className, onRegister}) => {
                        type='password'
                        placeholder="Confirm password"
             />
-            <BaseButton onClick={handleRegistration}>Sign up</BaseButton>
+            <BaseButton onClick={handleRegistration}>Continue</BaseButton>
         </div>
     );
 };

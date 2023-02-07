@@ -1,12 +1,6 @@
 @import "src/styles/colors";
 
 .baseButton {
-  /* From https://css.glass */
-  border-radius: 75px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(35px);
-  -webkit-backdrop-filter: blur(35px);
-
   border: 4px solid $light-grey;
   border-radius: 75px;
   font-size: 1rem;
@@ -24,11 +18,5 @@
   outline: none !important;
   background-color: $dark-grey-lighter;
   color: $light-grey;
-
-  /* From https://css.glass */
-  border-radius: 75px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(35px);
-  -webkit-backdrop-filter: blur(35px);
 }
 
