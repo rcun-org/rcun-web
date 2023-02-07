@@ -9,7 +9,7 @@
   overflow-y: auto;
   gap: 2.4rem;
   animation: fade-in 2s;
-  background: linear-gradient(to bottom, $dark-grey, #1e133e)
+  background: linear-gradient(to bottom, $dark-grey, $dark-grey)
 }
 
 @keyframes fade-in {

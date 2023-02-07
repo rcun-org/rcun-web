@@ -96,7 +96,7 @@ function Chat({/*socketRef*/}) {
                     type="text"
                     onKeyDown={handleEnterPush}
                     ref={chatInputRef}
-                    placeholder="Hello?"
+                    placeholder="Type here..."
                 />
             </div>
         </div>

@@ -20,6 +20,10 @@
   padding-right: 1.8rem;
   grid-template-columns: 10fr 4fr;
   height: 100%;
+  align-content: start;
+
+  opacity: 0;
+  animation: fade-in 500ms ease-in-out 500ms both;
 }
 
 .roomsList {
@@ -54,5 +58,14 @@
   flex-direction: column;
   flex-wrap: wrap;
   overflow-y: auto;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
