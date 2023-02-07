@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import classes from './RoomBrowser.module.scss';
 import RoomsList from "./RoomsList";
 import RoomRightHalf from "./RoomBar/RoomBar";
@@ -11,6 +11,18 @@ const RoomBrowserContainer = () => {
     const [rooms, setRooms] = useState([]);
     const [roomSearch, setRoomSearch] = useState('');
     const [performanceSwitch, setPerformanceSwitch] = useState(false);
+
+    useEffect(() => {
+        let cachePS = localStorage.getItem("performanceSwitch")
+        if (!!cachePS) {
+            setPerformanceSwitch(cachePS)
+        }
+    }, [])
+
+    const handlePerformanceSwitch = (e, v) => {
+        setPerformanceSwitch(v)
+        localStorage.setItem("performanceSwitch", v)
+    }
 
     const searchedVideos = useMemo(() => {
         if (!roomSearch) {
@@ -31,9 +43,8 @@ const RoomBrowserContainer = () => {
                     <Switch
                         label="Performance"
                         color="default"
-                        // style={{color: "yellow"}}
                         checked={performanceSwitch}
-                        onChange={(e, val) => setPerformanceSwitch(val)}
+                        onChange={handlePerformanceSwitch}
                         name="performance"
                     />
                 </div>

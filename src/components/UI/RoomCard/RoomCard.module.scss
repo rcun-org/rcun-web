@@ -24,9 +24,15 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 
-  ///* From https://css.glass */
   background: rgba(32, 32, 32, 0.67);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+
+  //transform: translate3d(0, 0, 0);
+  //-ms-transform: translate3d(0, 0, 0);
+  ///* From https://css.glass */
+  backdrop-filter: blur(13.9px);
+  -webkit-backdrop-filter: blur(13.9px);
 }
 
 .glassy {
@@ -61,7 +67,6 @@
 }
 
 .cardTitleMarquee div {
-
   display: block;
   width: 200%;
   height: 30px;
