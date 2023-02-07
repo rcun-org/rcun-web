@@ -3,7 +3,11 @@ import classes from './BaseInput.module.scss'
 
 const BaseInput = (props) => {
     return (
-            <input {...props} className={classes.baseInput} autoComplete="off"/>
+        <input
+            {...props}
+            className={`${classes.baseInput} ${props.isFancy && classes.fancy}`}
+            autoComplete="off"
+        />
     );
 };
 

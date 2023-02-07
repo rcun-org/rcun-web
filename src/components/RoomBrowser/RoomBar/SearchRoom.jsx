@@ -2,28 +2,34 @@ import React, {useContext, useState} from 'react';
 import InputButton from "../../UI/InputButton";
 import BaseButton from "../../UI/Button/BaseButton";
 import {RoomsContext} from "../../../context";
+import {useHistory} from "react-router-dom";
+import BaseInput from "../../UI/Input/BaseInput";
 
 const SearchRoom = () => {
-    let [searchBtnPushed, setSearchBtnPushed] = useState(false)
+    const [inputValue, setInputValue] = useState("")
+
     const {setRoomSearch} = useContext(RoomsContext)
 
-    const searchBtnPush = () => {
-        setSearchBtnPushed(true)
+    const onInput = (query) => {
+        setRoomSearch(query)
     }
 
-    const hideSearchBtn = () => {
-        setSearchBtnPushed(false)
+    const handleKeyUp = (e) => {
+        if (e.keyCode === 13) {
+            onInput(inputValue)
+        }
     }
 
     return (
-        <>
-            {searchBtnPushed ? <InputButton hideBtn={hideSearchBtn}
-                                            handlePush={(query)=>setRoomSearch(query)}
-                />
-                : <BaseButton onClick={searchBtnPush}>Search room</BaseButton>
-            }
-        </>
+        <BaseInput
+            isFancy={true}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyUp={handleKeyUp}
+            type='text'
+            placeholder="Search room"/>
     );
+
+
 };
 
 export default SearchRoom;

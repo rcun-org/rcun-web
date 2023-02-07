@@ -2,26 +2,31 @@ import React, {useState} from 'react';
 import InputButton from "../../UI/InputButton";
 import BaseButton from "../../UI/Button/BaseButton";
 import {useHistory} from "react-router-dom"
+import BaseInput from "../../UI/Input/BaseInput";
+import classes from '../../UI/Input/BaseInput.module.scss';
 
 const JoinRoom = () => {
     let history = useHistory()
-    let [joinBtnPushed, setJoinBtnPushed] = useState(false)
 
-    const handleJoinBtnPush = () => {
-        setJoinBtnPushed(true)
-    }
+    const [inputValue, setInputValue] = useState("")
 
-    const hideJoinBtn = () => {
-        setJoinBtnPushed(false)
-    }
-
-    const handleInputPush = (query) => {
+    const onInput = (query) => {
         history.push(`/room/${query}`)
     }
+
+    const handleKeyUp = (e) => {
+        if (e.keyCode === 13) {
+            onInput(inputValue)
+        }
+    }
+
     return (
-        <>{joinBtnPushed ? <InputButton hideBtn={hideJoinBtn} handlePush={handleInputPush}/>
-            : <BaseButton onClick={handleJoinBtnPush}>Join by room identifier</BaseButton>}
-        </>
+        <BaseInput
+            isFancy={true}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyUp={handleKeyUp}
+            type='text'
+            placeholder="Join by room id"/>
     );
 };
 

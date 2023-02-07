@@ -1,8 +1,9 @@
 @import "src/styles/colors";
-.input_btn{
+
+.input_btn {
   border: 2px solid $light-grey;
   border-radius: 75px;
-  background-color:  $light-grey;
+  background-color: $light-grey;
   font-size: 1rem;
   color: $light-grey;
   padding: 16px;
@@ -15,12 +16,12 @@
   height: 100%;
 }
 
-.input_field{
+.input_field {
   outline: none;
-  border:none;
-  background-image:none;
-  background-color:transparent;
+  border: none;
+  background-image: none;
+  background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none;  
+  box-shadow: none;
 }
