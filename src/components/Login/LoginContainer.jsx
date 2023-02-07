@@ -20,7 +20,7 @@ const LoginContainer = (props) => {
     return (
         <div className={props.className}>
             <div className={classes.appTitleContainer}>
-                RCUN
+                {/*RCUN*/}
             </div>
 
             <LoginForm
