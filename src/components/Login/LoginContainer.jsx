@@ -19,33 +19,14 @@ const LoginContainer = (props) => {
     }
     return (
         <div className={props.className}>
-            <div className={classes.loginContainerHead}>
-                <div
-                    className={authType === 'signup' ? classes.authTypeActive : ''}
-                    onClick={() => setAuthType('signup')}
-                >
-                    SIGN UP
-                </div>
-                <div
-                    className={authType === 'login' ? classes.authTypeActive : ''}
-                    onClick={() => setAuthType('login')}
-                >
-                    LOG IN
-                </div>
-            </div>
-            <div>
-                {authType === 'login'
-                && <LoginForm className={classes.formContainerInputList}
-                              onLogin={(userToken) => onLogin(userToken)}
-                />
-                }
-                {authType === 'signup'
-                &&
-                <RegistrationForm className={classes.formContainerInputList}
-                                  onRegister={() => setAuthType("login")}/>
-                }
+            <div className={classes.appTitleContainer}>
+                {/*RCUN*/}
             </div>
 
+            <LoginForm
+                className={classes.formContainerInputList}
+                onLogin={(userToken) => onLogin(userToken)}
+            />
         </div>
     );
 };

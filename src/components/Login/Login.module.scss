@@ -8,8 +8,7 @@
   flex-wrap: wrap;
   overflow-y: auto;
   gap: 2.4rem;
-  animation: fade-in 2s;
-  background: linear-gradient(to bottom, $dark-grey, $dark-grey)
+  animation: fade-in 1.5s linear;
 }
 
 @keyframes fade-in {
@@ -25,25 +24,10 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 1.2rem;
-  width: 30%;
+  width: 24vw;
   min-width: 400px;
   justify-content: center;
   margin-top: -110px;
-  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-  /* From https://css.glass */
-  //background: rgba(67, 67, 67, 0.36);
-  //box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  //backdrop-filter: blur(15px);
-  //-webkit-backdrop-filter: blur(15px);
-}
-
-.appTitleContainer {
-  align-self: center;
-  width: 30%;
-  min-width: 400px;
-  color: $light-grey;
 }
 
 .loginContainerHead {
@@ -67,6 +51,28 @@
   margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.0rem;
+  gap: 1.5rem;
 }
 
+.loginText {
+  font-size: 1.3rem;
+  color: $light-grey;
+  text-align: center;
+  padding-bottom: 1.8rem;
+  letter-spacing: 0.07em;
+}
+
+.appTitleContainer {
+  position: fixed;
+  left: 54px;
+  top: 38px;
+
+  align-self: center;
+  width: 30%;
+  min-width: 400px;
+  color: $light-grey;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
