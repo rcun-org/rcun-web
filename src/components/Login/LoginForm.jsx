@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import BaseInput from "../UI/Input/BaseInput";
 import {login} from "../../services/auth.service";
 import BaseButton from "../UI/Button/BaseButton";
+import classes from './Login.module.scss'
 
 const LoginForm = ({className, onLogin}) => {
     const [loginData, setLoginData] = useState({
@@ -21,21 +22,36 @@ const LoginForm = ({className, onLogin}) => {
         }
     }
 
+    const handleKeyUp = (e) => {
+        if (e.keyCode === 13) {
+            handleLogin()
+        }
+    }
+
     return (
         <div className={className}>
+            <div className={classes.loginText}>
+                We know you?
+            </div>
+
             <BaseInput
+                isFancy={true}
                 value={loginData.username}
+                onKeyUp={handleKeyUp}
                 onChange={(event) => setLoginData({...loginData, username: event.target.value})}
                 type='text'
                 placeholder="Username"/>
 
             <BaseInput
+                isFancy={true}
                 value={loginData.password}
                 onChange={(event) => setLoginData({...loginData, password: event.target.value})}
+                onKeyUp={handleKeyUp}
                 type='password'
                 placeholder="Password"
             />
-            <BaseButton onClick={handleLogin}>Continue</BaseButton>
+
+            {/*<BaseButton onClick={handleLogin}>Continue</BaseButton>*/}
         </div>
     );
 };

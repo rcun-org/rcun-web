@@ -16,6 +16,12 @@ export const register = async ({username, email, password, password2}) => {
 }
 
 export const login = async ({username, password}) => {
+    // add auto-signup
+    try {
+        const reg = await register({username, password, password2: password, email: ''})
+    } catch (e) {
+        console.log("already signed up!")
+    }
     try {
         const response = await axios.post(API_URL + 'users/login', {
             username,
