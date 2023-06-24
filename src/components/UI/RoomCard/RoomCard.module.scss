@@ -1,9 +1,12 @@
 @import "src/styles/colors";
 
+$card-width: 350px;
+
 .container {
+  position: relative;
   background-color: #5d5d5d;
-  width: 250px;
-  height: 160px;
+  width: $card-width;
+  height: $card-width / 1.6;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -13,7 +16,12 @@
 }
 
 .footer {
+  position: absolute;
   display: flex;
+
+  bottom: 0;
+  width: 100%;
+
   box-sizing: border-box;
   padding: 0.8rem;
   justify-content: space-between;
@@ -26,7 +34,6 @@
 
   background: rgba(32, 32, 32, 0.67);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
 
   //transform: translate3d(0, 0, 0);
   //-ms-transform: translate3d(0, 0, 0);
@@ -57,9 +64,8 @@
   font-size: 1.2rem;
 }
 
-
 .cardTitleMarquee {
-  width: calc(250px - 1.75rem);
+  width: calc($card-width - 1.75rem);
   height: 25px;
 
   overflow: hidden;
@@ -79,7 +85,7 @@
 
 .cardTitleMarquee span {
   float: left;
-  width: 50%;
+  width: 100%;
 }
 
 @keyframes marquee {

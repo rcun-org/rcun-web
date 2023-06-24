@@ -1,0 +1,9 @@
+@import "../../styles/colors.scss";
+
+.zone {
+  width: 100%;
+  height: 100%;
+  background-color: blueviolet;
+  border: 1px dashed red;
+  z-index: 999;
+}

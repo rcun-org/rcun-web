@@ -1,0 +1,14 @@
+@import "../../styles/colors.scss";
+
+$zone-width: 33vw;
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  // height: $zone-width;
+  z-index: 200;
+  opacity: 5%;
+}

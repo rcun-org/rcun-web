@@ -2,8 +2,12 @@
   height: 100%;
 }
 
-.video_and_player {
+.video_player_container {
   height: 100%;
   display: grid;
-  grid-template-rows: 90% 10%;
+  // grid-template-rows: 90% 10%;
+}
+
+.video_player {
+  pointer-events: none;
 }

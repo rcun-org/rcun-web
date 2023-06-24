@@ -17,6 +17,8 @@ $chat-text-font-size: 13px;
   padding: 8px 16px 0 8px;
   font-size: $chat-text-font-size;
   font-family: "Exo 2", sans-serif;
+
+  z-index: 1600;
 }
 
 .msg_history {

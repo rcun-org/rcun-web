@@ -16,8 +16,8 @@
 
 .container {
   display: grid;
-  padding-left: 1.8rem;
-  padding-right: 1.8rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   grid-template-columns: 10fr 4fr;
   height: 100%;
   align-content: start;
@@ -36,8 +36,8 @@
   flex-wrap: wrap;
 
   overflow-y: auto;
-  -ms-overflow-style: none;  /* hide scrollbar for IE and Edge */
-  scrollbar-width: none;  /* hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* hide scrollbar for Firefox */
 }
 
 .roomsList::-webkit-scrollbar {
@@ -68,4 +68,3 @@
     opacity: 1;
   }
 }
-
