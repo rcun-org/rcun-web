@@ -11,6 +11,7 @@ const CursorController = ({
 
   const handleUnfocus = e => {
     subCursor.classList = []
+    subCursor.dataset.scaleFactor = 1
   }
 
   return (

@@ -8,6 +8,7 @@ ReactDom.render(<App />, root)
 // on mouse move
 const cursor = document.getElementById("cursor")
 const subCursor = document.getElementById("sub-cursor")
+subCursor.dataset.scaleFactor = 1
 
 const handleMouseMove = e => {
   //   document.body.style.cursor = "none"
@@ -17,7 +18,7 @@ const handleMouseMove = e => {
 
   subCursor.style.transform = `translate(${e.pageX - subCursorWidth / 2}px, ${
     e.pageY - subCursorHeight / 2
-  }px)`
+  }px) scale(${subCursor.dataset.scaleFactor})`
 }
 
 window.addEventListener("mousemove", handleMouseMove)

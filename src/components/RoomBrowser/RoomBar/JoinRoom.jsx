@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import InputButton from "../../UI/InputButton";
 import BaseButton from "../../UI/Button/BaseButton";
 import {useHistory} from "react-router-dom"
 import BaseInput from "../../UI/Input/BaseInput";

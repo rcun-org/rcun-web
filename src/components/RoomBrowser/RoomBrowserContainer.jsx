@@ -44,18 +44,11 @@ const RoomBrowserContainer = () => {
           performanceSwitch,
         }}
       >
-        <div className={classes.header}>
-          Browse @ RCUN
-          {/* <Switch
-                        label="Performance"
-                        color="default"
-                        checked={performanceSwitch}
-                        onChange={handlePerformanceSwitch}
-                        name="performance"
-                    /> */}
-        </div>
+        <div className={classes.header}>Browse @ RCUN</div>
         <br />
+
         <RoomsList className={classes.roomsList} />
+        
         <RoomRightHalf className={classes.roomBar} />
       </RoomsContext.Provider>
     </div>

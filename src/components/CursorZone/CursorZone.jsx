@@ -4,7 +4,29 @@ const subCursor = document.querySelector("#sub-cursor")
 const cursor = document.querySelector("#cursor")
 
 const CursorZone = ({ handler, zoneType }) => {
-  const handleCursorMutation = _ => {
+  const doCursorSize = e => {
+    let x = subCursor.getBoundingClientRect().x
+    let y = subCursor.getBoundingClientRect().y
+
+    // let centerness = 1 if centered, 0 if at edge
+    // get absolute page width
+    let pageWidth = window.innerWidth * 0.8
+    let pageHeight = window.innerHeight * 0.7
+    let centerness = 1 - Math.abs(x - pageWidth / 2) / (pageWidth / 2)
+    // centerness but two dimensional
+    let centerness2d =
+      1 -
+      Math.sqrt(
+        Math.pow(x - pageWidth / 2, 2) + Math.pow(y - pageHeight / 2, 2)
+      ) /
+        Math.sqrt(Math.pow(pageWidth / 2, 2) + Math.pow(pageHeight / 2, 2))
+
+    console.log("centerness: ", centerness)
+    // add data to subCursor element tag
+    subCursor.dataset.scaleFactor = Math.max(centerness2d, 0.4)
+  }
+
+  const handleMouseMove = e => {
     if (cursor && subCursor) {
       subCursor.classList = []
       cursor.classList.remove("show")
@@ -17,6 +39,7 @@ const CursorZone = ({ handler, zoneType }) => {
       } else if (zoneType === "forward") {
         subCursor.classList.add("cursor-forward")
       }
+      doCursorSize(e)
     }
   }
 
@@ -24,14 +47,14 @@ const CursorZone = ({ handler, zoneType }) => {
     handler()
     if (zoneType === "playing" || zoneType === "paused") {
       zoneType = zoneType === "playing" ? "paused" : "playing"
-      handleCursorMutation()
+      handleMouseMove(e)
     }
   }
 
   return (
     <div
       onClick={handleClick}
-      onMouseMove={handleCursorMutation}
+      onMouseMove={handleMouseMove}
       className={classes.zone}
     ></div>
   )
