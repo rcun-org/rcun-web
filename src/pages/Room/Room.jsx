@@ -10,6 +10,7 @@ import classes from "./room.module.scss"
 import { io } from "socket.io-client"
 import CursorController from "../../components/CursorController/CursorController"
 
+
 const WS_URL = process.env["REACT_APP_WS_SERVER"]
 const ALLOWED_DELAY = 3
 
@@ -34,13 +35,15 @@ const Room = () => {
   }, [])
 
   // ws
+  const [_hasRun, _setHasRun] = useState(false)
   useEffect(() => {
-    if (!!roomData) {
+    if (!!roomData && !_hasRun) {
+      _setHasRun(true)
+
       socketRef.current = new io(WS_URL, {
         transports: ["websocket", "polling"],
       })
 
-      // ws hooks
       socketRef.current.on("connect", function () {
         console.log("on connect success")
         console.log("room data", roomData)
@@ -54,12 +57,27 @@ const Room = () => {
         socketRef.current.io.opts.transports = ["polling", "websocket"]
       })
 
+      socketRef.current.on("room:stateUpdate", function (e) {
+        console.log("received room update", e, typeof e)
+        let roomEventChange = e
+        let newState = roomData
+        for (let k in roomEventChange) {
+          if (k !== "sender") {
+            newState[k] = roomEventChange[k]
+          }
+          if (k === "video") {
+            newState["backupVideo"] = roomEventChange.video.link
+          }
+        }
+        console.log("setting new roomstate:", newState)
+        setRoomData({ ...newState })
+        // fetchRoomData()
+      })
+
       // on receive event
       socketRef.current.on("player:event", function (e) {
         console.log("received socket msg", JSON.parse(e))
-
         let playerEventChange = JSON.parse(e)
-
         // if (playerEventChange.sender !== userNameRef.current) {
         let newState = playerState
         for (let k in playerEventChange) {
@@ -67,12 +85,10 @@ const Room = () => {
             newState[k] = playerEventChange[k]
           }
         }
-
-        if (
-          Math.abs(
-            playerRef.current.getCurrentTime() - newState.playerTimecode
-          ) > ALLOWED_DELAY
-        ) {
+        const registeredDelay = Math.abs(
+          playerRef.current.getCurrentTime() - newState.playerTimecode
+        )
+        if (registeredDelay > ALLOWED_DELAY) {
           playerRef.current.seekTo(newState.playerTimecode)
         }
         setPlayerState({ ...newState })

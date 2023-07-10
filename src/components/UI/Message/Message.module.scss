@@ -1,0 +1,35 @@
+@import "src/styles/colors";
+
+.messageEntry {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 10px;
+  // gap: 10px;
+  // height: 32px;
+}
+
+.username {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.text {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 4px;
+  padding: 4px;
+  overflow-wrap: break-word;
+}
+
+.selfMessage {
+  grid-template-columns: 6fr 1fr;
+}
+
+.selfMessageElement {
+  background-color: rgba(69, 69, 69, 0.5);
+  color: white;
+}
