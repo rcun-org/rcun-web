@@ -1,21 +1,23 @@
-import React, {useContext} from 'react';
-import BaseButton from "../UI/Button/BaseButton";
-import {logout} from "../../services/auth.service";
-import {AuthContext} from "../../context";
+import React, { useContext } from "react"
+import { logout } from "../../services/auth.service"
+import { AuthContext } from "../../context"
+import IconButton from "../UI/IconButton/IconButton"
+import LogoutIcon from "@mui/icons-material/Logout"
 
 const Logout = () => {
-    const {setUserToken} = useContext(AuthContext)
-    return (
-        <div>
-            <BaseButton onClick={() => {
-                logout()
-                setUserToken(null)
-            }
-            }>
-                Logout
-            </BaseButton>
-        </div>
-    );
-};
+  const { setUserToken } = useContext(AuthContext)
+  return (
+    <div>
+      <IconButton
+        onClick={() => {
+          logout()
+          setUserToken(null)
+        }}
+      >
+        <LogoutIcon />
+      </IconButton>
+    </div>
+  )
+}
 
-export default Logout;
+export default Logout

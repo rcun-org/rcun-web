@@ -1,9 +1,15 @@
 @import "src/styles/colors";
 
 .header {
+  display: flex;
+  // display: none;
+  flex-direction: row;
+
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
   padding-left: 1.5rem;
+
+  align-items: center;
 
   color: $light-grey;
 
@@ -21,28 +27,29 @@
   display: grid;
   padding-left: 2.5rem;
   padding-right: 2.5rem + 1.5rem;
-  grid-template-columns: 10fr 4fr;
+  // grid-template-columns: 10fr;
   height: 100%;
   align-content: start;
 
   opacity: 0;
-  animation: fade-in 500ms ease-in-out 500ms both;
+  animation: fade-in 500ms ease 500ms both;
 }
 
 .roomsList {
   display: flex;
-  align-content: flex-start;
+  // align-content: center;
   gap: 1rem;
 
   padding-top: 1.5rem;
   padding-left: 1.5rem;
-  padding-right: 1.2rem + 1.5rem;
+  padding-right: 1.5rem;
   padding-bottom: 3rem;
+  // padding-top: 75rem;
 
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-
+  // box-sizing: border-box;
   overflow-y: auto;
   -ms-overflow-style: none; /* hide scrollbar for IE and Edge */
   scrollbar-width: none; /* hide scrollbar for Firefox */
@@ -60,12 +67,13 @@
 
 .roomBar {
   display: flex;
-  padding-top: 1.5rem;
+  // padding-top: 1.5rem;
   padding-left: 20px;
-  gap: 20px;
-  align-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  gap: 2px;
+  align-content: start;
+  flex-direction: row;
+  align-items: end;
+  // flex-wrap: wrap;
   overflow-y: auto;
 }
 

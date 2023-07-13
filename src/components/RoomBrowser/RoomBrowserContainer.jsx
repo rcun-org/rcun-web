@@ -1,11 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react"
 import classes from "./RoomBrowser.module.scss"
 import RoomsList from "./RoomsList"
-import RoomRightHalf from "./RoomBar/RoomBar"
+import RoomBar from "./RoomBar/RoomBar"
 
 import { RoomsContext } from "../../context"
-import AppHeader from "../AppLayout/AppHeader"
-import { Switch } from "@mui/material"
 
 const RoomBrowserContainer = () => {
   const [rooms, setRooms] = useState([])
@@ -17,6 +15,12 @@ const RoomBrowserContainer = () => {
     if (!!cachePS) {
       setPerformanceSwitch(cachePS)
     }
+
+    const subCursor = document.querySelector("#sub-cursor")
+    subCursor.classList.remove("cursor-pause")
+    subCursor.classList.remove("cursor-play")
+    subCursor.classList.remove("cursor-back")
+    subCursor.classList.remove("cursor-forward")
   }, [])
 
   const handlePerformanceSwitch = (e, v) => {
@@ -44,12 +48,13 @@ const RoomBrowserContainer = () => {
           performanceSwitch,
         }}
       >
-        <div className={classes.header}>Browse @ RCUN</div>
-        <br />
+        <div className={classes.header}>
+          Browse @ RCUN <RoomBar className={classes.roomBar} />
+        </div>
+
+        {/* <br /> */}
 
         <RoomsList className={classes.roomsList} />
-        
-        <RoomRightHalf className={classes.roomBar} />
       </RoomsContext.Provider>
     </div>
   )

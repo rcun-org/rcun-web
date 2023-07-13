@@ -12,6 +12,7 @@ $card-height: $card-width / 1.5;
   cursor: pointer;
   transition: 150ms;
   transform: scale(1);
+  // z-index: -100;
 }
 
 .container:hover {
