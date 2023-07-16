@@ -26,25 +26,21 @@ const RoomsList = props => {
     fetchRooms()
   }, [])
 
-  function remToPixels(remString) {
-    const rem = parseFloat(remString)
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
-  }
-
-  const cardWidth = remToPixels(styles.cardWidth)
-  console.log("Card width calculated:", cardWidth)
+  const cardHeightRem = styles.cardHeight
+  const cardWidthRem = `calc(${cardHeightRem} * 1.75)`
+  console.log("Card h calculated:", cardHeightRem)
 
   return (
     <div {...props}>
       {searchedVideos.map((room, index) => {
         return loading ? (
           <Skeleton
-            width={cardWidth * 1.25}
-            height={cardWidth / 1.75}
+            // width={cardWidth * 1.05}
+            // height={cardWidth / 1.75}
             sx={{
               bgcolor: "#404040",
-              width: styles.cardWidth,
-              height: styles.cardHeight,
+              width: cardWidthRem,
+              height: cardHeightRem,
               zIndex: -100,
               borderRadius: "16px",
             }}

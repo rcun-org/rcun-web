@@ -23,6 +23,14 @@ $card-height: $card-width / 1.75;
 .container:hover {
   transform: scale(1) perspective(500px) rotateX(8deg);
   z-index: 500;
+
+  $shadow-blur: 14px;
+  $shadow-y: 0.8rem;
+  $shadow-color: rgb(70, 70, 70, 0.5);
+  $shadow-inset: 0rem;
+  -webkit-box-shadow: 0px $shadow-y $shadow-blur $shadow-inset $shadow-color;
+  -moz-box-shadow: 0px $shadow-y $shadow-blur $shadow-inset $shadow-color;
+  box-shadow: 0px $shadow-y $shadow-blur $shadow-inset $shadow-color;
 }
 
 .body {
