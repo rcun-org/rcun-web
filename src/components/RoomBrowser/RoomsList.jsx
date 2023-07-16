@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import RoomCard from "../UI/RoomCard/RoomCard"
+import styles from "../UI/RoomCard/RoomCard.module.scss"
 
 import { AuthContext, RoomsContext } from "../../context"
 import { getRooms, getRoomsDetails } from "../../services/room.services"
@@ -25,21 +26,30 @@ const RoomsList = props => {
     fetchRooms()
   }, [])
 
-  console.log("rooms:", rooms)
+  function remToPixels(remString) {
+    const rem = parseFloat(remString)
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+  }
+
+  const cardWidth = remToPixels(styles.cardWidth)
+  console.log("Card width calculated:", cardWidth)
 
   return (
     <div {...props}>
       {searchedVideos.map((room, index) => {
         return loading ? (
           <Skeleton
+            width={cardWidth * 1.25}
+            height={cardWidth / 1.75}
             sx={{
-              bgcolor: "#484848",
-              width: "calc(30% - 1.2rem)",
+              bgcolor: "#404040",
+              width: styles.cardWidth,
+              height: styles.cardHeight,
               zIndex: -100,
+              borderRadius: "16px",
             }}
             animation="wave"
             variant="rounded"
-            height={160}
           />
         ) : (
           <RoomCard key={index} index={index} room={room} />

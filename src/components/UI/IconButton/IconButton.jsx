@@ -8,9 +8,9 @@ const IconButton = props => {
 
   useEffect(() => {
     if (isFocused) {
-      c.classList.add("cursor-over-button")
+      c.classList.add("cursor-over-icon-button")
     } else {
-      c.classList.remove("cursor-over-button")
+      c.classList.remove("cursor-over-icon-button")
     }
   }, [isFocused])
 

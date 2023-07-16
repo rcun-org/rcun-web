@@ -27,7 +27,7 @@
 $cursor-idle-size: 10px;
 
 #sub-cursor {
-  transition: all 50ms ease-out, background-color 1ms linear,
+  transition: all 70ms ease-out, background-color 1ms linear,
     width 100ms ease-out, height 100ms ease-out, border-radius 100ms ease-out;
   position: absolute;
   width: $cursor-idle-size;
@@ -49,6 +49,12 @@ $cursor-idle-size: 10px;
 
 .cursor-over-button {
   $size: $cursor-idle-size * 1.5;
+  width: $size !important;
+  height: $size !important;
+}
+
+.cursor-over-icon-button {
+  $size: $cursor-idle-size * 0.6;
   width: $size !important;
   height: $size !important;
 }

@@ -21,7 +21,7 @@ const CreateRoom = () => {
   }, [modalActive])
   return (
     <>
-      <IconButton className="createRoom" onClick={() => setModalActive(true)}>
+      <IconButton onClick={() => setModalActive(true)}>
         <AddBoxOutlined />
       </IconButton>
       <BaseModal active={modalActive} setActive={setModalActive}>

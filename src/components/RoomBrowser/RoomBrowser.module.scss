@@ -76,16 +76,26 @@
   flex-grow: 1;
 }
 
+.divider {
+  height: 1.2em;
+  width: 2px;
+  margin-left: 16px;
+  margin-right: 16px;
+  background-color: #353535;
+}
+
 .roomBar {
   display: flex;
   // padding-top: 1.5rem;
-  padding-left: 20px;
-  gap: 2px;
+  // padding-left: 20px;
+  gap: 0.5rem;
   align-content: start;
   flex-direction: row;
   align-items: end;
   // flex-wrap: wrap;
   overflow-y: auto;
+
+  margin-left: -1px;
 }
 
 @keyframes fade-in {

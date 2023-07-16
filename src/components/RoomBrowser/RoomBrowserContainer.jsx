@@ -17,10 +17,7 @@ const RoomBrowserContainer = () => {
     }
 
     const subCursor = document.querySelector("#sub-cursor")
-    subCursor.classList.remove("cursor-pause")
-    subCursor.classList.remove("cursor-play")
-    subCursor.classList.remove("cursor-back")
-    subCursor.classList.remove("cursor-forward")
+    subCursor.classList = []
   }, [])
 
   const handlePerformanceSwitch = (e, v) => {
@@ -49,7 +46,11 @@ const RoomBrowserContainer = () => {
         }}
       >
         <div className={classes.header}>
-          Browse @ RCUN <RoomBar className={classes.roomBar} />
+          RCUN
+          <div className={classes.divider} />
+          Browse rooms
+          <div className={classes.divider} />
+          <RoomBar className={classes.roomBar} />
         </div>
 
         {/* <br /> */}
