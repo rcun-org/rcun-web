@@ -6,6 +6,7 @@
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
   padding-left: 1.5rem;
+  padding-right: 1.5rem;
   align-items: center;
   color: $light-grey;
   background-color: transparent;
@@ -23,9 +24,9 @@
   // height: 48px;
   // box-shadow: $shadow-low;
 
-  -webkit-box-shadow: 0px 9px 20px 4px rgba(40, 40, 40, 1);
-  -moz-box-shadow: 0px 9px 20px 4px rgba(40, 40, 40, 1);
-  box-shadow: 0px 9px 20px 4px rgba(40, 40, 40, 1);
+  -webkit-box-shadow: 0px 9px 20px 4px $grey-400;
+  -moz-box-shadow: 0px 9px 20px 4px $grey-400;
+  box-shadow: 0px 9px 20px 4px $grey-400;
 
   // -webkit-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
   // -moz-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
@@ -83,8 +84,16 @@
   background-color: #353535;
 }
 
+.headerEl {
+  display: inline-flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .roomBar {
+  width: 100%;
   display: flex;
+  padding-right: 0px;
   // padding-top: 1.5rem;
   // padding-left: 20px;
   gap: 0.5rem;

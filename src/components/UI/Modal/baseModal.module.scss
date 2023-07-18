@@ -11,13 +11,14 @@
   justify-content: center;
   pointer-events: none;
   opacity: 0;
-  transition: 0.3s ease-out all;
+
+  transition: all 0.3s ease-out;
 
   background-color: rgba(33, 33, 33, 0.75);
 
   /* From https://css.glass */
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  // backdrop-filter: blur(2px);
+  // -webkit-backdrop-filter: blur(2px);
 }
 
 .modal.active {
@@ -30,10 +31,10 @@
 
 .modal__content {
   padding: 1.7rem;
-  border-radius: 20px;
-  background-color: $dark-grey;
+  border-radius: 1rem;
+  background-color: $grey-400;
   min-width: 400px;
-  transform: scale(0.65);
+  transform: scale(0.9);
   transition: 1s all;
 
   -webkit-box-shadow: 0px 0rem 120rem 0px rgba(157, 175, 189, 0.3);

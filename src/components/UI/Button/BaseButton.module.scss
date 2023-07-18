@@ -9,7 +9,7 @@
   padding: 1rem 4.37rem;
   cursor: pointer;
 
-  background-color: $dark-grey;
+  background-color: $grey-400;
 
   transition: 150ms;
 }
@@ -17,5 +17,5 @@
 .baseButton:hover {
   outline: none !important;
   background-color: $light-grey;
-  color: $dark-grey-lighter;
+  color: $grey-500;
 }

@@ -46,10 +46,10 @@ const RoomBrowserContainer = () => {
         }}
       >
         <div className={classes.header}>
-          RCUN
+          <div className={classes.headerEl}>RCUN</div>
           <div className={classes.divider} />
-          Browse rooms
-          <div className={classes.divider} />
+          <div className={classes.headerEl}>Browse rooms</div>
+          {/* <div className={classes.divider} /> */}
           <RoomBar className={classes.roomBar} />
         </div>
 

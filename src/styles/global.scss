@@ -2,7 +2,7 @@
 
 * {
   font-family: "Exo 2", sans-serif;
-  // cursor: none !important;
+  cursor: none !important;
 }
 
 #cursor {
@@ -54,7 +54,7 @@ $cursor-idle-size: 10px;
 }
 
 .cursor-over-icon-button {
-  $size: $cursor-idle-size * 0.6;
+  $size: $cursor-idle-size * 0;
   width: $size !important;
   height: $size !important;
 }

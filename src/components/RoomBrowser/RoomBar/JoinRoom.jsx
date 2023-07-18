@@ -7,6 +7,8 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 import IconButton from "../../UI/IconButton/IconButton"
 import BaseModal from "../../UI/Modal/BaseModal"
 
+import InputOutlinedIcon from "@mui/icons-material/InputOutlined"
+
 const JoinRoom = () => {
   let history = useHistory()
 

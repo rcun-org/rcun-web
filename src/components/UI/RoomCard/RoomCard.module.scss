@@ -10,7 +10,7 @@ $card-height: $card-width / 1.75;
 
 .container {
   position: relative;
-  background-color: #5d5d5d;
+  // background-color: red;
   width: $card-width;
   height: $card-height;
   border-radius: 16px;
@@ -26,7 +26,7 @@ $card-height: $card-width / 1.75;
 
   $shadow-blur: 14px;
   $shadow-y: 0.8rem;
-  $shadow-color: rgb(70, 70, 70, 0.5);
+  $shadow-color: rgba($grey-500, 0.5);
   $shadow-inset: 0rem;
   -webkit-box-shadow: 0px $shadow-y $shadow-blur $shadow-inset $shadow-color;
   -moz-box-shadow: 0px $shadow-y $shadow-blur $shadow-inset $shadow-color;
@@ -97,7 +97,7 @@ $card-height: $card-width / 1.75;
   overflow: hidden;
   // mix-blend-mode: difference;
 
-  background-color: rgba(33, 33, 33, 0.86);
+  background-color: rgba($grey-500, 0.85);
 
   transition: all 150ms;
 }
