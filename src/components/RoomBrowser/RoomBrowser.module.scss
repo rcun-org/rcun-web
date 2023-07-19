@@ -94,6 +94,7 @@
   width: 100%;
   display: flex;
   padding-right: 0px;
+
   // padding-top: 1.5rem;
   // padding-left: 20px;
   gap: 0.5rem;
@@ -104,6 +105,10 @@
   overflow-y: auto;
 
   margin-left: -1px;
+
+  // display: inline-flex;
+  // white-space: nowrap;
+  // flex-shrink: 0;
 }
 
 @keyframes fade-in {

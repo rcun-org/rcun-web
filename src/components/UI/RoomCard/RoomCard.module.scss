@@ -26,7 +26,7 @@ $card-height: $card-width / 1.75;
 
   $shadow-blur: 14px;
   $shadow-y: 0.8rem;
-  $shadow-color: rgba($grey-500, 0.5);
+  $shadow-color: rgba($shadow-light, 0.15);
   $shadow-inset: 0rem;
   -webkit-box-shadow: 0px $shadow-y $shadow-blur $shadow-inset $shadow-color;
   -moz-box-shadow: 0px $shadow-y $shadow-blur $shadow-inset $shadow-color;

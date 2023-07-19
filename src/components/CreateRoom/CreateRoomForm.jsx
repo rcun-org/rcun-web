@@ -22,7 +22,7 @@ const CreateRoomForm = ({ roomCreated }) => {
 
   return (
     <div className={classes.formContainerInputList}>
-      {/* <spacer /> */}
+      <div className="spacer" />
       <BaseInput
         value={roomData.username}
         onChange={event =>
@@ -39,7 +39,7 @@ const CreateRoomForm = ({ roomCreated }) => {
         type="text"
         placeholder="Youtube video link"
       />
-      {/* <spacer /> */}
+      <div className="spacer" />
       <BaseButton onClick={handleCreate}>Create room</BaseButton>
     </div>
   )

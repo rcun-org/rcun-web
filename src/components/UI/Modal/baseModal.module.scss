@@ -14,7 +14,7 @@
 
   transition: all 0.3s ease-out;
 
-  background-color: rgba(33, 33, 33, 0.75);
+  background-color: rgba($grey-300, 0.82);
 
   /* From https://css.glass */
   // backdrop-filter: blur(2px);
@@ -25,21 +25,21 @@
   opacity: 1;
   pointer-events: all;
   z-index: 1000;
-  // backdrop-filter: blur(13.9px);
+  backdrop-filter: blur(0.3rem);
   // -webkit-backdrop-filter: blur(13.9px);
 }
 
 .modal__content {
   padding: 1.7rem;
   border-radius: 1rem;
-  background-color: $grey-400;
+  // background-color: $grey-400;
   min-width: 400px;
   transform: scale(0.9);
   transition: 1s all;
 
-  -webkit-box-shadow: 0px 0rem 120rem 0px rgba(157, 175, 189, 0.3);
-  -moz-box-shadow: 0px 0rem 120rem 0px rgba(157, 175, 189, 0.3);
-  box-shadow: 0px 0rem 120rem 0px rgba(157, 175, 189, 0.3);
+  // -moz-box-shadow: 0px 0rem 100rem 0px rgba(157, 175, 189, 0.3);
+  // border: 1px solid white;
+  // -webkit-box-shadow: 0px 0rem 100rem 0px rgba($shadow-light, 0.15);
 }
 
 .modal__content.active {

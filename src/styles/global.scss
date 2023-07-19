@@ -48,7 +48,7 @@ $cursor-idle-size: 10px;
 }
 
 .cursor-over-button {
-  $size: $cursor-idle-size * 1.5;
+  $size: $cursor-idle-size * 0;
   width: $size !important;
   height: $size !important;
 }

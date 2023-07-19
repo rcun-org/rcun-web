@@ -25,9 +25,11 @@ const CreateRoom = () => {
         <AddBoxOutlined />
       </IconButton>
       <BaseModal active={modalActive} setActive={setModalActive}>
-        <div className={classes.loginContainerHead}>Create a new room</div>
         {!roomCreatedId ? (
-          <CreateRoomForm roomCreated={roomId => setRoomCreatedId(roomId)} />
+          <div>
+            <div className={classes.loginContainerHead}>Create a new room</div>
+            <CreateRoomForm roomCreated={roomId => setRoomCreatedId(roomId)} />
+          </div>
         ) : (
           <RedirectToRoomConfirm
             confirmed={() => {

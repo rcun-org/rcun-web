@@ -20,6 +20,10 @@
   }
 }
 
+.spacer {
+  height: 0.5rem;
+}
+
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -27,7 +31,7 @@
   width: 24vw;
   min-width: 400px;
   justify-content: center;
-  margin-top: -110px;
+  // margin-top: -110px;
 }
 
 .loginContainerHead {
@@ -51,7 +55,7 @@
   margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .loginText {

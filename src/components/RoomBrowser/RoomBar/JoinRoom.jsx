@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import BaseButton from "../../UI/Button/BaseButton"
 import { useHistory } from "react-router-dom"
 import BaseInput from "../../UI/Input/BaseInput"
-import classes from "../../UI/Input/BaseInput.module.scss"
+import classes from "./SearchRoom.module.scss"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 import IconButton from "../../UI/IconButton/IconButton"
 import BaseModal from "../../UI/Modal/BaseModal"
@@ -31,13 +31,15 @@ const JoinRoom = () => {
         <ExitToAppIcon />
       </IconButton>
       <BaseModal active={modalActive} setActive={setModalActive}>
-        <BaseInput
-          isFancy={true}
-          onChange={e => setInputValue(e.target.value)}
-          onKeyUp={handleKeyUp}
-          type="text"
-          placeholder="Join by room id"
-        />
+        <div className={classes.column}>
+          <BaseInput
+            isFancy={true}
+            onChange={e => setInputValue(e.target.value)}
+            onKeyUp={handleKeyUp}
+            type="text"
+            placeholder="Join by room id"
+          />
+        </div>
       </BaseModal>
     </>
   )

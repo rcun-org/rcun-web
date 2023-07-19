@@ -4,6 +4,7 @@ import BaseInput from "../../UI/Input/BaseInput"
 import IconButton from "../../UI/IconButton/IconButton"
 import BaseModal from "../../UI/Modal/BaseModal"
 import { Search } from "@mui/icons-material"
+import classes from "./SearchRoom.module.scss"
 
 const SearchRoom = () => {
   const [inputValue, setInputValue] = useState("")
@@ -27,13 +28,15 @@ const SearchRoom = () => {
         <Search />
       </IconButton>
       <BaseModal active={modalActive} setActive={setModalActive}>
-        <BaseInput
-          isFancy={true}
-          onChange={e => setInputValue(e.target.value)}
-          onKeyUp={handleKeyUp}
-          type="text"
-          placeholder="Search room"
-        />
+        <div className={classes.column}>
+          <BaseInput
+            isFancy={true}
+            onChange={e => setInputValue(e.target.value)}
+            onKeyUp={handleKeyUp}
+            type="text"
+            placeholder="Search room"
+          />
+        </div>
       </BaseModal>
     </>
   )
