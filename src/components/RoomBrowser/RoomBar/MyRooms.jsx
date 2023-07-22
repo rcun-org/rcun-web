@@ -1,22 +1,33 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
-
 import BaseModal from "../../UI/Modal/BaseModal"
 import classes from "./MyRooms.module.scss"
-
 import IconButton from "../../UI/IconButton/IconButton"
 import WindowOutlinedIcon from "@mui/icons-material/WindowOutlined"
 import BaseButton from "../../UI/Button/BaseButton"
-import SearchRoom from "./SearchRoom"
+import { RoomsContext } from "../../../context"
 
 const MyRooms = () => {
   const history = useHistory()
+
   const [modalActive, setModalActive] = useState(false)
   const [roomCreatedId, setRoomCreatedId] = useState(null)
+
+  const { setRoomFilter } = useContext(RoomsContext)
 
   useEffect(() => {
     setRoomCreatedId(null)
   }, [modalActive])
+
+  const handleMyRooms = () => {
+    setRoomFilter("my-rooms")
+    setModalActive(false)
+  }
+
+  const handlePublicRooms = () => {
+    setRoomFilter("public-rooms")
+    setModalActive(false)
+  }
 
   return (
     <>
@@ -26,9 +37,8 @@ const MyRooms = () => {
       <BaseModal active={modalActive} setActive={setModalActive}>
         <div className={classes.column}>
           {/* <SearchRoom /> */}
-          <BaseButton>My rooms</BaseButton>
-          <BaseButton>Friends' rooms</BaseButton>
-          <BaseButton>Public rooms</BaseButton>
+          <BaseButton onClick={handleMyRooms}>My rooms</BaseButton>
+          <BaseButton onClick={handlePublicRooms}>Public rooms</BaseButton>
         </div>
       </BaseModal>
     </>

@@ -1,14 +1,17 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useContext, useMemo, useState } from "react"
 import classes from "./RoomBrowser.module.scss"
 import RoomsList from "./RoomsList"
 import RoomBar from "./RoomBar/RoomBar"
 
-import { RoomsContext } from "../../context"
+import { RoomsContext, AuthContext } from "../../context"
 
 const RoomBrowserContainer = () => {
   const [rooms, setRooms] = useState([])
   const [roomSearch, setRoomSearch] = useState("")
+  const [roomFilter, setRoomFilter] = useState("")
   const [performanceSwitch, setPerformanceSwitch] = useState(false)
+
+  const { userData } = useContext(AuthContext)
 
   useEffect(() => {
     let cachePS = localStorage.getItem("performanceSwitch")
@@ -26,13 +29,25 @@ const RoomBrowserContainer = () => {
   }
 
   const searchedVideos = useMemo(() => {
+    let searchedResult = []
+    if (roomFilter === "my-rooms") {
+      for (var i in rooms) {
+        let r = rooms[i]
+        if (r.owner._id === userData.id) {
+          searchedResult.push(r)
+        }
+      }
+      return searchedResult
+    }
+
     if (!roomSearch) {
       return rooms
     }
-    return rooms.filter(room =>
+    searchedResult = rooms.filter(room =>
       room.title.toLowerCase().includes(roomSearch.toLowerCase())
     )
-  }, [roomSearch, rooms])
+    return searchedResult
+  }, [roomSearch, rooms, roomFilter])
 
   return (
     <div className={classes.container}>
@@ -42,6 +57,7 @@ const RoomBrowserContainer = () => {
           setRooms,
           searchedVideos,
           setRoomSearch,
+          setRoomFilter,
           performanceSwitch,
         }}
       >
