@@ -55,11 +55,14 @@ export const getRoomById = async roomId => {
 }
 
 export const loadParts = async ({ posL, posR, m3u8 }) => {
+  // console.log("load parts", posL, posR, m3u8)
   try {
     axios.post(`${API_URL}movies/m3u8/loadParts`, {
-      url: backupVideoRef.current,
-      posL: l,
-      posR: r,
+      url: m3u8,
+      posL,
+      posR,
     })
-  } catch (e) {}
+  } catch (e) {
+    console.log("load parts failed! :C", e)
+  }
 }

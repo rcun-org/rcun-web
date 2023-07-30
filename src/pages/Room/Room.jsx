@@ -135,7 +135,7 @@ const Room = () => {
         const l = Math.max(pos - partsToLoad, 0)
         const r = Math.min(pos + partsToLoad, maxt)
         console.log("t:", t, "req parts from", l, "to", r)
-        loadParts(backupVideoRef.current, l, r)
+        loadParts({ m3u8: backupVideoRef.current, posL: l, posR: r })
       }
     }, 1000) // выполняет каждую секунду
     return () => clearInterval(intervalId)
