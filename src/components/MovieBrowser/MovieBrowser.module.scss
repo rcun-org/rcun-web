@@ -1,0 +1,121 @@
+@import "src/styles/colors";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  align-items: center;
+  color: $light-grey;
+  background-color: transparent;
+  font-family: "Exo 2", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.05em;
+
+  z-index: 1400;
+  // $shadow-low: 0 0 16px rgba(255, 255, 255, 0.08),
+  //   0 4px 16px rgba(255, 255, 255, 0.08);
+  // background-color: white;
+  // height: 48px;
+  // box-shadow: $shadow-low;
+
+  -webkit-box-shadow: 0px 9px 20px 4px $grey-400;
+  -moz-box-shadow: 0px 9px 20px 4px $grey-400;
+  box-shadow: 0px 9px 20px 4px $grey-400;
+
+  // -webkit-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
+  // -moz-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
+  // box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
+}
+
+.container {
+  display: grid;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  // grid-template-columns: 10fr;
+  height: 100%;
+  align-content: start;
+
+  opacity: 0;
+  animation: fade-in 500ms ease 500ms both;
+}
+
+.roomsList {
+  display: flex;
+  // align-content: center;
+  gap: 1rem;
+
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 3rem;
+  // padding-top: 75rem;
+
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // box-sizing: border-box;
+
+  overflow-y: auto;
+  -ms-overflow-style: none; /* hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* hide scrollbar for Firefox */
+}
+
+.roomsList::-webkit-scrollbar {
+  //hide scrollbar for Chrome, Safari, Opera
+  display: none;
+}
+
+.roomsList > div {
+  max-width: calc(70% - 1.2rem); //todo
+  flex-grow: 1;
+}
+
+.divider {
+  height: 1.2em;
+  width: 2px;
+  margin-left: 16px;
+  margin-right: 16px;
+  background-color: #353535;
+}
+
+.headerEl {
+  display: inline-flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.roomBar {
+  width: 100%;
+  display: flex;
+  padding-right: 0px;
+
+  // padding-top: 1.5rem;
+  // padding-left: 20px;
+  gap: 0.5rem;
+  align-content: start;
+  flex-direction: row;
+  align-items: end;
+  // flex-wrap: wrap;
+  overflow-y: auto;
+
+  margin-left: -1px;
+
+  // display: inline-flex;
+  // white-space: nowrap;
+  // flex-shrink: 0;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

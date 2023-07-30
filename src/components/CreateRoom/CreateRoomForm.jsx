@@ -11,6 +11,7 @@ const CreateRoomForm = ({ roomCreated }) => {
   const [roomData, setRoomData] = useState({
     title: "",
     yt_video_id: "",
+    player_mode: "videocdn", // videocdn, youtube
   })
 
   const handleCreate = async () => {
