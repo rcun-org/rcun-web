@@ -1,0 +1,12 @@
+.cardContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: baseline;
+}
+
+.cardOuter {
+  width: 16rem;
+  aspect-ratio: 1/1.6;
+  background-color: red;
+}

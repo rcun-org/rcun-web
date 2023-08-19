@@ -1,22 +1,26 @@
 import React, { useContext, useEffect, useState } from "react"
-import RoomCard from "../UI/RoomCard/RoomCard"
-import styles from "../UI/RoomCard/RoomCard.module.scss"
+import RoomCard from "../../components/UI/RoomCard/RoomCard"
+import styles from "../../components/UI/RoomCard/RoomCard.module.scss"
 
 import { AuthContext, RoomsContext } from "../../context"
 import { getRooms, getRoomsDetails } from "../../services/room.services"
 import { Skeleton } from "@mui/material"
+import { useAtom } from "jotai"
+import { roomsAtom, filteredRoomsAtom } from "../../stores/room-store"
 
 const API_URL = process.env["REACT_APP_API_SERVER"]
 
 const RoomsList = props => {
-  const { rooms, setRooms, searchedVideos } = useContext(RoomsContext)
+  // const { rooms, setRooms, searchedVideos } = useContext(RoomsContext)
+
+  const [, setRooms] = useAtom(roomsAtom)
+  const [searchedRooms] = useAtom(filteredRoomsAtom)
+
   const [loading, setLoading] = useState(false)
 
   async function fetchRooms() {
     setLoading(true)
     let roomsData = await getRooms()
-    setRooms(roomsData)
-    console.log("roomdata len", roomsData.length)
     roomsData = await getRoomsDetails(roomsData)
     setRooms(roomsData)
     setLoading(false)
@@ -32,11 +36,12 @@ const RoomsList = props => {
 
   return (
     <div {...props}>
-      {searchedVideos.map((room, index) => {
+      {searchedRooms.map((room, index) => {
         return loading ? (
           <Skeleton
             // width={cardWidth * 1.05}
             // height={cardWidth / 1.75}
+            key={index}
             sx={{
               bgcolor: "#404040",
               width: cardWidthRem,
@@ -51,16 +56,6 @@ const RoomsList = props => {
           <RoomCard key={index} index={index} room={room} />
         )
       })}
-
-      {/*{*/}
-      {/*    loading ? <h3 style={{color: 'white'}}></h3>*/}
-      {/*        : searchedVideos.map((room, index) => {*/}
-      {/*            return <RoomCard*/}
-      {/*                key={index}*/}
-      {/*                index={index}*/}
-      {/*                room={room}/>*/}
-      {/*        })*/}
-      {/*}*/}
     </div>
   )
 }

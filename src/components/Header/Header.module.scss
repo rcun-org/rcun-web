@@ -1,0 +1,48 @@
+@import "src/styles/colors";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  align-items: center;
+  color: $light-grey;
+  background-color: transparent;
+  font-family: "Exo 2", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.05em;
+
+  z-index: 1400;
+  // $shadow-low: 0 0 16px rgba(255, 255, 255, 0.08),
+  //   0 4px 16px rgba(255, 255, 255, 0.08);
+  // background-color: white;
+  // height: 48px;
+  // box-shadow: $shadow-low;
+
+  -webkit-box-shadow: 0px 9px 20px 4px $grey-400;
+  -moz-box-shadow: 0px 9px 20px 4px $grey-400;
+  box-shadow: 0px 9px 20px 4px $grey-400;
+
+  // -webkit-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
+  // -moz-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
+  // box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
+}
+
+.headerEl {
+  display: inline-flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 1.2em;
+  width: 2px;
+  margin-left: 16px;
+  margin-right: 16px;
+  background-color: #353535;
+}

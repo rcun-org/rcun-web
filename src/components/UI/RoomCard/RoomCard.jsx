@@ -6,8 +6,6 @@ import { RoomsContext } from "../../../context"
 const RoomCard = props => {
   let history = useHistory()
 
-  const { performanceSwitch } = useContext(RoomsContext)
-
   const redirectToVideo = event => {
     event.stopPropagation()
     history.push(`/room/${props.room._id}`)

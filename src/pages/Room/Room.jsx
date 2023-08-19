@@ -9,16 +9,24 @@ import { AuthContext } from "../../context"
 import classes from "./room.module.scss"
 import { io } from "socket.io-client"
 import CursorController from "../../components/CursorController/CursorController"
+import { useAtom } from "jotai"
+import { userDataAtom } from "../../stores/auth-store"
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"]
 const ALLOWED_DELAY = 3
 
 const Room = () => {
   const { id } = useParams()
+
   const [roomData, setRoomData] = useState(null)
-  let {
-    userData: { username },
-  } = useContext(AuthContext)
+
+  // let {
+  //   userData: { username },
+  // } = useContext(AuthContext)
+
+  const [userData] = useAtom(userDataAtom)
+  const username = userData.username
+
   let userNameRef = useRef(username)
 
   // ws connection

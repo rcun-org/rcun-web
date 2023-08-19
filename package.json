@@ -25,9 +25,6 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@jimsheen/react-dynamic-input-width": "^1.0.2",
     "@mui/icons-material": "^5.13.7",
     "@mui/material": "^5.13.7",
@@ -35,6 +32,8 @@
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "jotai": "^2.3.1",
+    "jotai-cache": "^0.3.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^17.0.2",

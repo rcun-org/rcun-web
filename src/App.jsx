@@ -1,50 +1,56 @@
-import {BrowserRouter} from "react-router-dom";
-import {AuthContext, ConnectionContext} from "./context";
-import {useEffect, useState} from "react";
-import AppRouter from "./components/AppRouter";
+import { BrowserRouter } from "react-router-dom"
+import { AuthContext, ConnectionContext } from "./context"
+import { useEffect, useState, useMemo, Suspense } from "react"
+import AppRouter from "./components/AppRouter"
 
-import AppLayout from "./components/AppLayout/AppLayout";
-import {getCurrentUserToken} from "./services/auth.service";
+import AppLayout from "./components/AppLayout/AppLayout"
+import {
+  getCurrentUserToken,
+  getLocalCurrentUserToken,
+} from "./services/auth.service"
 
-import './styles/index.scss'
-import {getUser} from "./services/api.user_service";
-import {getRooms} from "./services/room.services";
+import "./styles/index.scss"
+import { getUser } from "./services/api.user_service"
+import { getRooms } from "./services/room.services"
 
+import { Provider as JotaiProvider, useAtom } from "jotai"
+import { roomsAtom } from "./stores/room-store"
+// import {
+//   isLoadingTokenAtom,
+//   userDataAtom,
+//   userTokenAtom,
+// } from "./stores/auth-store"
 
 const App = () => {
-    const [userToken, setUserToken] = useState(null)
-    const [userData, setUserData] = useState(null)
-    const [loading, setLoading] = useState(true)
+  // const [, setUserToken] = useAtom(userTokenAtom)
+  // const [, setUserData] = useAtom(userDataAtom)
+  // const [, setLoading] = useAtom(isLoadingTokenAtom)
 
-    async function bootApp() {
-        setLoading(true)
-        const userToken = getCurrentUserToken()
-        setUserToken(userToken)
-        if (userToken) {
-            const userData = await getUser()
-            setUserData(userData.data)
-        }
-        setLoading(false)
-    }
+  // async function bootApp() {
+  //   setLoading(true)
+  //   const userToken = getLocalCurrentUserToken()
+  //   setUserToken(userToken)
+  //   if (userToken) {
+  //     const userData = await getUser()
+  //     setUserData(userData.data)
+  //   }
+  //   setLoading(false)
+  // }
 
-    useEffect(() => {
-        bootApp().catch()
-    }, [])
-    return (
-        <AuthContext.Provider value={{
-            userToken,
-            setUserToken,
-            setUserData,
-            loading,
-            userData
-        }}>
-            <BrowserRouter>
-                <AppLayout>
-                    <AppRouter/>
-                </AppLayout>
-            </BrowserRouter>
-        </AuthContext.Provider>
-    )
+  // useEffect(() => {
+  //   bootApp().catch()
+  // }, [])
+  return (
+    <JotaiProvider>
+      <Suspense fallback="Loading...">
+        <BrowserRouter>
+          <AppLayout>
+            <AppRouter />
+          </AppLayout>
+        </BrowserRouter>
+      </Suspense>
+    </JotaiProvider>
+  )
 }
 
 export default App

@@ -4,10 +4,14 @@ import LoginForm from "./LoginForm"
 import RegistrationForm from "./RegistrationForm"
 import { AuthContext } from "../../context"
 import { getUser } from "../../services/api.user_service"
+import { useAtom } from "jotai"
+import { userDataAtom, userTokenAtom } from "../../stores/auth-store"
 
 const LoginContainer = props => {
-  const [authType, setAuthType] = useState("login")
-  const { setUserToken, setUserData } = useContext(AuthContext)
+  // const { setUserToken, setUserData } = useContext(AuthContext)
+
+  const [, setUserToken] = useAtom(userTokenAtom)
+  const [, setUserData] = useAtom(userDataAtom)
 
   const onLogin = async userToken => {
     setUserToken(userToken)

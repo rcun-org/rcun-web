@@ -1,29 +1,22 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
-import BaseButton from "../../UI/Button/BaseButton"
-import BaseModal from "../../UI/Modal/BaseModal"
-import CreateRoomForm from "../../CreateRoom/CreateRoomForm"
-import classes from "../../Login/Login.module.scss"
-import RedirectToRoomConfirm from "../../CreateRoom/RedirectToRoomConfirm"
+import BaseModal from "../UI/Modal/BaseModal"
+import CreateRoomForm from "../CreateRoom/CreateRoomForm"
+import classes from "../Login/Login.module.scss"
+import RedirectToRoomConfirm from "../CreateRoom/RedirectToRoomConfirm"
 
-import LocalMoviesIcon from "@mui/icons-material/LocalMovies"
-import MovieIconOulined from "@mui/icons-material/MovieOutlined"
-import YouTubeIcon from "@mui/icons-material/YouTube"
-import CameraRollIcon from "@mui/icons-material/CameraRoll"
-import SlideshowIcon from "@mui/icons-material/Slideshow"
-import LiveTvIcon from "@mui/icons-material/LiveTv"
 import FolderOpenIcon from "@mui/icons-material/FolderOpen"
 import SmartDisplayOutlinedIcon from "@mui/icons-material/SmartDisplayOutlined"
 
-import IconButton from "../../UI/IconButton/IconButton"
+import IconButton from "../UI/IconButton/IconButton"
 import { AddBoxOutlined } from "@mui/icons-material"
-import MovieBrowserContainer from "../../MovieBrowser/MovieBrowserContainer"
+import MovieBrowser from "../../pages/MovieBrowser/MovieBrowser"
 
 const CreateRoom = () => {
   const history = useHistory()
   const [modalActive, setModalActive] = useState(false)
   const [roomCreatedId, setRoomCreatedId] = useState(null)
-  const [videoModel, setVideoModel] = useState("library")
+  const [videoModel, setVideoModel] = useState("youtube")
 
   const redirectToVideo = () => {
     history.push(`/room/${roomCreatedId}`)
@@ -38,7 +31,9 @@ const CreateRoom = () => {
   }
 
   const handleLibrary = () => {
-    setVideoModel("library")
+    // start transformation size 1000% ???
+    history.push("/library")
+    // setVideoModel("library")
   }
 
   return (
@@ -66,7 +61,7 @@ const CreateRoom = () => {
               />
             ) : (
               // library is multistep: select movie ; room form ; redirect confirmation
-              <MovieBrowserContainer />
+              <MovieBrowser />
             )}
           </div>
         ) : (

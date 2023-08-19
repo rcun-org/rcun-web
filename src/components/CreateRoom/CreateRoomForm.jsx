@@ -4,14 +4,20 @@ import BaseButton from "../UI/Button/BaseButton"
 import { createRoom, getRooms } from "../../services/room.services"
 import classes from "../Login/Login.module.scss"
 import { RoomsContext } from "../../context"
+import { useAtom } from "jotai"
+import { roomsAtom } from "../../stores/room-store"
 
 const CreateRoomForm = ({ roomCreated }) => {
-  const { rooms, setRooms } = useContext(RoomsContext)
+  // const { rooms, setRooms } = useContext(RoomsContext)
+
+  // TODO all atoms
+
+  const [rooms, setRooms] = useAtom(roomsAtom)
 
   const [roomData, setRoomData] = useState({
     title: "",
     yt_video_id: "",
-    player_mode: "videocdn", // videocdn, youtube
+    player_mode: "m3u8", // videocdn, youtube
   })
 
   const handleCreate = async () => {

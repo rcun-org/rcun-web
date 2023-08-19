@@ -1,16 +1,20 @@
 import React, { useContext, useState } from "react"
-import { RoomsContext } from "../../../context"
-import BaseInput from "../../UI/Input/BaseInput"
-import IconButton from "../../UI/IconButton/IconButton"
-import BaseModal from "../../UI/Modal/BaseModal"
+import { RoomsContext } from "../../context"
+import BaseInput from "../UI/Input/BaseInput"
+import IconButton from "../UI/IconButton/IconButton"
+import BaseModal from "../UI/Modal/BaseModal"
 import { Search } from "@mui/icons-material"
 import classes from "./SearchRoom.module.scss"
+import { useAtom } from "jotai"
+import { roomSearchQueryAtom } from "../../stores/room-store"
 
 const SearchRoom = () => {
   const [inputValue, setInputValue] = useState("")
   const [modalActive, setModalActive] = useState(false)
 
-  const { setRoomSearch } = useContext(RoomsContext)
+  // const { setRoomSearch } = useContext(RoomsContext)
+
+  const [roomSearch, setRoomSearch] = useAtom(roomSearchQueryAtom)
 
   const onInput = query => {
     setRoomSearch(query)

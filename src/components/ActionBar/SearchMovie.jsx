@@ -1,22 +1,23 @@
-import React, { useState } from "react"
-import BaseButton from "../../UI/Button/BaseButton"
-import { useHistory } from "react-router-dom"
-import BaseInput from "../../UI/Input/BaseInput"
+import React, { useContext, useState } from "react"
+import { RoomsContext } from "../../context"
+import BaseInput from "../UI/Input/BaseInput"
+import IconButton from "../UI/IconButton/IconButton"
+import BaseModal from "../UI/Modal/BaseModal"
+import { Search } from "@mui/icons-material"
 import classes from "./SearchRoom.module.scss"
-import ExitToAppIcon from "@mui/icons-material/ExitToApp"
-import IconButton from "../../UI/IconButton/IconButton"
-import BaseModal from "../../UI/Modal/BaseModal"
+import { useAtom } from "jotai"
+import { roomSearchQueryAtom } from "../../stores/room-store"
 
-import InputOutlinedIcon from "@mui/icons-material/InputOutlined"
-
-const JoinRoom = () => {
-  let history = useHistory()
-
+const SearchMovie = () => {
   const [inputValue, setInputValue] = useState("")
   const [modalActive, setModalActive] = useState(false)
 
+  // const { setRoomSearch } = useContext(RoomsContext)
+
+  const [roomSearch, setRoomSearch] = useAtom(roomSearchQueryAtom)
+
   const onInput = query => {
-    history.push(`/room/${query}`)
+    setRoomSearch(query)
   }
 
   const handleKeyUp = e => {
@@ -28,7 +29,7 @@ const JoinRoom = () => {
   return (
     <>
       <IconButton onClick={() => setModalActive(true)}>
-        <ExitToAppIcon />
+        <Search />
       </IconButton>
       <BaseModal active={modalActive} setActive={setModalActive}>
         <div className={classes.column}>
@@ -37,7 +38,7 @@ const JoinRoom = () => {
             onChange={e => setInputValue(e.target.value)}
             onKeyUp={handleKeyUp}
             type="text"
-            placeholder="Join by room id"
+            placeholder="Search room"
           />
         </div>
       </BaseModal>
@@ -45,4 +46,4 @@ const JoinRoom = () => {
   )
 }
 
-export default JoinRoom
+export default SearchMovie

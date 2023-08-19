@@ -8,18 +8,27 @@ import BaseButton from "../UI/Button/BaseButton"
 import BaseInput from "../UI/Input/BaseInput"
 import Message from "../UI/Message/Message.jsx"
 import MovieIcon from "@mui/icons-material/Movie"
+import { useAtom } from "jotai"
+import { userDataAtom, userTokenAtom } from "../../stores/auth-store"
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"]
 
 function Chat(props) {
   let autoScroll = useRef()
   const { id } = useParams()
-  let { userToken } = useContext(AuthContext)
-  let {
-    userData: { username },
-  } = useContext(AuthContext)
+  // let { userToken } = useContext(AuthContext)
+
+  // let {
+  //   userData: { username },
+  // } = useContext(AuthContext)
+
+  const [userData] = useAtom(userDataAtom)
+  const username = userData.username
+
   let userNameRef = useRef(username)
+
   let [msgHistory, setMsgHistory] = useState([])
+
   const [roomData, setRoomData] = useState(null)
 
   useEffect(
