@@ -1,21 +1,18 @@
 import React, { useContext, useEffect, useState } from "react"
-import styles from "../../components/UI/RoomCard/RoomCard.module.scss"
+import styles from "../RoomCard/RoomCard.module.scss"
 
-import { Skeleton } from "@mui/material"
-import MovieCard from "../../components/UI/MovieCard/MovieCard"
-
-const API_URL = process.env["REACT_APP_API_SERVER"]
+import { Button, Skeleton } from "@mui/material"
+import MovieCard from "../MovieCard/MovieCard"
+import MovieRoll from "../MovieRoll/MovieRoll"
+import {
+  isLoadingAtom,
+  moviesAtom,
+  nextPageAtom,
+} from "../../../stores/movie-store"
+import { useAtom } from "jotai"
 
 const MovieList = props => {
-  const [loading, setLoading] = useState(false)
-
-  async function fetchMoviesMeta() {
-    setLoading(true)
-  }
-
-  useEffect(() => {
-    // fetchMoviesMeta()
-  }, [])
+  const [loading, setLoading] = useAtom(isLoadingAtom)
 
   const cardHeightRem = styles.cardHeight
   const cardWidthRem = `calc(${cardHeightRem} * 1.6)`
@@ -36,7 +33,7 @@ const MovieList = props => {
           variant="rounded"
         />
       ) : (
-        <MovieCard />
+        <MovieRoll />
       )}
     </div>
   )

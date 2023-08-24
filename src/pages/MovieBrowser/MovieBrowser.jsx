@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useMemo, useState } from "react"
 import classes from "../RoomBrowser/RoomBrowser.module.scss"
 
-import MovieList from "./MovieList"
+import MovieList from "../../components/UI/MovieList/MovieList"
 import Header from "../../components/Header/Header"
 
 const MovieBrowser = () => {
@@ -13,7 +13,7 @@ const MovieBrowser = () => {
   return (
     <div className={classes.container}>
       <Header pageTitle={"Movie library"} mask={[0, 0, 1, 0, 1, 1]} />
-      <MovieList className={classes.roomsList} />
+      <MovieList />
     </div>
   )
 }

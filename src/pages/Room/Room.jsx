@@ -126,27 +126,27 @@ const Room = () => {
   }, [roomData])
 
   useEffect(() => {
-    const partsToLoad = 5
-    let isPartFirst = true
-    const intervalId = setInterval(() => {
-      if (!backupVideoRef.current) return
-      console.log("player mode:", playerModeRef.current)
-      if (!playerRef.current) return
-      if (playerModeRef.current === "youtube") {
-        clearInterval(intervalId)
-      }
-      const maxt = playerRef.current.getDuration()
-      const t = playerRef.current.getCurrentTime()
-      const pos = Math.round(t / 6)
-      if (pos !== 0 || isPartFirst) {
-        isPartFirst = false
-        const l = Math.max(pos - partsToLoad, 0)
-        const r = Math.min(pos + partsToLoad, maxt)
-        console.log("t:", t, "req parts from", l, "to", r)
-        loadParts({ m3u8: backupVideoRef.current, posL: l, posR: r })
-      }
-    }, 1000) // выполняет каждую секунду
-    return () => clearInterval(intervalId)
+    // const partsToLoad = 5
+    // let isPartFirst = true
+    // const intervalId = setInterval(() => {
+    //   if (!backupVideoRef.current) return
+    //   console.log("player mode:", playerModeRef.current)
+    //   if (!playerRef.current) return
+    //   if (playerModeRef.current === "youtube") {
+    //     clearInterval(intervalId)
+    //   }
+    //   const maxt = playerRef.current.getDuration()
+    //   const t = playerRef.current.getCurrentTime()
+    //   const pos = Math.round(t / 6)
+    //   if (pos !== 0 || isPartFirst) {
+    //     isPartFirst = false
+    //     const l = Math.max(pos - partsToLoad, 0)
+    //     const r = Math.min(pos + partsToLoad, maxt)
+    //     console.log("t:", t, "req parts from", l, "to", r)
+    //     loadParts({ m3u8: backupVideoRef.current, posL: l, posR: r })
+    //   }
+    // }, 1000) // выполняет каждую секунду
+    // return () => clearInterval(intervalId)
   }, [])
 
   // send function

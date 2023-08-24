@@ -15,6 +15,9 @@ import { getRooms } from "./services/room.services"
 
 import { Provider as JotaiProvider, useAtom } from "jotai"
 import { roomsAtom } from "./stores/room-store"
+import Splash from "./pages/Splash"
+// import SplashContainer from "./components/Splash/SplashContainer"
+
 // import {
 //   isLoadingTokenAtom,
 //   userDataAtom,
@@ -42,13 +45,13 @@ const App = () => {
   // }, [])
   return (
     <JotaiProvider>
-      <Suspense fallback="Loading...">
-        <BrowserRouter>
-          <AppLayout>
+      <BrowserRouter>
+        <AppLayout>
+          <Suspense fallback={Splash}>
             <AppRouter />
-          </AppLayout>
-        </BrowserRouter>
-      </Suspense>
+          </Suspense>
+        </AppLayout>
+      </BrowserRouter>
     </JotaiProvider>
   )
 }
