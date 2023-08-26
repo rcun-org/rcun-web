@@ -25,6 +25,8 @@ import Splash from "./pages/Splash"
 // } from "./stores/auth-store"
 
 const App = () => {
+  console.log("Build v1")
+
   // const [, setUserToken] = useAtom(userTokenAtom)
   // const [, setUserData] = useAtom(userDataAtom)
   // const [, setLoading] = useAtom(isLoadingTokenAtom)
