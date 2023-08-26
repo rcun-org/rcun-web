@@ -52,7 +52,7 @@ $tileSize: calc(16rem * 98 / 401);
   background-repeat: no-repeat;
   top: $offset;
   aspect-ratio: 401/104;
-  background-image: url("/Users/tanugayev/dev/rcun-web/src/assets/imgs/roll-tile-start.svg");
+  background-image: url("../../../assets/imgs/roll-tile-start.svg");
 }
 
 .middleTiles {
@@ -60,7 +60,7 @@ $tileSize: calc(16rem * 98 / 401);
   background-repeat: no-repeat;
   height: calc(100% - $startTileHeight);
   top: calc($startTileHeight + $offset + 1px);
-  background-image: url("/Users/tanugayev/dev/rcun-web/src/assets/imgs/roll-tile-middle.svg");
+  background-image: url("../../../assets/imgs/roll-tile-middle.svg");
   background-repeat: repeat-y;
 
   -webkit-box-shadow: 0px -100px 26px -13px $grey-400 inset;
