@@ -41,11 +41,8 @@
   object-position: center;
 }
 
-.cardOuter:hover {
-  z-index: 300;
-}
-
 .cardContainer:hover {
+  position: relative;
   transform: scale(1.4) translateX(2.7rem);
-  // z-index: 100;
+  z-index: 300;
 }
