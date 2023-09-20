@@ -8,36 +8,13 @@ import IconButton from "../IconButton/IconButton"
 import { AddBoxOutlined } from "@mui/icons-material"
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown"
 
+//const MOVIES = require('./movies.json');
+
 export default () => {
   const [movies] = useAtom(moviesAtom)
   const [, nextPage] = useAtom(nextPageAtom) // only using the setter
 
-  // const movies = [
-  //   {
-  //     id: 1,
-  //     kp: {
-  //       posterUrl: "favicon.ico",
-  //     },
-  //   },
-  //   {
-  //     id: 2,
-  //     kp: {
-  //       posterUrl: "favicon.ico",
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     kp: {
-  //       posterUrl: "favicon.ico",
-  //     },
-  //   },
-  //   {
-  //     id: 4,
-  //     kp: {
-  //       posterUrl: "favicon.ico",
-  //     },
-  //   },
-  // ]
+  //const movies = MOVIES["ru"];
 
   return (
     <div className={classes.scrollContainer}>

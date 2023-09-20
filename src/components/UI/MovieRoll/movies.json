@@ -1,0 +1,1111 @@
+{
+    "ru": [
+        {
+            "id": 2,
+            "ru_title": "Выживший",
+            "orig_title": "The Revenant",
+            "imdb_id": "tt1663202",
+            "kinopoisk_id": 522941,
+            "created": "2016-02-04 09:50:47",
+            "released": null,
+            "updated": "2020-12-22 17:24:32",
+            "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2",
+            "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+            "year": "1969-12-31",
+            "content_type": "movie",
+            "media": [
+                {
+                    "id": 499664,
+                    "translation_id": 73,
+                    "content_id": 2,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73",
+                    "duration": 9389,
+                    "created": "2020-12-22 17:24:32",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73&source=1080",
+                            "resolution": 1080,
+                            "media_id": 499664
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73&source=720",
+                            "resolution": 720,
+                            "media_id": 499664
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73&source=480",
+                            "resolution": 480,
+                            "media_id": 499664
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73&source=360",
+                            "resolution": 360,
+                            "media_id": 499664
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73&source=240",
+                            "resolution": 240,
+                            "media_id": 499664
+                        }
+                    ],
+                    "translation": {
+                        "id": 73,
+                        "title": "Авторский (одноголосый закадровый) (Есарев Дмитрий)",
+                        "priority": 0,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Есарев Дмитрий",
+                        "smart_title": "Есарев Дмитрий (одноголосый закадровый)",
+                        "shorter_title": "Есарев Дмитрий"
+                    }
+                },
+                {
+                    "id": 499665,
+                    "translation_id": 30,
+                    "content_id": 2,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30",
+                    "duration": 9389,
+                    "created": "2020-12-22 17:24:48",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30&source=1080",
+                            "resolution": 1080,
+                            "media_id": 499665
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30&source=720",
+                            "resolution": 720,
+                            "media_id": 499665
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30&source=480",
+                            "resolution": 480,
+                            "media_id": 499665
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30&source=360",
+                            "resolution": 360,
+                            "media_id": 499665
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30&source=240",
+                            "resolution": 240,
+                            "media_id": 499665
+                        }
+                    ],
+                    "translation": {
+                        "id": 30,
+                        "title": "Авторский (одноголосый закадровый) (Сербин Юрий)",
+                        "priority": 0,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Сербин Юрий",
+                        "smart_title": "Сербин Юрий (одноголосый закадровый)",
+                        "shorter_title": "Сербин Юрий"
+                    }
+                },
+                {
+                    "id": 499666,
+                    "translation_id": 68,
+                    "content_id": 2,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68",
+                    "duration": 9389,
+                    "created": "2020-12-22 17:25:04",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68&source=1080",
+                            "resolution": 1080,
+                            "media_id": 499666
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68&source=720",
+                            "resolution": 720,
+                            "media_id": 499666
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68&source=480",
+                            "resolution": 480,
+                            "media_id": 499666
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68&source=360",
+                            "resolution": 360,
+                            "media_id": 499666
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68&source=240",
+                            "resolution": 240,
+                            "media_id": 499666
+                        }
+                    ],
+                    "translation": {
+                        "id": 68,
+                        "title": "Авторский (одноголосый закадровый) (Живов Юрий)",
+                        "priority": 0,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Живов Юрий",
+                        "smart_title": "Живов Юрий (одноголосый закадровый)",
+                        "shorter_title": "Живов Юрий"
+                    }
+                },
+                {
+                    "id": 499667,
+                    "translation_id": 2,
+                    "content_id": 2,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2",
+                    "duration": 9389,
+                    "created": "2020-12-22 17:25:21",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2&source=1080",
+                            "resolution": 1080,
+                            "media_id": 499667
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2&source=720",
+                            "resolution": 720,
+                            "media_id": 499667
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2&source=480",
+                            "resolution": 480,
+                            "media_id": 499667
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2&source=360",
+                            "resolution": 360,
+                            "media_id": 499667
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2&source=240",
+                            "resolution": 240,
+                            "media_id": 499667
+                        }
+                    ],
+                    "translation": {
+                        "id": 2,
+                        "title": "Полное дублирование",
+                        "priority": 5,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Дубляж",
+                        "smart_title": "Дубляж Дубляж",
+                        "shorter_title": "Дубляж"
+                    }
+                },
+                {
+                    "id": 499668,
+                    "translation_id": 381,
+                    "content_id": 2,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381",
+                    "duration": 9389,
+                    "created": "2020-12-22 17:25:34",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381&source=1080",
+                            "resolution": 1080,
+                            "media_id": 499668
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381&source=720",
+                            "resolution": 720,
+                            "media_id": 499668
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381&source=480",
+                            "resolution": 480,
+                            "media_id": 499668
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381&source=360",
+                            "resolution": 360,
+                            "media_id": 499668
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381&source=240",
+                            "resolution": 240,
+                            "media_id": 499668
+                        }
+                    ],
+                    "translation": {
+                        "id": 381,
+                        "title": "[EN] Original (English)",
+                        "priority": 0,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "[EN] Original (English)",
+                        "smart_title": "[EN] Original (English) ",
+                        "shorter_title": "[EN] Original (English)"
+                    }
+                },
+                {
+                    "id": 749469,
+                    "translation_id": 1203,
+                    "content_id": 2,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203",
+                    "duration": 9415,
+                    "created": "2022-03-20 14:16:29",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203&source=1080",
+                            "resolution": 1080,
+                            "media_id": 749469
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203&source=720",
+                            "resolution": 720,
+                            "media_id": 749469
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203&source=480",
+                            "resolution": 480,
+                            "media_id": 749469
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203&source=360",
+                            "resolution": 360,
+                            "media_id": 749469
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203&source=240",
+                            "resolution": 240,
+                            "media_id": 749469
+                        }
+                    ],
+                    "translation": {
+                        "id": 1203,
+                        "title": null,
+                        "priority": null,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "",
+                        "smart_title": " ",
+                        "shorter_title": ""
+                    }
+                }
+            ],
+            "translations": [
+                {
+                    "id": 73,
+                    "title": "Авторский (одноголосый закадровый) (Есарев Дмитрий)",
+                    "priority": 0,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=73\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Есарев Дмитрий",
+                    "smart_title": "Есарев Дмитрий (одноголосый закадровый)",
+                    "shorter_title": "Есарев Дмитрий"
+                },
+                {
+                    "id": 30,
+                    "title": "Авторский (одноголосый закадровый) (Сербин Юрий)",
+                    "priority": 0,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=30\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Сербин Юрий",
+                    "smart_title": "Сербин Юрий (одноголосый закадровый)",
+                    "shorter_title": "Сербин Юрий"
+                },
+                {
+                    "id": 68,
+                    "title": "Авторский (одноголосый закадровый) (Живов Юрий)",
+                    "priority": 0,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=68\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Живов Юрий",
+                    "smart_title": "Живов Юрий (одноголосый закадровый)",
+                    "shorter_title": "Живов Юрий"
+                },
+                {
+                    "id": 2,
+                    "title": "Полное дублирование",
+                    "priority": 5,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=2\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Дубляж",
+                    "smart_title": "Дубляж Дубляж",
+                    "shorter_title": "Дубляж"
+                },
+                {
+                    "id": 381,
+                    "title": "[EN] Original (English)",
+                    "priority": 0,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=381\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "[EN] Original (English)",
+                    "smart_title": "[EN] Original (English) ",
+                    "shorter_title": "[EN] Original (English)"
+                },
+                {
+                    "id": 1203,
+                    "title": null,
+                    "priority": null,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/2?translation=1203\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "",
+                    "smart_title": " ",
+                    "shorter_title": ""
+                }
+            ],
+            "default_media_id": 499664,
+            "kp": {
+                "kinopoiskId": 522941,
+                "kinopoiskHDId": "4d368faa5ace6e518343e400f6aef4e9",
+                "imdbId": "tt1663202",
+                "nameRu": "Выживший",
+                "nameEn": null,
+                "nameOriginal": "The Revenant",
+                "posterUrl": "https://kinopoiskapiunofficial.tech/images/posters/kp/522941.jpg",
+                "posterUrlPreview": "https://kinopoiskapiunofficial.tech/images/posters/kp_small/522941.jpg",
+                "coverUrl": "https://avatars.mds.yandex.net/get-ott/1531675/2a0000017c0728787b8e1bb6b2f99a1bc931/orig",
+                "logoUrl": "https://avatars.mds.yandex.net/get-ott/1672343/2a00000170a54941d46abfc7118e12b3140e/orig",
+                "reviewsCount": 698,
+                "ratingGoodReview": 78.6,
+                "ratingGoodReviewVoteCount": 496,
+                "ratingKinopoisk": 7.8,
+                "ratingKinopoiskVoteCount": 414375,
+                "ratingImdb": 8,
+                "ratingImdbVoteCount": 840041,
+                "ratingFilmCritics": 7.8,
+                "ratingFilmCriticsVoteCount": 404,
+                "ratingAwait": 98,
+                "ratingAwaitCount": 61636,
+                "ratingRfCritics": 89,
+                "ratingRfCriticsVoteCount": 19,
+                "webUrl": "https://www.kinopoisk.ru/film/522941/",
+                "year": 2015,
+                "filmLength": 156,
+                "slogan": "До последней капли крови",
+                "description": "Охотник Хью Гласс серьезно ранен на неизведанных просторах американского Дикого Запада. Товарищ Хью по отряду покорителей новых земель Джон Фицжеральд предательски оставляет его умирать в одиночестве. Теперь у Гласса осталось только одно оружие – его сила воли. Он готов бросить вызов первобытной природе, суровой зиме и враждебным племенам индейцев, только чтобы выжить и отомстить Фицжеральду.",
+                "shortDescription": "Хью пытается выбраться из леса и отомстить предателю. Вестерн с поразительным перформансом Леонардо ДиКаприо",
+                "editorAnnotation": null,
+                "isTicketsAvailable": false,
+                "productionStatus": null,
+                "type": "FILM",
+                "ratingMpaa": "r",
+                "ratingAgeLimits": "age18",
+                "countries": [
+                    {
+                        "country": "США"
+                    },
+                    {
+                        "country": "Гонконг"
+                    },
+                    {
+                        "country": "Тайвань"
+                    }
+                ],
+                "genres": [
+                    {
+                        "genre": "драма"
+                    },
+                    {
+                        "genre": "приключения"
+                    },
+                    {
+                        "genre": "биография"
+                    },
+                    {
+                        "genre": "вестерн"
+                    },
+                    {
+                        "genre": "боевик"
+                    }
+                ],
+                "startYear": null,
+                "endYear": null,
+                "serial": false,
+                "shortFilm": false,
+                "completed": false,
+                "hasImax": false,
+                "has3D": false,
+                "lastSync": "2023-08-23T00:46:04.051765"
+            }
+        },
+        {
+            "id": 11,
+            "ru_title": "Хитмэн: Агент 47",
+            "orig_title": "Hitman: Agent 47",
+            "imdb_id": "tt2679042",
+            "kinopoisk_id": 737668,
+            "created": "2016-02-04 12:41:58",
+            "released": null,
+            "updated": "2022-06-12 20:25:40",
+            "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/11",
+            "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/11\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+            "year": "1969-12-31",
+            "content_type": "movie",
+            "media": [
+                {
+                    "id": 794402,
+                    "translation_id": 423,
+                    "content_id": 11,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423",
+                    "duration": 5776,
+                    "created": "2022-06-12 20:25:40",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423&source=1080",
+                            "resolution": 1080,
+                            "media_id": 794402
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423&source=720",
+                            "resolution": 720,
+                            "media_id": 794402
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423&source=480",
+                            "resolution": 480,
+                            "media_id": 794402
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423&source=360",
+                            "resolution": 360,
+                            "media_id": 794402
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423&source=240",
+                            "resolution": 240,
+                            "media_id": 794402
+                        }
+                    ],
+                    "translation": {
+                        "id": 423,
+                        "title": "Полное дублирование (Невафильм | Нева-1)",
+                        "priority": 5,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Полное дублирование (Невафильм | Нева-1)",
+                        "smart_title": "Полное дублирование (Невафильм | Нева-1) ",
+                        "shorter_title": "Полное дублирование (Невафильм | Нева-1)"
+                    }
+                }
+            ],
+            "translations": [
+                {
+                    "id": 423,
+                    "title": "Полное дублирование (Невафильм | Нева-1)",
+                    "priority": 5,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/11?translation=423\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Полное дублирование (Невафильм | Нева-1)",
+                    "smart_title": "Полное дублирование (Невафильм | Нева-1) ",
+                    "shorter_title": "Полное дублирование (Невафильм | Нева-1)"
+                }
+            ],
+            "default_media_id": 794402,
+            "kp": {
+                "kinopoiskId": 737668,
+                "kinopoiskHDId": "44c15079daf4141389e1779298e49b2e",
+                "imdbId": "tt2679042",
+                "nameRu": "Хитмэн: Агент 47",
+                "nameEn": null,
+                "nameOriginal": "Hitman: Agent 47",
+                "posterUrl": "https://kinopoiskapiunofficial.tech/images/posters/kp/737668.jpg",
+                "posterUrlPreview": "https://kinopoiskapiunofficial.tech/images/posters/kp_small/737668.jpg",
+                "coverUrl": "https://avatars.mds.yandex.net/get-ott/223007/2a0000017c078918910c906203b0eb0cc4a6/orig",
+                "logoUrl": "https://avatars.mds.yandex.net/get-ott/2385704/2a000001725531a026ebc26d47114f79ebd7/orig",
+                "reviewsCount": 77,
+                "ratingGoodReview": 44.2,
+                "ratingGoodReviewVoteCount": 23,
+                "ratingKinopoisk": 5.7,
+                "ratingKinopoiskVoteCount": 107850,
+                "ratingImdb": 5.7,
+                "ratingImdbVoteCount": 93889,
+                "ratingFilmCritics": 3.8,
+                "ratingFilmCriticsVoteCount": 131,
+                "ratingAwait": 88,
+                "ratingAwaitCount": 18924,
+                "ratingRfCritics": 17,
+                "ratingRfCriticsVoteCount": 6,
+                "webUrl": "https://www.kinopoisk.ru/film/737668/",
+                "year": 2015,
+                "filmLength": 96,
+                "slogan": "Your number is up",
+                "description": "История об элитном убийце, созданном при помощи генной инженерии, который объединяется с женщиной, чтобы помочь ей найти отца и раскрыть тайну своего происхождения.",
+                "shortDescription": "Суперкиллер идет по следу загадочного советского генетика. Экшен по видеоигре с бритым налысо Рупертом Френдом",
+                "editorAnnotation": null,
+                "isTicketsAvailable": false,
+                "productionStatus": null,
+                "type": "FILM",
+                "ratingMpaa": "r",
+                "ratingAgeLimits": "age16",
+                "countries": [
+                    {
+                        "country": "США"
+                    },
+                    {
+                        "country": "Великобритания"
+                    },
+                    {
+                        "country": "Германия"
+                    },
+                    {
+                        "country": "Канада"
+                    }
+                ],
+                "genres": [
+                    {
+                        "genre": "триллер"
+                    },
+                    {
+                        "genre": "криминал"
+                    },
+                    {
+                        "genre": "фантастика"
+                    },
+                    {
+                        "genre": "боевик"
+                    }
+                ],
+                "startYear": null,
+                "endYear": null,
+                "serial": false,
+                "shortFilm": false,
+                "completed": false,
+                "hasImax": false,
+                "has3D": false,
+                "lastSync": "2023-08-22T22:45:27.121706"
+            }
+        },
+        {
+            "id": 10,
+            "ru_title": "Девушка без комплексов",
+            "orig_title": "Trainwreck",
+            "imdb_id": "tt3152624",
+            "kinopoisk_id": 794249,
+            "created": "2016-02-04 11:21:58",
+            "released": null,
+            "updated": "2022-07-28 14:39:37",
+            "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/10",
+            "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/10\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+            "year": "1969-12-31",
+            "content_type": "movie",
+            "media": [
+                {
+                    "id": 818276,
+                    "translation_id": 397,
+                    "content_id": 10,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397",
+                    "duration": 7478,
+                    "created": "2022-07-28 14:39:37",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397&source=1080",
+                            "resolution": 1080,
+                            "media_id": 818276
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397&source=720",
+                            "resolution": 720,
+                            "media_id": 818276
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397&source=480",
+                            "resolution": 480,
+                            "media_id": 818276
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397&source=360",
+                            "resolution": 360,
+                            "media_id": 818276
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397&source=240",
+                            "resolution": 240,
+                            "media_id": 818276
+                        }
+                    ],
+                    "translation": {
+                        "id": 397,
+                        "title": "Полное дублирование (Пифагор)",
+                        "priority": 5,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Полное дублирование (Пифагор)",
+                        "smart_title": "Полное дублирование (Пифагор) ",
+                        "shorter_title": "Полное дублирование (Пифагор)"
+                    }
+                }
+            ],
+            "translations": [
+                {
+                    "id": 397,
+                    "title": "Полное дублирование (Пифагор)",
+                    "priority": 5,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/10?translation=397\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Полное дублирование (Пифагор)",
+                    "smart_title": "Полное дублирование (Пифагор) ",
+                    "shorter_title": "Полное дублирование (Пифагор)"
+                }
+            ],
+            "default_media_id": 818276,
+            "kp": {
+                "kinopoiskId": 794249,
+                "kinopoiskHDId": "4b767dc9891f77f9a54dfe459c07f1aa",
+                "imdbId": "tt3152624",
+                "nameRu": "Девушка без комплексов",
+                "nameEn": null,
+                "nameOriginal": "Trainwreck",
+                "posterUrl": "https://kinopoiskapiunofficial.tech/images/posters/kp/794249.jpg",
+                "posterUrlPreview": "https://kinopoiskapiunofficial.tech/images/posters/kp_small/794249.jpg",
+                "coverUrl": "https://avatars.mds.yandex.net/get-ott/224348/2a0000017c0810b3d7794fb02185f84d22f1/orig",
+                "logoUrl": "https://avatars.mds.yandex.net/get-ott/2439731/2a00000172bc67b3ce312b46e352e22d4c6b/orig",
+                "reviewsCount": 45,
+                "ratingGoodReview": 51.1,
+                "ratingGoodReviewVoteCount": 16,
+                "ratingKinopoisk": 5.7,
+                "ratingKinopoiskVoteCount": 37896,
+                "ratingImdb": 6.2,
+                "ratingImdbVoteCount": 140199,
+                "ratingFilmCritics": 7.3,
+                "ratingFilmCriticsVoteCount": 291,
+                "ratingAwait": 90,
+                "ratingAwaitCount": 3852,
+                "ratingRfCritics": 67,
+                "ratingRfCriticsVoteCount": 12,
+                "webUrl": "https://www.kinopoisk.ru/film/794249/",
+                "year": 2015,
+                "filmLength": 124,
+                "slogan": "Ни в чём себе не отказывай",
+                "description": "У симпатичной девушки Эми никогда не было серьезных отношений. Она придерживается свободных взглядов и обычно не ходит дважды с одним парнем на свидание. Будучи сотрудницей крупного мужского издания, она получает задание от шефа написать статью о спортивном враче Ароне. Эми и не рассчитывала, что деловая встреча с доктором изменит ее жизнь.",
+                "shortDescription": "Любовь нечаянно нагрянула к журналистке, не верившей в моногамию. Джадд Апатоу дарит жанру ромкома новую жизнь",
+                "editorAnnotation": null,
+                "isTicketsAvailable": false,
+                "productionStatus": null,
+                "type": "FILM",
+                "ratingMpaa": "r",
+                "ratingAgeLimits": "age18",
+                "countries": [
+                    {
+                        "country": "США"
+                    }
+                ],
+                "genres": [
+                    {
+                        "genre": "драма"
+                    },
+                    {
+                        "genre": "мелодрама"
+                    },
+                    {
+                        "genre": "комедия"
+                    }
+                ],
+                "startYear": null,
+                "endYear": null,
+                "serial": false,
+                "shortFilm": false,
+                "completed": false,
+                "hasImax": false,
+                "has3D": false,
+                "lastSync": "2023-08-23T00:47:19.463038"
+            }
+        },
+        {
+            "id": 8,
+            "ru_title": "007: Спектр",
+            "orig_title": "Spectre",
+            "imdb_id": "tt2379713",
+            "kinopoisk_id": 678552,
+            "created": "2016-02-04 11:17:45",
+            "released": null,
+            "updated": "2022-03-11 20:18:35",
+            "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/8",
+            "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/8\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+            "year": "1969-12-31",
+            "content_type": "movie",
+            "media": [
+                {
+                    "id": 743892,
+                    "translation_id": 1203,
+                    "content_id": 8,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203",
+                    "duration": 8888,
+                    "created": "2022-03-11 20:18:35",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203&source=1080",
+                            "resolution": 1080,
+                            "media_id": 743892
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203&source=720",
+                            "resolution": 720,
+                            "media_id": 743892
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203&source=480",
+                            "resolution": 480,
+                            "media_id": 743892
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203&source=360",
+                            "resolution": 360,
+                            "media_id": 743892
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203&source=240",
+                            "resolution": 240,
+                            "media_id": 743892
+                        }
+                    ],
+                    "translation": {
+                        "id": 1203,
+                        "title": null,
+                        "priority": null,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "",
+                        "smart_title": " ",
+                        "shorter_title": ""
+                    }
+                },
+                {
+                    "id": 782836,
+                    "translation_id": 397,
+                    "content_id": 8,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397",
+                    "duration": 8886,
+                    "created": "2022-05-19 14:46:41",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397&source=1080",
+                            "resolution": 1080,
+                            "media_id": 782836
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397&source=720",
+                            "resolution": 720,
+                            "media_id": 782836
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397&source=480",
+                            "resolution": 480,
+                            "media_id": 782836
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397&source=360",
+                            "resolution": 360,
+                            "media_id": 782836
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397&source=240",
+                            "resolution": 240,
+                            "media_id": 782836
+                        }
+                    ],
+                    "translation": {
+                        "id": 397,
+                        "title": "Полное дублирование (Пифагор)",
+                        "priority": 5,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Полное дублирование (Пифагор)",
+                        "smart_title": "Полное дублирование (Пифагор) ",
+                        "shorter_title": "Полное дублирование (Пифагор)"
+                    }
+                }
+            ],
+            "translations": [
+                {
+                    "id": 1203,
+                    "title": null,
+                    "priority": null,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=1203\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "",
+                    "smart_title": " ",
+                    "shorter_title": ""
+                },
+                {
+                    "id": 397,
+                    "title": "Полное дублирование (Пифагор)",
+                    "priority": 5,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/8?translation=397\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Полное дублирование (Пифагор)",
+                    "smart_title": "Полное дублирование (Пифагор) ",
+                    "shorter_title": "Полное дублирование (Пифагор)"
+                }
+            ],
+            "default_media_id": 743892,
+            "kp": {
+                "kinopoiskId": 678552,
+                "kinopoiskHDId": "46eb8df5022c1c63833b7d081ee750d1",
+                "imdbId": "tt2379713",
+                "nameRu": "007: СПЕКТР",
+                "nameEn": null,
+                "nameOriginal": "Spectre",
+                "posterUrl": "https://kinopoiskapiunofficial.tech/images/posters/kp/678552.jpg",
+                "posterUrlPreview": "https://kinopoiskapiunofficial.tech/images/posters/kp_small/678552.jpg",
+                "coverUrl": "https://avatars.mds.yandex.net/get-ott/1672343/2a0000017c0728e4c95234dbf9ec2d2a0a69/orig",
+                "logoUrl": "https://avatars.mds.yandex.net/get-ott/2439731/2a0000017196d20dc5519969cfe1a77abca7/orig",
+                "reviewsCount": 250,
+                "ratingGoodReview": 65.3,
+                "ratingGoodReviewVoteCount": 121,
+                "ratingKinopoisk": 6.6,
+                "ratingKinopoiskVoteCount": 125246,
+                "ratingImdb": 6.8,
+                "ratingImdbVoteCount": 454937,
+                "ratingFilmCritics": 6.4,
+                "ratingFilmCriticsVoteCount": 368,
+                "ratingAwait": 94,
+                "ratingAwaitCount": 43455,
+                "ratingRfCritics": 88,
+                "ratingRfCriticsVoteCount": 24,
+                "webUrl": "https://www.kinopoisk.ru/film/678552/",
+                "year": 2015,
+                "filmLength": 148,
+                "slogan": "The dead are alive",
+                "description": "Зашифрованное послание из неизвестного источника выводит Бонда на след зловещей глобальной организации под кодовым названием СПЕКТР, в то время как М пытается спасти секретную разведывательную службу от ликвидации.",
+                "shortDescription": "Бонд выходит на след тайной организации. Привет из прошлого и Моника Белуччи в роли знойной вдовы",
+                "editorAnnotation": null,
+                "isTicketsAvailable": false,
+                "productionStatus": null,
+                "type": "FILM",
+                "ratingMpaa": "pg13",
+                "ratingAgeLimits": "age16",
+                "countries": [
+                    {
+                        "country": "США"
+                    },
+                    {
+                        "country": "Великобритания"
+                    }
+                ],
+                "genres": [
+                    {
+                        "genre": "триллер"
+                    },
+                    {
+                        "genre": "приключения"
+                    },
+                    {
+                        "genre": "боевик"
+                    }
+                ],
+                "startYear": null,
+                "endYear": null,
+                "serial": false,
+                "shortFilm": false,
+                "completed": false,
+                "hasImax": true,
+                "has3D": false,
+                "lastSync": "2023-08-23T03:24:39.348581"
+            }
+        },
+        {
+            "id": 7,
+            "ru_title": "Шпионский мост",
+            "orig_title": "Bridge of Spies",
+            "imdb_id": "tt3682448",
+            "kinopoisk_id": 840884,
+            "created": "2016-02-04 11:14:56",
+            "released": null,
+            "updated": "2022-01-28 06:48:23",
+            "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/7",
+            "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/7\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+            "year": "1969-12-31",
+            "content_type": "movie",
+            "media": [
+                {
+                    "id": 721795,
+                    "translation_id": 397,
+                    "content_id": 7,
+                    "content_type": "movie",
+                    "source_quality": "bd",
+                    "max_quality": 1080,
+                    "path": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397",
+                    "duration": 8479,
+                    "created": "2022-01-28 06:48:23",
+                    "accepted": null,
+                    "deleted_at": null,
+                    "blocked": null,
+                    "qualities": [
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397&source=1080",
+                            "resolution": 1080,
+                            "media_id": 721795
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397&source=720",
+                            "resolution": 720,
+                            "media_id": 721795
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397&source=480",
+                            "resolution": 480,
+                            "media_id": 721795
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397&source=360",
+                            "resolution": 360,
+                            "media_id": 721795
+                        },
+                        {
+                            "url": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397&source=240",
+                            "resolution": 240,
+                            "media_id": 721795
+                        }
+                    ],
+                    "translation": {
+                        "id": 397,
+                        "title": "Полное дублирование (Пифагор)",
+                        "priority": 5,
+                        "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397",
+                        "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                        "short_title": "Полное дублирование (Пифагор)",
+                        "smart_title": "Полное дублирование (Пифагор) ",
+                        "shorter_title": "Полное дублирование (Пифагор)"
+                    }
+                }
+            ],
+            "translations": [
+                {
+                    "id": 397,
+                    "title": "Полное дублирование (Пифагор)",
+                    "priority": 5,
+                    "iframe_src": "//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397",
+                    "iframe": "<iframe src=\"//41470.svetacdn.in/B43aavROsY7o/movie/7?translation=397\" width=\"640\" height=\"480\" frameborder=\"0\" allowfullscreen></iframe>",
+                    "short_title": "Полное дублирование (Пифагор)",
+                    "smart_title": "Полное дублирование (Пифагор) ",
+                    "shorter_title": "Полное дублирование (Пифагор)"
+                }
+            ],
+            "default_media_id": 721795,
+            "kp": {
+                "kinopoiskId": 840884,
+                "kinopoiskHDId": "45c3e1c4368d216cad1e06c37c860568",
+                "imdbId": "tt3682448",
+                "nameRu": "Шпионский мост",
+                "nameEn": null,
+                "nameOriginal": "Bridge of Spies",
+                "posterUrl": "https://kinopoiskapiunofficial.tech/images/posters/kp/840884.jpg",
+                "posterUrlPreview": "https://kinopoiskapiunofficial.tech/images/posters/kp_small/840884.jpg",
+                "coverUrl": "https://avatars.mds.yandex.net/get-ott/1534341/2a0000017c286ce4620b499408c90568c228/orig",
+                "logoUrl": "https://avatars.mds.yandex.net/get-ott/374297/2a000001725538d2c48d3a63f4b1d677e5c1/orig",
+                "reviewsCount": 152,
+                "ratingGoodReview": 84.5,
+                "ratingGoodReviewVoteCount": 113,
+                "ratingKinopoisk": 7.5,
+                "ratingKinopoiskVoteCount": 160088,
+                "ratingImdb": 7.6,
+                "ratingImdbVoteCount": 321122,
+                "ratingFilmCritics": 7.7,
+                "ratingFilmCriticsVoteCount": 315,
+                "ratingAwait": 93,
+                "ratingAwaitCount": 10516,
+                "ratingRfCritics": 90,
+                "ratingRfCriticsVoteCount": 21,
+                "webUrl": "https://www.kinopoisk.ru/film/840884/",
+                "year": 2015,
+                "filmLength": 142,
+                "slogan": "Когда мир на грани войны, лишь честь одного человека может предотвратить катастрофу",
+                "description": "Действие фильма происходит на фоне серии реальных исторических событий и рассказывает о бруклинском адвокате Джеймсе Доноване, который оказывается в эпицентре холодной войны, когда ЦРУ отправляет его на практически невозможное задание – договориться об освобождении захваченного в СССР американского пилота самолета-разведчика U2.",
+                "shortDescription": "Адвокат защищает советского шпиона, пока в Берлине строят ту самую стену. Стивен Спилберг о «холодной войне»",
+                "editorAnnotation": null,
+                "isTicketsAvailable": false,
+                "productionStatus": null,
+                "type": "FILM",
+                "ratingMpaa": "pg13",
+                "ratingAgeLimits": "age16",
+                "countries": [
+                    {
+                        "country": "США"
+                    },
+                    {
+                        "country": "Индия"
+                    },
+                    {
+                        "country": "Германия"
+                    }
+                ],
+                "genres": [
+                    {
+                        "genre": "триллер"
+                    },
+                    {
+                        "genre": "драма"
+                    },
+                    {
+                        "genre": "военный"
+                    },
+                    {
+                        "genre": "история"
+                    }
+                ],
+                "startYear": null,
+                "endYear": null,
+                "serial": false,
+                "shortFilm": false,
+                "completed": false,
+                "hasImax": false,
+                "has3D": false,
+                "lastSync": "2023-08-22T21:15:11.870897"
+            }
+        }
+    ]
+}
