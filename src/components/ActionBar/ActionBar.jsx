@@ -7,8 +7,9 @@ import MyRooms from "./MyRooms"
 import SearchRoom from "./SearchRoom"
 import SearchMovie from "./SearchMovie"
 import Logout from "../Logout/Logout"
+import LanguageSwitch from "../LanguageSwitch/LanguageSwitch";
 
-const ActionBar = ({ mask = [1, 1, 1, 1, 0, 1] }) => {
+const ActionBar = ({ mask = [1, 1, 1, 1, 0, 1, 1] }) => {
   return (
     <div className={classes.actionBar}>
       <div className={classes.separator} />
@@ -17,6 +18,7 @@ const ActionBar = ({ mask = [1, 1, 1, 1, 0, 1] }) => {
       {mask[2] ? <MyRooms /> : ""}
       {mask[3] ? <SearchRoom /> : ""}
       {mask[4] ? <SearchMovie /> : ""}
+      {mask[6] ? <LanguageSwitch/> : ""}
       <div className={classes.spacer} />
       {mask[5] ? <Logout /> : ""}
     </div>

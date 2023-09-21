@@ -1,0 +1,7 @@
+# Настройки для IDE
+root = true
+
+# Используем двойной пробел
+[*.{js,jsx,css,module.scss,scss}]
+indent_style = space
+indent_size = 1
