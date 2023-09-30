@@ -4,7 +4,7 @@ import IconButton from "../UI/IconButton/IconButton";
 import {Menu, MenuItem} from "@mui/material";
 import {useLanguageSwitch} from "./index";
 
-function LanguageSwitch(props) {
+function LanguageSwitch() {
   const {handleClose, handleClick, isActive, open, setLanguage, anchorEl} = useLanguageSwitch()
 
   return (
@@ -60,6 +60,9 @@ function LanguageSwitch(props) {
         </MenuItem>
         <MenuItem sx={isActive('ru')} onClick={() => setLanguage("ru")}>
           Rus
+        </MenuItem>
+        <MenuItem sx={isActive('ar')} onClick={() => setLanguage("ar")}>
+          Arb
         </MenuItem>
       </Menu>
     </>
