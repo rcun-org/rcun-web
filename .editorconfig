@@ -4,4 +4,4 @@ root = true
 # Используем двойной пробел
 [*.{js,jsx,css,module.scss,scss}]
 indent_style = space
-indent_size = 1
+indent_size = 2
