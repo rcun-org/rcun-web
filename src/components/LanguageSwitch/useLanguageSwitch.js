@@ -1,11 +1,11 @@
 import {useState} from "react";
 import {useAtom} from "jotai/index";
-import {languageMode} from "../../stores/language-store";
+import {languageAtom} from "../../stores/language-store";
 
 const useLanguageSwitch = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    const [language, setLanguage] = useAtom(languageMode);
+    const [language, setLanguage] = useAtom(languageAtom);
     // const lang = localStorage.getItem("lng");
 
     const isActive = (lang) => {
