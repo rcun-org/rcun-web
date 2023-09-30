@@ -11,13 +11,14 @@ const useLanguageSwitch = () => {
     const isActive = (lang) => {
         if (language === lang ) {
             return {
-                background: '#5d5d5d',
-                color: '#FFF'
+                color: "var(--accent-color-300)"
             }
         }
-        return{
-            background: 'initial',
-            color: 'initial'
+        return {
+            color: "var(--white)",
+            "&:hover": {
+                color: "var(--accent-color-550)",
+            },
         }
 
     }

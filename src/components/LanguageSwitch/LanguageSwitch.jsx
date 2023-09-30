@@ -29,6 +29,7 @@ function LanguageSwitch(props) {
             overflow: "visible",
             filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
             mt: 1.5,
+              background: "var(--grey-500)",
             "& .MuiAvatar-root": {
               width: 32,
               height: 32,
@@ -45,7 +46,7 @@ function LanguageSwitch(props) {
               m: '0 auto',
               width: 10,
               height: 10,
-              bgcolor: "background.paper",
+              bgcolor: "var(--grey-500)",
               transform: "translateY(-50%) rotate(45deg)",
               zIndex: 0,
             },
@@ -55,10 +56,10 @@ function LanguageSwitch(props) {
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >
         <MenuItem sx={isActive('eng')} onClick={() => setLanguage("eng")}>
-          ENG
+          Eng
         </MenuItem>
         <MenuItem sx={isActive('rus')} onClick={() => setLanguage("rus")}>
-          RUS
+          Rus
         </MenuItem>
       </Menu>
     </>
