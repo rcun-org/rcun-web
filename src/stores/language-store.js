@@ -1,6 +1,6 @@
 import {atom} from "jotai";
 
 
-const languageMode = atom('eng');
+const languageMode = atom('en');
 
 export { languageMode }

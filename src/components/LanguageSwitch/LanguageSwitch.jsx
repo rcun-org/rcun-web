@@ -55,10 +55,10 @@ function LanguageSwitch(props) {
         transformOrigin={{ horizontal: "center", vertical: "top" }}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >
-        <MenuItem sx={isActive('eng')} onClick={() => setLanguage("eng")}>
+        <MenuItem sx={isActive('en')} onClick={() => setLanguage("en")}>
           Eng
         </MenuItem>
-        <MenuItem sx={isActive('rus')} onClick={() => setLanguage("rus")}>
+        <MenuItem sx={isActive('ru')} onClick={() => setLanguage("ru")}>
           Rus
         </MenuItem>
       </Menu>
