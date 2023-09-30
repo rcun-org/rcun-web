@@ -16,6 +16,7 @@ import { getRooms } from "./services/room.services"
 import { Provider as JotaiProvider, useAtom } from "jotai"
 import { roomsAtom } from "./stores/room-store"
 import Splash from "./pages/Splash"
+import "./styles/colorsForImport.scss"
 // import SplashContainer from "./components/Splash/SplashContainer"
 
 // import {
