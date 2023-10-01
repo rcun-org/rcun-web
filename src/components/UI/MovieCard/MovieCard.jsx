@@ -1,30 +1,82 @@
 import React, { useContext, useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 import classes from "./MovieCard.module.scss"
 import MovieCardDescription from "../MovieCardDescription/MovieCardDescription"
 
+import BaseModal from "../Modal/BaseModal"
+
+import IconButton from "../../UI/IconButton/IconButton"
+import { AddBoxOutlined, SmartDisplayOutlinedIcon } from "@mui/icons-material"
+import CreateRoomForm from "../../CreateRoom/CreateRoomForm"
+import CreateRoomFromMovieForm from "../../CreateRoom/CreateRoomFromMovieForm"
+import RedirectToRoomConfirm from "../../CreateRoom/RedirectToRoomConfirm"
+
+import loginClasses from "../../Login/Login.module.scss"
+
 // TODO: Доработать ховер на cardContainer - увеличивать только при наведении мышки на картинку
 export default ({ movie }) => {
-  const [showDescription, setShowDescription] = useState(false);
+  const history = useHistory()
+  const [showDescription, setShowDescription] = useState(false)
+  const [roomCreatedId, setRoomCreatedId] = useState(null)
+  const [modalActive, setModalActive] = useState(false)
+
+  const redirectToVideo = () => {
+    history.push(`/room/${roomCreatedId}`)
+  }
+
+  useEffect(() => {
+    setRoomCreatedId(null)
+  }, [modalActive])
 
   const handleMouseEnter = () => {
-    setShowDescription(true);
-  };
+    setShowDescription(true)
+  }
 
   const handleMouseLeave = () => {
-    setShowDescription(false);
-  };
+    setShowDescription(false)
+  }
+
+  const handleMouseClick = () => {
+    // open modal
+    setModalActive(true)
+  }
+
+  // roomCreated={roomId => setRoomCreatedId(roomId)}
 
   return (
-    <div className={classes.cardContainer}>
-      <div className={classes.cardOuter}>
-        <img
-          className={classes.poster}
-          src={movie.kp.posterUrl}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        />
+    <>
+      <div className={classes.cardContainer}>
+        <div className={classes.cardOuter}>
+          <img
+            className={classes.poster}
+            src={movie.kp.posterUrl}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleMouseClick}
+          />
+        </div>
+        {showDescription && <MovieCardDescription movie={movie} />}
       </div>
-      {showDescription && <MovieCardDescription movie={movie} />}
-    </div>
+
+      <BaseModal active={modalActive} setActive={setModalActive}>
+        {!roomCreatedId ? (
+          <>
+            <div className={loginClasses.loginContainerHead}>
+              <span>Create a new room</span>
+            </div>
+            <CreateRoomFromMovieForm
+              videoSource={movie.media[0].qualities[0].url}
+              roomCreated={roomId => setRoomCreatedId(roomId)}
+            />
+          </>
+        ) : (
+          <RedirectToRoomConfirm
+            confirmed={() => {
+              redirectToVideo()
+            }}
+          />
+        )}
+      </BaseModal>
+    </>
   )
 }

@@ -10,7 +10,7 @@ export default ({ movie }) => {
         <div className={classes.movieRating}>
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 100 100">
             <polygon
-              class={classes.movieRatingIcon}
+              className={classes.movieRatingIcon}
               points="50,10 61.8,37.6 90,42.4 69.1,65.5 79.2,92 50,77 20.8,92 30.9,65.5 10,42.4 38.2,37.6"
             />
           </svg>

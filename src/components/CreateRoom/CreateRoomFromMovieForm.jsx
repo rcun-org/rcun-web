@@ -7,7 +7,7 @@ import { RoomsContext } from "../../context"
 import { useAtom } from "jotai"
 import { roomsAtom } from "../../stores/room-store"
 
-const CreateRoomForm = ({ roomCreated }) => {
+const CreateRoomFromMovieForm = ({ roomCreated, videoSource }) => {
   // const { rooms, setRooms } = useContext(RoomsContext)
 
   // TODO all atoms
@@ -16,11 +16,12 @@ const CreateRoomForm = ({ roomCreated }) => {
 
   const [roomData, setRoomData] = useState({
     title: "",
-    videoSource: "",
-    player_mode: "youtube", // videocdn, youtube
+    videoSource: videoSource,
+    player_mode: "m3u8", // videocdn, youtube
   })
 
   const handleCreate = async () => {
+    console.log("Creating room with videosource of", videoSource)
     const newRoom = await createRoom(roomData)
     const newRoomsList = await getRooms()
     setRooms(newRoomsList)
@@ -36,15 +37,7 @@ const CreateRoomForm = ({ roomCreated }) => {
           setRoomData({ ...roomData, title: event.target.value })
         }
         type="text"
-        placeholder="Room title"
-      />
-      <BaseInput
-        value={roomData.password}
-        onChange={event =>
-          setRoomData({ ...roomData, videoSource: event.target.value })
-        }
-        type="text"
-        placeholder="Youtube video link"
+        placeholder="Title"
       />
       <div className="spacer" />
       <BaseButton onClick={handleCreate}>Create room</BaseButton>
@@ -52,4 +45,4 @@ const CreateRoomForm = ({ roomCreated }) => {
   )
 }
 
-export default CreateRoomForm
+export default CreateRoomFromMovieForm
