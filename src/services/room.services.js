@@ -3,14 +3,14 @@ import authHeader from "./auth-header"
 
 const API_URL = process.env["REACT_APP_API_SERVER"]
 
-export const createRoom = async ({ title, yt_video_id, player_mode }) => {
-  // yt_video_id = prepareData(yt_video_id);
+export const createRoom = async ({ title, videoSource, player_mode }) => {
+  // videoSource = prepareData(videoSource);
   try {
     const room = await axios.post(
       API_URL + "room",
       {
         title,
-        backupVideo: yt_video_id,
+        backupVideo: videoSource,
         playerMode: player_mode,
       },
       {
