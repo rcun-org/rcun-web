@@ -8,10 +8,10 @@ export default ({ movie }) => {
     <>
       <div className={classes.descriptionHeader}>
         <div className={classes.movieRating}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 100 100">
-            <polygon
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" fill="none">
+            <path
               className={classes.movieRatingIcon}
-              points="50,10 61.8,37.6 90,42.4 69.1,65.5 79.2,92 50,77 20.8,92 30.9,65.5 10,42.4 38.2,37.6"
+              d="M6.65 2.377a1 1 0 0 1 1.7 0l1.438 2.328a1 1 0 0 0 .614.446l2.658.648a1 1 0 0 1 .526 1.618l-1.77 2.087a1 1 0 0 0-.234.721l.205 2.728a1 1 0 0 1-1.376 1l-2.532-1.037a1 1 0 0 0-.758 0l-2.532 1.037a1 1 0 0 1-1.376-1l.205-2.728a1 1 0 0 0-.235-.721L1.414 7.417A1 1 0 0 1 1.94 5.8l2.658-.648a1 1 0 0 0 .614-.446l1.437-2.328Z"
             />
           </svg>
           {movie?.kp?.ratingKinopoisk}
