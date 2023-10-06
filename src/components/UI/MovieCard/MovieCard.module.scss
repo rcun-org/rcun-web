@@ -22,6 +22,7 @@
   background-color: grey;
   border-radius: 16px;
   z-index: 100;
+  overflow: visible;
 }
 
 .poster {
@@ -35,21 +36,27 @@
   border-radius: 16px;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.8) grayscale(0.8);
 }
 
-.cardContainer:hover {
-  position: relative;
-  transform: scale(1.4) translateX(2.7rem);
-  z-index: 300;
-}
+/* Для больших экранов */
+@media (min-width: 960px) {
+  .cardContainer:hover {
+    position: relative;
+    z-index: 300;
+    transform: scale(1.4) translateX(2.7rem);
+  }
 
-.cardOuter:hover {
-  -webkit-box-shadow: 0 0 100px 0rem $shadow-blue;
-  -moz-box-shadow: 0 0 100px 0rem $shadow-blue;
-  box-shadow: 0 0 100px 0rem $shadow-blue;
-}
+  .cardOuter:hover {
+    -webkit-box-shadow: 0 0 100px 0rem $shadow-blue;
+    -moz-box-shadow: 0 0 100px 0rem $shadow-blue;
+    box-shadow: 0 0 100px 0rem $shadow-blue;
+  }
 
-.poster:hover {
-  filter: brightness(1) grayscale(0);
+  .poster {
+    filter: brightness(0.8) grayscale(0.8);
+  }
+
+  .poster:hover {
+    filter: brightness(1) grayscale(0);
+  }
 }

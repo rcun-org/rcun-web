@@ -4,8 +4,15 @@ import classes from "./MovieCardDescription.module.scss"
 // TODO: подумать над проверками наличия свойств у объекта movie
 // TODO: поменять иконку звездочки
 export default ({ movie }) => {
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.slice(0, maxLength) + '...';
+  };
+
   return (
-    <>
+    <div className={classes.description}>
       <div className={classes.descriptionHeader}>
         <div className={classes.movieRating}>
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" fill="none">
@@ -17,7 +24,7 @@ export default ({ movie }) => {
           {movie?.kp?.ratingKinopoisk}
         </div>
         <div className={classes.movieTitle}>
-          {movie?.ru_title}
+          {truncateText(movie?.ru_title, 30)}
         </div>
       </div>
       <div className={classes.descriptionBody}>
@@ -34,6 +41,6 @@ export default ({ movie }) => {
           <div>Время</div><div>{movie.year}</div>*/}
         </div>
       </div>
-    </>
+    </div>
   )
 }
