@@ -1,5 +1,7 @@
 @import "../../../styles/colors.scss";
 
+$descriptionWidth:  min(500px, 30vw);
+
 .description {
   position: absolute;
   overflow: visible;
@@ -89,7 +91,7 @@
     position: absolute;
     transform: translateY(-100%);
     left: 250px;
-    width: 30vw;
+    width: calc($descriptionWidth + 50px);
   }
 
   .movieTitle {
@@ -100,7 +102,7 @@
   .descriptionBody {
     position: absolute;
     left: 300px;
-    width: 30vw;
+    width: $descriptionWidth;
   }
 
   .movieDescription {
