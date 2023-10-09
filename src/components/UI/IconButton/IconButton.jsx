@@ -1,27 +1,30 @@
-import React from "react"
-import classes from "./IconButton.module.scss"
-import { useState, useEffect } from "react"
+import React from "react";
+import classes from "./IconButton.module.scss";
+import { useState, useEffect } from "react";
 
-const IconButton = props => {
-  let [isFocused, setIsFocused] = useState(false)
-  let c = document.getElementById("sub-cursor")
+const IconButton = ({ label = "", ...props }) => {
+  let [isFocused, setIsFocused] = useState(false);
+  let c = document.getElementById("sub-cursor");
 
   useEffect(() => {
+    console.log({ props });
     if (isFocused) {
-      c.classList.add("cursor-over-icon-button")
+      c.classList.add("cursor-over-icon-button");
     } else {
-      c.classList.remove("cursor-over-icon-button")
+      c.classList.remove("cursor-over-icon-button");
     }
-  }, [isFocused])
+  }, [isFocused]);
 
   return (
-    <button
-      {...props}
-      className={classes.iconButton}
-      onMouseEnter={e => setIsFocused(true)}
-      onMouseLeave={e => setIsFocused(false)}
-    />
-  )
-}
+    <div
+      className={classes.tooltipContainer}
+      onMouseEnter={() => setIsFocused(true)}
+      onMouseLeave={() => setIsFocused(false)}
+    >
+      <button {...props} className={classes.iconButton} />
+      {isFocused && !!label && <div className={classes.tooltip}>{label}</div>}
+    </div>
+  );
+};
 
-export default IconButton
+export default IconButton;

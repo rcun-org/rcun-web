@@ -10,22 +10,9 @@ function LanguageSwitch() {
 
   return (
     <>
-      <IconButton onClick={handleClick}>
+      <IconButton onClick={handleClick} label={"Language switch"}>
         <Language />
       </IconButton>
-      {/*<div style={{position: "absolute", bottom: "-8px", display: open? "flex" : "none"}}>*/}
-      {/*  <ul style={{margin: 0, padding: 0}}>*/}
-      {/*    <MenuItem sx={isActive('en')} onClick={() => setLanguage("en")}>*/}
-      {/*      Eng*/}
-      {/*    </MenuItem>*/}
-      {/*    <MenuItem sx={isActive('ru')} onClick={() => setLanguage("ru")}>*/}
-      {/*      Rus*/}
-      {/*    </MenuItem>*/}
-      {/*    <MenuItem sx={isActive('ar')} onClick={() => setLanguage("ar")}>*/}
-      {/*      Arb*/}
-      {/*    </MenuItem>*/}
-      {/*  </ul>*/}
-      {/*</div>*/}
       <Menu
         anchorEl={anchorEl}
         id="account-menu"

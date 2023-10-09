@@ -1,44 +1,44 @@
-import React, { useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
-import BaseModal from "../UI/Modal/BaseModal"
-import CreateRoomForm from "../CreateRoom/CreateRoomForm"
-import classes from "../Login/Login.module.scss"
-import RedirectToRoomConfirm from "../CreateRoom/RedirectToRoomConfirm"
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import BaseModal from "../UI/Modal/BaseModal";
+import CreateRoomForm from "../CreateRoom/CreateRoomForm";
+import classes from "../Login/Login.module.scss";
+import RedirectToRoomConfirm from "../CreateRoom/RedirectToRoomConfirm";
 
-import FolderOpenIcon from "@mui/icons-material/FolderOpen"
-import SmartDisplayOutlinedIcon from "@mui/icons-material/SmartDisplayOutlined"
+import FolderOpenIcon from "@mui/icons-material/FolderOpen";
+import SmartDisplayOutlinedIcon from "@mui/icons-material/SmartDisplayOutlined";
 
-import IconButton from "../UI/IconButton/IconButton"
-import { AddBoxOutlined } from "@mui/icons-material"
-import MovieBrowser from "../../pages/MovieBrowser/MovieBrowser"
+import IconButton from "../UI/IconButton/IconButton";
+import { AddBoxOutlined } from "@mui/icons-material";
+import MovieBrowser from "../../pages/MovieBrowser/MovieBrowser";
 
 const CreateRoom = () => {
-  const history = useHistory()
-  const [modalActive, setModalActive] = useState(false)
-  const [roomCreatedId, setRoomCreatedId] = useState(null)
-  const [videoModel, setVideoModel] = useState("youtube")
+  const history = useHistory();
+  const [modalActive, setModalActive] = useState(false);
+  const [roomCreatedId, setRoomCreatedId] = useState(null);
+  const [videoModel, setVideoModel] = useState("youtube");
 
   const redirectToVideo = () => {
-    history.push(`/room/${roomCreatedId}`)
-  }
+    history.push(`/room/${roomCreatedId}`);
+  };
 
   useEffect(() => {
-    setRoomCreatedId(null)
-  }, [modalActive])
+    setRoomCreatedId(null);
+  }, [modalActive]);
 
   const handleYoutube = () => {
-    setVideoModel("youtube")
-  }
+    setVideoModel("youtube");
+  };
 
   const handleLibrary = () => {
     // start transformation size 1000% ???
-    history.push("/library")
+    history.push("/library");
     // setVideoModel("library")
-  }
+  };
 
   return (
     <>
-      <IconButton onClick={() => setModalActive(true)}>
+      <IconButton onClick={() => setModalActive(true)} label={"Create room"}>
         <AddBoxOutlined />
       </IconButton>
       <BaseModal active={modalActive} setActive={setModalActive}>
@@ -57,7 +57,7 @@ const CreateRoom = () => {
             </div>
             {videoModel === "youtube" ? (
               <CreateRoomForm
-                roomCreated={roomId => setRoomCreatedId(roomId)}
+                roomCreated={(roomId) => setRoomCreatedId(roomId)}
               />
             ) : (
               // library is multistep: select movie ; room form ; redirect confirmation
@@ -67,13 +67,13 @@ const CreateRoom = () => {
         ) : (
           <RedirectToRoomConfirm
             confirmed={() => {
-              redirectToVideo()
+              redirectToVideo();
             }}
           />
         )}
       </BaseModal>
     </>
-  )
-}
+  );
+};
 
-export default CreateRoom
+export default CreateRoom;
