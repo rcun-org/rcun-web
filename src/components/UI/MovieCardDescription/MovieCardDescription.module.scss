@@ -1,6 +1,7 @@
 @import "../../../styles/colors.scss";
 
 $descriptionWidth:  min(500px, 30vw);
+$rollWidth: max(16rem, 12vw);
 
 .description {
   position: absolute;
@@ -90,7 +91,7 @@ $descriptionWidth:  min(500px, 30vw);
   .descriptionHeader {
     position: absolute;
     transform: translateY(-100%);
-    left: 250px;
+    left: $rollWidth;
     width: calc($descriptionWidth + 50px);
   }
 
@@ -101,7 +102,7 @@ $descriptionWidth:  min(500px, 30vw);
 
   .descriptionBody {
     position: absolute;
-    left: 300px;
+    left: calc($rollWidth + 50px);
     width: $descriptionWidth;
   }
 

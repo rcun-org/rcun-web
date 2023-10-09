@@ -1,7 +1,7 @@
 @import "../../../styles/colors.scss";
 
 $descriptionWidth:  calc(min(500px, 30vw) * 1.4);
-$rollWidth: 16rem;
+$rollWidth: max(16rem, 12vw);
 $rollMarginLeft: max(1.5rem, calc((100vw - (800px * 1.4) - $rollWidth)/2));
 
 .scrollContainer {

@@ -1,5 +1,7 @@
 @import "../../../styles/colors.scss";
 
+$rollWidth: max(16rem, 12vw);
+
 * {
   transition: all 0.1s ease-in-out;
 }
@@ -16,8 +18,8 @@
 
 .cardOuter {
   position: relative;
-  width: 8.5rem;
-  padding: 2rem;
+  width: calc($rollWidth * 0.53);
+  padding: calc($rollWidth * 0.125);
   aspect-ratio: 1/1.8;
   background-color: grey;
   border-radius: 16px;
