@@ -1,35 +1,33 @@
-@import "src/styles/colors";
+@import "src/styles/colors.scss";
+@import "src/styles/indents.scss";
 
-.messageEntry {
-  display: grid;
-  grid-template-columns: 1fr 6fr;
-  gap: 10px;
-  // gap: 10px;
-  // height: 32px;
+.text {
+  flex-grow: 1;
+  padding: 10px 20px;
+  background-color: #E7E7E766;
+  color: black;
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+  overflow-wrap: break-word;
+  font-size: 18px;
+}
+
+.selfText {
+  background-color: rgba(69, 69, 69, 0.5);
+  color: white;
 }
 
 .username {
-  color: black;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12px);
-  border-radius: 4px;
-  padding: 4px;
+  font-size: 16px;
+  color: #E7E7E766;
+  max-width: 20%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.text {
-  color: black;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(12px);
-  border-radius: 4px;
-  padding: 4px;
-  overflow-wrap: break-word;
-}
-
-.selfMessage {
-  grid-template-columns: 6fr 1fr;
-}
-
-.selfMessageElement {
-  background-color: rgba(69, 69, 69, 0.5);
-  color: white;
+.messageEntry {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: $indentMd;
 }
