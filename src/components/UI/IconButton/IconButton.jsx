@@ -7,7 +7,6 @@ const IconButton = ({ label = "", ...props }) => {
   let c = document.getElementById("sub-cursor");
 
   useEffect(() => {
-    console.log({ props });
     if (isFocused) {
       c.classList.add("cursor-over-icon-button");
     } else {
