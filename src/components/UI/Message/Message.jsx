@@ -1,23 +1,13 @@
 import React from "react";
 import classes from "./Message.module.scss";
 import cx from "classnames";
-import { useState, useEffect } from "react";
+import useCursorFocused from "@/hooks/useCursorFocused";
 
 const Message = ({ text, username, isSelf, ...wrapperProps }) => {
-  let [isFocused, setIsFocused] = useState(false);
+  const { setIsFocused } = useCursorFocused(false);
 
   const { className: wrapperClassName, ...restWrapperProps } =
     wrapperProps || {};
-
-  useEffect(() => {
-    let c = document.getElementById("sub-cursor");
-
-    if (isFocused) {
-      c.classList.add("cursor-over-input");
-    } else {
-      c.classList.remove("cursor-over-input");
-    }
-  }, [isFocused]);
 
   const usernameElem = <span className={cx(classes.username)}>{username}</span>;
 
