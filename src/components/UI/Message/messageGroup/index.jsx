@@ -4,7 +4,7 @@ import cx from "classnames";
 import useCursorFocused from "@/hooks/useCursorFocused";
 
 const MessageGroup = ({ messages, selfUsername, ...wrapperProps }) => {
-  const { setIsFocused } = useCursorFocused(false);
+  const { handleUnfocusCursor, handleFocusCursor } = useCursorFocused(false);
 
   const { className: wrapperClassName, ...restWrapperProps } =
     wrapperProps || {};
@@ -29,10 +29,11 @@ const MessageGroup = ({ messages, selfUsername, ...wrapperProps }) => {
                 classes.text,
                 isSelf && classes.selfText,
                 isFirstMessage && classes.firstMsg,
-                isLastMessage && classes.lastMsg
+                isLastMessage &&
+                  (isSelf ? classes.lastMsgSelf : classes.lastMsg)
               )}
-              onMouseEnter={() => setIsFocused(true)}
-              onMouseLeave={() => setIsFocused(false)}
+              onMouseEnter={handleFocusCursor}
+              onMouseLeave={handleUnfocusCursor}
             >
               {text}
             </div>

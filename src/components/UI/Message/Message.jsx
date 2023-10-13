@@ -4,7 +4,7 @@ import cx from "classnames";
 import useCursorFocused from "@/hooks/useCursorFocused";
 
 const Message = ({ text, username, isSelf, ...wrapperProps }) => {
-  const { setIsFocused } = useCursorFocused(false);
+  const { handleFocusCursor, handleUnfocusCursor } = useCursorFocused(false);
 
   const { className: wrapperClassName, ...restWrapperProps } =
     wrapperProps || {};
@@ -14,8 +14,8 @@ const Message = ({ text, username, isSelf, ...wrapperProps }) => {
   const textElem = (
     <div
       className={cx(classes.text, isSelf && classes.selfText)}
-      onMouseEnter={() => setIsFocused(true)}
-      onMouseLeave={() => setIsFocused(false)}
+      onMouseEnter={handleFocusCursor}
+      onMouseLeave={handleUnfocusCursor}
     >
       {text}
     </div>

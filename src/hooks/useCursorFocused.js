@@ -13,9 +13,14 @@ const useCursorFocused = (initialValue) => {
     }
   }, [isFocused]);
 
+  const handleFocusCursor = () => setIsFocused(true);
+  const handleUnfocusCursor = () => setIsFocused(false);
+
   return {
     isFocused,
-    setIsFocused
+    setIsFocused,
+    handleUnfocusCursor,
+    handleFocusCursor
   };
 };
 
