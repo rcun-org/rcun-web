@@ -25,6 +25,7 @@ export default ({ movie }) => {
   //  useAtom(languageAtom)
   const [language] = useAtom(languageAtom)
 
+  // we're for sure not youtube because we're in movie library
   const videoSource = language === "ru" ? "videocdn" : "mycima"
 
   const redirectToVideo = () => {
