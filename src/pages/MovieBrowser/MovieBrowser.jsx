@@ -12,7 +12,7 @@ const MovieBrowser = () => {
 
   return (
     <div className={classes.container}>
-      <Header pageTitle={"Movie library"} mask={[0, 0, 1, 0, 1, 1]} />
+      <Header pageTitle={"Movie library"} mask={[0, 0, 1, 0, 1, 1, 1]} />
       <MovieList />
     </div>
   )

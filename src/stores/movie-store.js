@@ -1,14 +1,16 @@
 import axios from "axios"
 import { atom } from "jotai"
+import {languageAtom} from "./language-store";
 
 const API_URL = process.env["REACT_APP_API_SERVER"]
 const KP_API_URL = "https://kinopoiskapiunofficial.tech/api/v2.2"
 const KP_TOKEN = process.env["KP_TOKEN"]
 
-async function fetchMoviesVCDN({ page } = { page: 1 }) {
+async function fetchMoviesVCDN({ page, locale } = { page: 1,  locale: 'ar' }) {
   let movies = await axios.get(`${API_URL}movies`, {
     params: {
       page,
+      locale
     },
   })
   return movies.data.data
@@ -23,8 +25,8 @@ async function fetchMovieMetaKP({ id }) {
   return meta.data
 }
 
-async function fetchMovies({ page } = { page: 1 }) {
-  let movies = await fetchMoviesVCDN({ page })
+async function fetchMovies({ page, locale } = { page: 1, locale: 'en' }) {
+  let movies = await fetchMoviesVCDN({ page, locale })
 
   const CHUNK_SIZE = 5 // Adjust based on what the API can handle
   const numChunks = Math.ceil(movies.length / CHUNK_SIZE)
@@ -55,8 +57,9 @@ export const pageAtom = atom(1) // Starting from page 1
 
 export const moviesAtom = atom(async get => {
   const currentPage = get(pageAtom)
+  const currentLocale = get(languageAtom)
   // set(isLoadingAtom, true)
-  const moviesWithMeta = await fetchMovies({ page: currentPage })
+  const moviesWithMeta = await fetchMovies({ page: currentPage, locale: currentLocale })
   allMovies = [...allMovies, ...moviesWithMeta.movies]
   return allMovies
 })

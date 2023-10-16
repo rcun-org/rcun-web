@@ -1,28 +1,36 @@
-import React from "react"
-import classes from "./BaseInput.module.scss"
-import { useState, useEffect } from "react"
+import React from "react";
+import classes from "./BaseInput.module.scss";
+import { useState, useEffect } from "react";
 
-const BaseInput = props => {
-  let [isFocused, setIsFocused] = useState(false)
-  let c = document.getElementById("sub-cursor")
+import cx from "classnames";
+
+const BaseInput = (props) => {
+  const { className, ...restProps } = props || {};
+
+  let [isFocused, setIsFocused] = useState(false);
+  let c = document.getElementById("sub-cursor");
 
   useEffect(() => {
     if (isFocused) {
-      c.classList.add("cursor-over-input")
+      c.classList.add("cursor-over-input");
     } else {
-      c.classList.remove("cursor-over-input")
+      c.classList.remove("cursor-over-input");
     }
-  }, [isFocused])
+  }, [isFocused]);
 
   return (
     <input
-      {...props}
-      className={`${classes.baseInput} ${props.isFancy && classes.fancy}`}
+      {...restProps}
+      className={cx(
+        classes.baseInput,
+        props.isFancy && classes.fancy,
+        className
+      )}
       autoComplete="off"
       onMouseEnter={() => setIsFocused(true)}
       onMouseLeave={() => setIsFocused(false)}
     />
-  )
-}
+  );
+};
 
-export default BaseInput
+export default BaseInput;
