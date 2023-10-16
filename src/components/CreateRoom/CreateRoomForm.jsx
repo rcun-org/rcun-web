@@ -16,8 +16,8 @@ const CreateRoomForm = ({ roomCreated }) => {
 
   const [roomData, setRoomData] = useState({
     title: "",
-    videoSource: "",
-    player_mode: "youtube", // videocdn, youtube
+    videoSource: "", // videocdn, youtube, mycima
+    playerMode: "youtube", // mp4, m3u8, youtube
   })
 
   const handleCreate = async () => {

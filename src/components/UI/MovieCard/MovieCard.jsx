@@ -12,6 +12,7 @@ import CreateRoomFromMovieForm from "../../CreateRoom/CreateRoomFromMovieForm"
 import RedirectToRoomConfirm from "../../CreateRoom/RedirectToRoomConfirm"
 
 import loginClasses from "../../Login/Login.module.scss"
+import { useAtom } from "jotai"
 
 // TODO: Доработать ховер на cardContainer - увеличивать только при наведении мышки на картинку
 export default ({ movie }) => {
@@ -19,6 +20,8 @@ export default ({ movie }) => {
   const [showDescription, setShowDescription] = useState(false)
   const [roomCreatedId, setRoomCreatedId] = useState(null)
   const [modalActive, setModalActive] = useState(false)
+  // get language atom
+  // const languageAtom = useAtom(languageAtom)
 
   const redirectToVideo = () => {
     history.push(`/room/${roomCreatedId}`)
@@ -65,7 +68,8 @@ export default ({ movie }) => {
               <span>Create a new room</span>
             </div>
             <CreateRoomFromMovieForm
-              videoSource={movie.media[0].qualities[0].url}
+              videoUrl={movie.media[0].qualities[0].url}
+              videoSource={videoSource}
               roomCreated={roomId => setRoomCreatedId(roomId)}
             />
           </>
