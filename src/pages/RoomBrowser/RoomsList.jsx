@@ -43,7 +43,7 @@ const RoomsList = props => {
             // height={cardWidth / 1.75}
             key={index}
             sx={{
-              bgcolor: "#404040",
+              bgcolor: "#3b393f",
               width: cardWidthRem,
               height: cardHeightRem,
               zIndex: -100,

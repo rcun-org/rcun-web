@@ -13,9 +13,17 @@ async function fetchMoviesVCDN({ page, locale } = { page: 1,  locale: 'ar' }) {
       locale
     },
   })
+  // if (locale === 'ar' || locale === 'en') {
+  //   return movies.data
+  // } else if (locale==='ru'){
+  //   return movies.data.data
+  // }
   return movies.data.data
+  // console.log("locale", locale, "MOVIES:", movies)
 }
 
+// SOON should become deprecated SOON
+// we will just use fetchMovieMeta instead (and backend will choose source based on locale)
 async function fetchMovieMetaKP({ id }) {
   let meta = await axios.get(`${KP_API_URL}/films/${id}`, {
     headers: {
@@ -25,8 +33,20 @@ async function fetchMovieMetaKP({ id }) {
   return meta.data
 }
 
-async function fetchMovies({ page, locale } = { page: 1, locale: 'en' }) {
+async function fetchMovieMeta({title, locale}) {
+  // API_URL/api/movieMeta?title=minions&locale=en
+  let meta = await axios.get(`${API_URL}movieMeta`, {
+    params: {
+      title,
+      locale
+    },
+  })
+  return meta.data
+}
+
+async function fetchMovies({ page, locale } = { page: 1, locale: 'ar' }) {
   let movies = await fetchMoviesVCDN({ page, locale })
+  console.log("Got movies from VCDN:", movies)
 
   const CHUNK_SIZE = 5 // Adjust based on what the API can handle
   const numChunks = Math.ceil(movies.length / CHUNK_SIZE)
@@ -36,9 +56,16 @@ async function fetchMovies({ page, locale } = { page: 1, locale: 'en' }) {
     const end = start + CHUNK_SIZE
     const movieChunk = movies.slice(start, end)
 
-    const promises = movieChunk.map(movie =>
-      fetchMovieMetaKP({ id: movie.kinopoisk_id })
-    )
+    const promises = movieChunk.map(movie => {
+      /// SOON deprecated
+      if (locale === 'ar' || locale === 'en') {
+        console.log("Movie original title:", movie.orig_title)
+        return fetchMovieMeta({ title: movie.orig_title, locale })
+      } else {
+        return fetchMovieMetaKP({ id: movie.kinopoisk_id })
+      }
+      /// SOON deprecated
+    })
     const metaResults = await Promise.all(promises)
 
     for (let i = 0; i < movieChunk.length; i++) {
