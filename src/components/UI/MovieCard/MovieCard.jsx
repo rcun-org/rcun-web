@@ -13,6 +13,7 @@ import RedirectToRoomConfirm from "../../CreateRoom/RedirectToRoomConfirm"
 
 import loginClasses from "../../Login/Login.module.scss"
 import { useAtom } from "jotai"
+import { languageAtom } from "../../../stores/language-store"
 
 // TODO: Доработать ховер на cardContainer - увеличивать только при наведении мышки на картинку
 export default ({ movie }) => {
@@ -21,7 +22,10 @@ export default ({ movie }) => {
   const [roomCreatedId, setRoomCreatedId] = useState(null)
   const [modalActive, setModalActive] = useState(false)
   // get language atom
-  // const languageAtom = useAtom(languageAtom)
+  //  useAtom(languageAtom)
+  const [language] = useAtom(languageAtom)
+
+  const videoSource = language === "ru" ? "videocdn" : "mycima"
 
   const redirectToVideo = () => {
     history.push(`/room/${roomCreatedId}`)
