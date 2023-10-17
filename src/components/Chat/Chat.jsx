@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { AuthContext } from "../../context/";
+import { AuthContext } from "@/context/";
 import classes from "./Chat.module.scss";
 import { io } from "socket.io-client";
-import { getRoomById } from "../../services/room.services";
+import { getRoomById } from "@/services/room.services";
 import { useParams } from "react-router-dom";
 import BaseButton from "../UI/Button/BaseButton";
 import BaseInput from "../UI/Input/BaseInput";
-import Message from "../UI/Message/Message.jsx";
 import MovieIcon from "@mui/icons-material/Movie";
 import { useAtom } from "jotai";
-import { userDataAtom, userTokenAtom } from "../../stores/auth-store";
+import { userDataAtom, userTokenAtom } from "@/stores/auth-store";
+import transformMsgHistoryToGroup from "./utils";
+import MessageGroup from "../UI/Message/messageGroup";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
@@ -23,9 +24,9 @@ function Chat(props) {
   // } = useContext(AuthContext)
 
   const [userData] = useAtom(userDataAtom);
-  const username = userData.username;
+  const myUsername = userData.username;
 
-  let userNameRef = useRef(username);
+  // let userNameRef = useRef(username);
 
   let [msgHistory, setMsgHistory] = useState([]);
 
@@ -60,7 +61,7 @@ function Chat(props) {
         sendMessage("connected.");
       });
       socketRef.current.on("chat:msg", function (msg) {
-        setMsgHistory((prev) => prev.concat([msg]));
+        setMsgHistory((prev) => [...prev, msg]);
         console.log("new chat msg", msg);
       });
       socketRef.current.on("close", function () {
@@ -76,7 +77,7 @@ function Chat(props) {
 
     if (textToSend) {
       let msg = {
-        username: userNameRef.current,
+        username: myUsername,
         text: textToSend
       };
       // socketRef.current.send(JSON.stringify(msg));
@@ -87,7 +88,7 @@ function Chat(props) {
   }
 
   function broadcastRoomState(change) {
-    change.sender = userNameRef.current;
+    change.sender = myUsername;
     console.log("SENT socket msg", change);
     socketRef.current.emit("room:stateUpdate", change);
     setEnterText("" + "");
@@ -115,32 +116,19 @@ function Chat(props) {
     broadcastRoomState(change);
   }
 
+  const msgHistoryGroup = transformMsgHistoryToGroup(msgHistory);
+
   return (
     <div className={classes.chat_window}>
       <div className={classes.history_wrapper}>
         <div className={classes.msg_history} tabIndex="0">
-          {msgHistory.map(({ username, text }, index) => {
-            let prev = msgHistory[index - 1] || { username: "" };
-            let isCurrentSelf = username === userNameRef.current;
-            let isPrevSelf = prev.username === userNameRef.current;
-
+          {msgHistoryGroup.map((messages, index) => {
             return (
-              <div className={classes.msg_item} key={"_" + index + text}>
-                {isCurrentSelf !== isPrevSelf && index ? (
-                  <div className={classes.spacerLong}></div>
-                ) : (
-                  <div className={classes.spacer}></div>
-                )}
-                <Message
-                  username={username}
-                  text={text}
-                  isSelf={isCurrentSelf}
-                />
-              </div>
-              // <div className={classes.msg_item} key={index}>
-              //     <div className={classes.msg_item_username}>{username + ': '}</div>
-              //     <div className={classes.msg_item_text}>{text}</div>
-              // </div>
+              <MessageGroup
+                messages={messages}
+                key={"_" + index}
+                selfUsername={myUsername}
+              />
             );
           })}
           <div

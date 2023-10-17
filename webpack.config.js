@@ -1,14 +1,14 @@
-const webpack = require("webpack")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const CopyPlugin = require("copy-webpack-plugin")
-const Dotenv = require("dotenv-webpack")
-const path = require("path")
-const { template } = require("@babel/core")
-let mode = "development"
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
+const path = require("path");
+const { template } = require("@babel/core");
+let mode = "development";
 
 if (process.env.NODE_ENV === "production") {
-  mode = "production"
+  mode = "production";
 }
 
 module.exports = {
@@ -16,10 +16,10 @@ module.exports = {
   target: "web",
   entry: [
     "regenerator-runtime/runtime.js",
-    path.resolve(__dirname, "src", "index.js"),
+    path.resolve(__dirname, "src", "index.js")
   ],
   output: {
-    publicPath: "/",
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -27,18 +27,18 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-        },
+          loader: "babel-loader"
+        }
       },
       {
         test: /\.s?css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: "asset",
-      },
-    ],
+        type: "asset"
+      }
+    ]
   },
   plugins: [
     new Dotenv(),
@@ -48,19 +48,22 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      favicon: "./src/assets/favicon/favicon.ico",
+      favicon: "./src/assets/favicon/favicon.ico"
     }),
     new CopyPlugin({
-      patterns: [{ from: "netlify_config", to: "" }],
-    }),
+      patterns: [{ from: "netlify_config", to: "" }]
+    })
   ],
   resolve: {
-    extensions: [".js", ".jsx"],
+    alias: {
+      "@": path.resolve(__dirname, "src")
+    },
+    extensions: ["", ".js", ".jsx"]
   },
   devtool: "source-map",
   devServer: {
     static: "./dist",
     hot: true,
-    historyApiFallback: true,
-  },
-}
+    historyApiFallback: true
+  }
+};
