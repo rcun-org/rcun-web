@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./IconButton.module.scss";
 import { useState, useEffect } from "react";
+import { Fade, Zoom } from "@mui/material";
 
 const IconButton = ({ label = "", ...props }) => {
   let [isFocused, setIsFocused] = useState(false);
@@ -21,7 +22,9 @@ const IconButton = ({ label = "", ...props }) => {
       onMouseLeave={() => setIsFocused(false)}
     >
       <button {...props} className={classes.iconButton} />
-      {isFocused && !!label && <div className={classes.tooltip}>{label}</div>}
+      <Fade in={isFocused && !!label}>
+        <div className={classes.tooltip}>{label}</div>
+      </Fade>
     </div>
   );
 };

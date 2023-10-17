@@ -8,7 +8,7 @@ import { userTokenAtom } from "../../stores/auth-store";
 const Logout = () => {
   const [, setUserToken] = useAtom(userTokenAtom);
   return (
-    <div>
+    <>
       <IconButton
         onClick={() => {
           logout();
@@ -18,7 +18,7 @@ const Logout = () => {
       >
         <LogoutOutlinedIcon />
       </IconButton>
-    </div>
+    </>
   );
 };
 
