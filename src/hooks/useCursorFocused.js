@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
-const useCursorFocused = (initialValue) => {
+const useCursorFocused = (initialValue, baseClass = "cursor-over-input") => {
   let [isFocused, setIsFocused] = useState(initialValue ?? false);
 
   useEffect(() => {
     let c = document.getElementById("sub-cursor");
 
     if (isFocused) {
-      c.classList.add("cursor-over-input");
+      c.classList.add(baseClass);
     } else {
-      c.classList.remove("cursor-over-input");
+      c.classList.remove(baseClass);
     }
   }, [isFocused]);
 
