@@ -1,4 +1,5 @@
 @import "src/styles/colors";
+@import "src/styles/shadows";
 
 .iconButton {
   border: none;
@@ -8,8 +9,6 @@
   cursor: pointer;
   background-color: transparent;
   transition: 150ms;
-
-  width: 24px;
   // height: 24px;
 
   display: grid;
@@ -20,4 +19,26 @@
 .iconButton:hover {
   outline: none !important;
   color: $accent-color-550;
+}
+
+.tooltipContainer {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: $base-grey;
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  top: 120%; /* Position below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap; /* Keep text in a single line */
+  opacity: 0.9;
+  visibility: visible;
+  transition: visibility 0.2s ease-in-out;
+  box-shadow:0 $shadow-y $shadow-blur $shadow-inset $shadow-color;
 }
