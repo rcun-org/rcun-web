@@ -10,6 +10,9 @@ import Message from "../UI/Message/Message.jsx";
 import MovieIcon from "@mui/icons-material/Movie";
 import { useAtom } from "jotai";
 import { userDataAtom, userTokenAtom } from "../../stores/auth-store";
+import ArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { Search } from "@mui/icons-material";
+import IconButton from "../UI/IconButton/IconButton";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
@@ -28,6 +31,7 @@ function Chat(props) {
   let userNameRef = useRef(username);
 
   let [msgHistory, setMsgHistory] = useState([]);
+  const [hidden, setHidden] = useState(false);
 
   const [roomData, setRoomData] = useState(null);
 
@@ -116,7 +120,19 @@ function Chat(props) {
   }
 
   return (
-    <div className={classes.chat_window}>
+    <div
+      className={`${classes.chat_window} ${
+        hidden ? classes.chat_window_hidden : undefined
+      }`}
+    >
+      <IconButton
+        onClick={() => setHidden(!hidden)}
+        position={classes.chat_hide_button}
+      >
+        <ArrowRightIcon
+          sx={{ transform: hidden ? "rotate(180deg)" : undefined }}
+        />
+      </IconButton>
       <div className={classes.history_wrapper}>
         <div className={classes.msg_history} tabIndex="0">
           {msgHistory.map(({ username, text }, index) => {

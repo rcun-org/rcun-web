@@ -19,6 +19,10 @@ $chat-text-font-size: 13px;
   font-size: $chat-text-font-size;
   font-family: "Exo 2", sans-serif;
   z-index: 1600;
+  transition: 0.3s transform ease;
+  &_hidden{
+    transform: translateX(100%);
+  }
 }
 
 .history_wrapper::-webkit-scrollbar {
@@ -85,6 +89,11 @@ $chat-text-font-size: 13px;
   flex-grow: 1;
   border-radius: $brMd !important;
   border: none;
+}
+.chat_hide_button{
+  position: absolute;
+  bottom: -30px;
+  left: 0;
 }
 
 //.msg_entry {

@@ -3,7 +3,7 @@ import classes from "./IconButton.module.scss";
 import { useState, useEffect } from "react";
 import { Fade, Zoom } from "@mui/material";
 
-const IconButton = ({ label = "", ...props }) => {
+const IconButton = ({ label = "", position = {}, ...props }) => {
   let [isFocused, setIsFocused] = useState(false);
   let c = document.getElementById("sub-cursor");
 
@@ -17,7 +17,7 @@ const IconButton = ({ label = "", ...props }) => {
 
   return (
     <div
-      className={classes.tooltipContainer}
+      className={`${classes.tooltipContainer} ${position}`}
       onMouseEnter={() => setIsFocused(true)}
       onMouseLeave={() => setIsFocused(false)}
     >
