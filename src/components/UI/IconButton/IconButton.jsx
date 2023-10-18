@@ -8,6 +8,7 @@ const IconButton = (props) => {
   const { className, ...restProps } = props || {};
 
   const { handleFocusCursor, handleUnfocusCursor } = useCursorFocused(
+    false,
     "cursor-over-icon-button"
   );
 

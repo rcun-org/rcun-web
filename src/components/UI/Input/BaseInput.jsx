@@ -7,8 +7,10 @@ import useCursorFocused from "@/hooks/useCursorFocused";
 const BaseInput = (props) => {
   const { className, ...restProps } = props || {};
 
-  const { handleFocusCursor, handleUnfocusCursor } =
-    useCursorFocused("cursor-over-input");
+  const { handleFocusCursor, handleUnfocusCursor } = useCursorFocused(
+    false,
+    "cursor-over-input"
+  );
 
   return (
     <input
