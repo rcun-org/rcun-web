@@ -1,15 +1,29 @@
 @import "src/styles/colors.scss";
+@import "src/styles/radiuses.scss";
 @import "src/styles/indents.scss";
 
 .text {
-  flex-grow: 1;
   padding: 10px 20px;
   background-color: #E7E7E766;
   color: black;
   backdrop-filter: blur(12px);
-  border-radius: 10px;
   overflow-wrap: break-word;
   font-size: 18px;
+  min-width: 70%;
+  max-width: 70%;
+}
+
+.firstMsg {
+  border-top-left-radius: $brMd;
+  border-top-right-radius: $brMd;
+}
+
+.lastMsg {
+  border-bottom-right-radius: $brMd;
+}
+
+.lastMsgSelf {
+  border-bottom-left-radius: $brMd;
 }
 
 .selfText {
@@ -20,7 +34,6 @@
 .username {
   font-size: 16px;
   color: #E7E7E766;
-  max-width: 20%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -28,6 +41,18 @@
 .messageEntry {
   display: flex;
   align-items: flex-end;
-  justify-content: space-around;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
   gap: $indentMd;
+}
+
+.selfEntry {
+  flex-direction: row;
+}
+
+.groupWrapper {
+  margin-bottom: $indentSm;
+  display: flex;
+  flex-direction: column;
+  gap: $indentLow;
 }

@@ -1,27 +1,22 @@
-import React from "react"
-import classes from "./BaseButton.module.scss"
-import { useState, useEffect } from "react"
+import React from "react";
+import classes from "./BaseButton.module.scss";
+import cx from "classnames";
+import useCursorFocused from "@/hooks/useCursorFocused";
 
-const BaseButton = props => {
-  let [isFocused, setIsFocused] = useState(false)
-  let c = document.getElementById("sub-cursor")
+const BaseButton = (props) => {
+  const { className, ...restProps } = props || {};
 
-  useEffect(() => {
-    if (isFocused) {
-      c.classList.add("cursor-over-button")
-    } else {
-      c.classList.remove("cursor-over-button")
-    }
-  }, [isFocused])
+  const { handleFocusCursor, handleUnfocusCursor } =
+    useCursorFocused("cursor-over-button");
 
   return (
     <button
-      {...props}
-      className={classes.baseButton}
-      onMouseEnter={e => setIsFocused(true)}
-      onMouseLeave={e => setIsFocused(false)}
+      className={cx(classes.baseButton, className)}
+      onMouseEnter={handleFocusCursor}
+      onMouseLeave={handleUnfocusCursor}
+      {...restProps}
     />
-  )
-}
+  );
+};
 
-export default BaseButton
+export default BaseButton;

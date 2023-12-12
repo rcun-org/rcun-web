@@ -1,27 +1,24 @@
-import React from "react"
-import classes from "./IconButton.module.scss"
-import { useState, useEffect } from "react"
+import React from "react";
+import classes from "./IconButton.module.scss";
+import useCursorFocused from "@/hooks/useCursorFocused";
 
-const IconButton = props => {
-  let [isFocused, setIsFocused] = useState(false)
-  let c = document.getElementById("sub-cursor")
+import cx from "classnames";
 
-  useEffect(() => {
-    if (isFocused) {
-      c.classList.add("cursor-over-icon-button")
-    } else {
-      c.classList.remove("cursor-over-icon-button")
-    }
-  }, [isFocused])
+const IconButton = (props) => {
+  const { className, ...restProps } = props || {};
+
+  const { handleFocusCursor, handleUnfocusCursor } = useCursorFocused(
+    "cursor-over-icon-button"
+  );
 
   return (
     <button
-      {...props}
-      className={classes.iconButton}
-      onMouseEnter={e => setIsFocused(true)}
-      onMouseLeave={e => setIsFocused(false)}
+      className={cx(classes.iconButton, className)}
+      onMouseEnter={handleFocusCursor}
+      onMouseLeave={handleUnfocusCursor}
+      {...restProps}
     />
-  )
-}
+  );
+};
 
-export default IconButton
+export default IconButton;
