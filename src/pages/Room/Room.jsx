@@ -1,129 +1,129 @@
-import React, { useEffect, useState, useRef, useContext } from "react"
-import VideoPlayer from "../VideoPlayer"
-import { useParams } from "react-router-dom"
-import Chat from "../../components/Chat"
-import { getRoomById, loadParts } from "../../services/room.services"
-// import PlayerController from "../../components/PlayerController"
-import { AuthContext } from "../../context"
+import React, { useEffect, useState, useRef /*, useContext*/ } from "react";
+import VideoPlayer from "../VideoPlayer";
+import { useParams } from "react-router-dom";
+import Chat from "@/components/Chat";
+import { getRoomById /*, loadParts */ } from "@/shared/services/room.services";
+// import PlayerController from "@/components/PlayerController"
+// import { AuthContext } from "@/shared/lib/context";
 
-import classes from "./room.module.scss"
-import { io } from "socket.io-client"
-import CursorController from "../../components/CursorController/CursorController"
-import { useAtom } from "jotai"
-import { userDataAtom } from "../../stores/auth-store"
+import classes from "./room.module.scss";
+import { io } from "socket.io-client";
+import CursorController from "@/components/CursorController/CursorController";
+import { useAtom } from "jotai";
+import { userDataAtom } from "@/shared/lib/stores/auth-store";
 
-const WS_URL = process.env["REACT_APP_WS_SERVER"]
-const ALLOWED_DELAY = 3
+const WS_URL = process.env["REACT_APP_WS_SERVER"];
+const ALLOWED_DELAY = 3;
 
 const Room = () => {
-  const { id } = useParams()
+  const { id } = useParams();
 
-  const [roomData, setRoomData] = useState(null)
+  const [roomData, setRoomData] = useState(null);
 
   // let {
   //   userData: { username },
   // } = useContext(AuthContext)
 
-  const [userData] = useAtom(userDataAtom)
-  const username = userData.username
+  const [userData] = useAtom(userDataAtom);
+  const username = userData.username;
 
-  let userNameRef = useRef(username)
+  let userNameRef = useRef(username);
 
   // ws connection
-  let socketRef = useRef(0)
+  let socketRef = useRef(0);
 
   // get room from api
   useEffect(() => {
     const fetchRoomData = async () => {
-      let rd = await getRoomById(id)
-      setRoomData(rd)
-    }
-    fetchRoomData().catch()
-  }, [])
+      let rd = await getRoomById(id);
+      setRoomData(rd);
+    };
+    fetchRoomData().catch();
+  }, []);
 
   // ws
-  const [_hasRun, _setHasRun] = useState(false)
+  const [_hasRun, _setHasRun] = useState(false);
   useEffect(() => {
     if (!!roomData && !_hasRun) {
-      _setHasRun(true)
+      _setHasRun(true);
 
       socketRef.current = new io(WS_URL, {
-        transports: ["websocket", "polling"],
-      })
+        transports: ["websocket", "polling"]
+      });
 
       socketRef.current.on("connect", function () {
-        console.log("on connect success")
-        console.log("room data", roomData)
-        socketRef.current.emit("room:join", roomData["_id"])
-      })
+        console.log("on connect success");
+        console.log("room data", roomData);
+        socketRef.current.emit("room:join", roomData["_id"]);
+      });
       socketRef.current.on("close", function () {
-        console.log("close")
-      })
-      socketRef.current.on("connect_error", e => {
-        console.error("socketIO ERROR connecting!", e)
-        socketRef.current.io.opts.transports = ["polling", "websocket"]
-      })
+        console.log("close");
+      });
+      socketRef.current.on("connect_error", (e) => {
+        console.error("socketIO ERROR connecting!", e);
+        socketRef.current.io.opts.transports = ["polling", "websocket"];
+      });
 
       socketRef.current.on("room:stateUpdate", function (e) {
-        console.log("received room update", e, typeof e)
-        let roomEventChange = e
-        let newState = roomData
+        console.log("received room update", e, typeof e);
+        let roomEventChange = e;
+        let newState = roomData;
         for (let k in roomEventChange) {
           if (k !== "sender") {
-            newState[k] = roomEventChange[k]
+            newState[k] = roomEventChange[k];
           }
           if (k === "video") {
-            newState["backupVideo"] = roomEventChange.video.link
+            newState["backupVideo"] = roomEventChange.video.link;
           }
         }
-        console.log("setting new roomstate:", newState)
-        setRoomData({ ...newState })
+        console.log("setting new roomstate:", newState);
+        setRoomData({ ...newState });
         // fetchRoomData()
-      })
+      });
 
       // on receive event
       socketRef.current.on("player:event", function (e) {
-        console.log("received socket msg", JSON.parse(e))
-        let playerEventChange = JSON.parse(e)
-        let newState = playerState
+        console.log("received socket msg", JSON.parse(e));
+        let playerEventChange = JSON.parse(e);
+        let newState = playerState;
         for (let k in playerEventChange) {
           if (k !== "sender") {
-            newState[k] = playerEventChange[k]
+            newState[k] = playerEventChange[k];
           }
         }
         const registeredDelay = Math.abs(
           playerRef.current.getCurrentTime() - newState.playerTimecode
-        )
+        );
         if (registeredDelay > ALLOWED_DELAY) {
-          playerRef.current.seekTo(newState.playerTimecode)
+          playerRef.current.seekTo(newState.playerTimecode);
         }
-        setPlayerState({ ...newState })
-      })
+        setPlayerState({ ...newState });
+      });
     }
 
-    console.log("Room data changed:", roomData)
-  }, [roomData])
+    console.log("Room data changed:", roomData);
+  }, [roomData]);
 
   // player state
   let [playerState, setPlayerState] = useState({
     isPaused: true,
-    playerTimecode: 0,
-  })
+    playerTimecode: 0
+  });
 
-  const backupVideoRef = useRef(null)
+  const backupVideoRef = useRef(null);
   useEffect(() => {
     if (roomData) {
-      backupVideoRef.current = roomData.backupVideo
+      backupVideoRef.current = roomData.backupVideo;
     }
-  }, [roomData])
+  }, [roomData]);
 
   // same for roomData.backupPlayerState.mode
-  const playerModeRef = useRef(null)
+  const playerModeRef = useRef(null);
   useEffect(() => {
     if (roomData) {
-      playerModeRef.current = roomData.backupPlayerState.mode
+      playerModeRef.current = roomData.backupPlayerState.mode;
     }
-  }, [roomData])
+  }, [roomData]);
 
   useEffect(() => {
     // const partsToLoad = 5
@@ -147,59 +147,59 @@ const Room = () => {
     //   }
     // }, 1000) // выполняет каждую секунду
     // return () => clearInterval(intervalId)
-  }, [])
+  }, []);
 
   // send function
   function broadcastChange(change) {
-    change.sender = userNameRef.current
-    let msg = JSON.stringify(change)
-    console.log("SENT socket msg", JSON.parse(msg))
-    socketRef.current.emit("player:event", msg)
+    change.sender = userNameRef.current;
+    let msg = JSON.stringify(change);
+    console.log("SENT socket msg", JSON.parse(msg));
+    socketRef.current.emit("player:event", msg);
   }
 
   // button handlers
   function handleBackArrowPush(event) {
-    let currentTime = playerRef.current.getCurrentTime()
+    let currentTime = playerRef.current.getCurrentTime();
     let change = {
-      playerTimecode: currentTime - 5,
-    }
+      playerTimecode: currentTime - 5
+    };
     let newState = {
       ...playerState,
-      ...change,
-    }
-    setPlayerState(newState)
-    broadcastChange(change)
-    playerRef.current.seekTo(currentTime - 5) // perform action
+      ...change
+    };
+    setPlayerState(newState);
+    broadcastChange(change);
+    playerRef.current.seekTo(currentTime - 5); // perform action
   }
 
   function handleForwardArrowPush(event) {
-    let currentTime = playerRef.current.getCurrentTime()
+    let currentTime = playerRef.current.getCurrentTime();
     let change = {
-      playerTimecode: currentTime + 5,
-    }
+      playerTimecode: currentTime + 5
+    };
     let newState = {
       ...playerState,
-      ...change,
-    }
-    setPlayerState(newState)
-    broadcastChange(change)
-    playerRef.current.seekTo(currentTime + 5)
+      ...change
+    };
+    setPlayerState(newState);
+    broadcastChange(change);
+    playerRef.current.seekTo(currentTime + 5);
   }
 
   function handlePlayPausePush(event) {
     let change = {
       isPaused: !playerState.isPaused,
-      playerTimecode: playerRef.current.getCurrentTime(),
-    }
+      playerTimecode: playerRef.current.getCurrentTime()
+    };
     let newState = {
       ...playerState,
-      ...change,
-    }
-    setPlayerState(newState)
-    broadcastChange(change)
+      ...change
+    };
+    setPlayerState(newState);
+    broadcastChange(change);
   }
 
-  let playerRef = useRef()
+  let playerRef = useRef();
 
   // ui
   return (
@@ -228,7 +228,7 @@ const Room = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Room
+export default Room;

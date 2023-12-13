@@ -1,39 +1,39 @@
-import React, { useContext, useState } from "react"
-import BaseInput from "../UI/Input/BaseInput"
-import BaseButton from "../UI/Button/BaseButton"
-import { createRoom, getRooms } from "../../services/room.services"
-import classes from "../Login/Login.module.scss"
-import { RoomsContext } from "../../context"
-import { useAtom } from "jotai"
-import { roomsAtom } from "../../stores/room-store"
+import React, { useContext, useState } from "react";
+import BaseInput from "@/shared/UI/Input/BaseInput";
+import BaseButton from "@/shared/UI/Button/BaseButton";
+import { createRoom, getRooms } from "@/shared/services/room.services";
+import classes from "../Login/Login.module.scss";
+import { RoomsContext } from "@/shared/lib/context";
+import { useAtom } from "jotai";
+import { roomsAtom } from "@/shared/lib/stores/room-store";
 
 const CreateRoomFromMovieForm = ({ roomCreated, videoSource, videoUrl }) => {
   // const { rooms, setRooms } = useContext(RoomsContext)
 
   // TODO all atoms
-  const [rooms, setRooms] = useAtom(roomsAtom)
+  const [rooms, setRooms] = useAtom(roomsAtom);
 
   const [roomData, setRoomData] = useState({
     title: "",
     videoUrl,
     videoSource, // videocdn, youtube, mycima
-    playerMode: "mp4", // mp4, m3u8, youtube
-  })
+    playerMode: "mp4" // mp4, m3u8, youtube
+  });
 
   const handleCreate = async () => {
-    console.log("Creating room with videosource of", videoSource)
-    const newRoom = await createRoom(roomData)
-    const newRoomsList = await getRooms()
-    setRooms(newRoomsList)
-    roomCreated(newRoom._id)
-  }
+    console.log("Creating room with videosource of", videoSource);
+    const newRoom = await createRoom(roomData);
+    const newRoomsList = await getRooms();
+    setRooms(newRoomsList);
+    roomCreated(newRoom._id);
+  };
 
   return (
     <div className={classes.formContainerInputList}>
       <div className="spacer" />
       <BaseInput
         value={roomData.username}
-        onChange={event =>
+        onChange={(event) =>
           setRoomData({ ...roomData, title: event.target.value })
         }
         type="text"
@@ -42,7 +42,7 @@ const CreateRoomFromMovieForm = ({ roomCreated, videoSource, videoUrl }) => {
       <div className="spacer" />
       <BaseButton onClick={handleCreate}>Create room</BaseButton>
     </div>
-  )
-}
+  );
+};
 
-export default CreateRoomFromMovieForm
+export default CreateRoomFromMovieForm;

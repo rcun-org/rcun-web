@@ -1,0 +1,25 @@
+.spacer {
+  width: 0.5rem;
+}
+
+.actionBar {
+  width: 100%;
+  display: flex;
+  padding-right: 0;
+
+  // padding-top: 1.5rem;
+  // padding-left: 20px;
+  gap: 0.5rem;
+  align-content: start;
+  flex-direction: row;
+  align-items: center;
+  // flex-wrap: wrap;
+  overflow-y: auto;
+  justify-content: end;
+
+  margin-left: -1px;
+
+  // display: inline-flex;
+  // white-space: nowrap;
+  // flex-shrink: 0;
+}

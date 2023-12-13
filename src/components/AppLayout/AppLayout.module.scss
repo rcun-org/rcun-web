@@ -1,11 +1,11 @@
-@import "src/styles/colors";
+@import "src/shared/styles/colors";
 
 .mainContainer {
   width: 100vw;
   height: 100vh;
   background-color: $grey-400;
   display: grid;
-  grid-template-rows: 0% 100%;
+  grid-template-rows: 0 100%;
 }
 
 .headerContainer {

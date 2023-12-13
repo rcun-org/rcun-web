@@ -1,0 +1,23 @@
+@import "src/shared/styles/colors";
+
+.iconButton {
+  border: none;
+  // border-radius: 75px;
+  font-size: 1rem;
+  color: $light-grey;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 150ms;
+
+  width: 24px;
+  // height: 24px;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton:hover {
+  outline: none !important;
+  color: $accent-color-550;
+}
