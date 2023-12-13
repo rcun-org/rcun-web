@@ -1,0 +1,55 @@
+@import "src/shared/styles/colors";
+
+* {
+  transition: all 0.1s ease-in-out;
+}
+
+.cardContainer {
+  margin-top: 1.3rem;
+  width: 100%;
+  // height: 100%;
+  display: grid;
+  align-items: baseline;
+  justify-content: center;
+  overflow: visible;
+}
+
+.cardOuter {
+  position: relative;
+  width: 8.5rem;
+  padding: 2rem;
+  aspect-ratio: 1/1.8;
+  background-color: grey;
+  border-radius: 16px;
+  z-index: 100;
+}
+
+.poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.8) grayscale(0.8);
+}
+
+.cardContainer:hover {
+  position: relative;
+  transform: scale(1.4) translateX(2.7rem);
+  z-index: 300;
+}
+
+.cardOuter:hover {
+  -webkit-box-shadow: 0 0 100px 0 $shadow-blue;
+  -moz-box-shadow: 0 0 100px 0 $shadow-blue;
+  box-shadow: 0 0 100px 0 $shadow-blue;
+}
+
+.poster:hover {
+  filter: brightness(1) grayscale(0);
+}

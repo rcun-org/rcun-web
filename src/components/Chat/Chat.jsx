@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { AuthContext } from "@/context/";
+import { AuthContext } from "@/shared/lib/context/";
 import classes from "./Chat.module.scss";
 import { io } from "socket.io-client";
-import { getRoomById } from "@/services/room.services";
+import { getRoomById } from "@/shared/services/room.services";
 import { useParams } from "react-router-dom";
-import BaseButton from "../UI/Button/BaseButton";
-import BaseInput from "../UI/Input/BaseInput";
+import BaseButton from "@/shared/UI/Button/BaseButton";
+import BaseInput from "@/shared/UI/Input/BaseInput";
 import MovieIcon from "@mui/icons-material/Movie";
 import { useAtom } from "jotai";
-import { userDataAtom, userTokenAtom } from "@/stores/auth-store";
+import { userDataAtom, userTokenAtom } from "@/shared/lib/stores/auth-store";
 import transformMsgHistoryToGroup from "./utils";
-import MessageGroup from "../UI/Message/messageGroup";
+import MessageGroup from "./Message/messageGroup";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 

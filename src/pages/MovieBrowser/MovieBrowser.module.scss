@@ -1,0 +1,10 @@
+.container {
+  display: grid;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  // grid-template-columns: 10fr;
+  height: 100%;
+  align-content: start;
+
+  animation: fade-in 500ms ease 500ms both;
+}

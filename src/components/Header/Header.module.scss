@@ -1,4 +1,4 @@
-@import "src/styles/colors";
+@import "src/shared/styles/colors";
 
 .header {
   display: flex;
@@ -24,9 +24,9 @@
   // height: 48px;
   // box-shadow: $shadow-low;
 
-  -webkit-box-shadow: 0px 9px 20px 4px $grey-400;
-  -moz-box-shadow: 0px 9px 20px 4px $grey-400;
-  box-shadow: 0px 9px 20px 4px $grey-400;
+  -webkit-box-shadow: 0 9px 20px 4px $grey-400;
+  -moz-box-shadow: 0 9px 20px 4px $grey-400;
+  box-shadow: 0 9px 20px 4px $grey-400;
 
   // -webkit-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);
   // -moz-box-shadow: 0px -9px 20px 4px rgba(40, 40, 40, 1);

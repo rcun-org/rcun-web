@@ -1,0 +1,52 @@
+@import "../../../../../shared/styles/colors";
+
+
+.descriptionHeader {
+  position: absolute;
+  transform: translateY(-100%);
+  left: 250px;
+  width: 30vw;
+}
+
+.movieTitle {
+  padding-bottom: 50px;
+  color: $white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.movieRating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: $yellow;
+}
+
+.movieRatingIcon {
+  stroke: $yellow;
+  stroke-width: 5px;
+  fill: none;
+}
+
+.descriptionBody {
+  position: absolute;
+  z-index: 100;
+  left: 300px;
+  width: 30vw;
+  color: $light-grey;
+}
+
+.movieDescription {
+  padding: 20px 0;
+  font-size: 0.8rem;
+}
+
+.movieAdditionalInformation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 5px;
+  font-size: 0.7rem;
+  color: #bbb; // TODO: пока используем один раз (можно добавить в colors)
+}

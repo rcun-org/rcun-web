@@ -1,38 +1,38 @@
-import React, { useState } from "react"
-import BaseInput from "../UI/Input/BaseInput"
-import { login } from "../../services/auth.service"
-import BaseButton from "../UI/Button/BaseButton"
-import classes from "./Login.module.scss"
-import { useAtom } from "jotai"
-import { userTokenAtom } from "../../stores/auth-store"
+import React, { useState } from "react";
+import BaseInput from "@/shared/UI/Input/BaseInput";
+import { login } from "@/shared/services/auth.service";
+// import BaseButton from "@/shared/UI/Button/BaseButton";
+import classes from "./Login.module.scss";
+import { useAtom } from "jotai";
+import { userTokenAtom } from "@/shared/lib/stores/auth-store";
 
 const LoginForm = ({ className, onLogin }) => {
-  const [token, setToken] = useAtom(userTokenAtom)
+  const [_, setToken] = useAtom(userTokenAtom);
   const [loginData, setLoginData] = useState({
     username: "",
-    password: "",
-  })
+    password: ""
+  });
 
   const handleLogin = async () => {
     // todo add client-side validation
-    const userToken = await login(loginData)
+    const userToken = await login(loginData);
 
     setLoginData({
       username: "",
-      password: "",
-    })
+      password: ""
+    });
 
-    setToken(userToken)
+    setToken(userToken);
     // if (userToken) {
     // onLogin(userToken)
     // }
-  }
+  };
 
-  const handleKeyUp = e => {
+  const handleKeyUp = (e) => {
     if (e.keyCode === 13) {
-      handleLogin()
+      handleLogin();
     }
-  }
+  };
 
   return (
     <div className={className}>
@@ -42,7 +42,7 @@ const LoginForm = ({ className, onLogin }) => {
         isFancy={true}
         value={loginData.username}
         onKeyUp={handleKeyUp}
-        onChange={event =>
+        onChange={(event) =>
           setLoginData({ ...loginData, username: event.target.value })
         }
         type="text"
@@ -52,7 +52,7 @@ const LoginForm = ({ className, onLogin }) => {
       <BaseInput
         isFancy={true}
         value={loginData.password}
-        onChange={event =>
+        onChange={(event) =>
           setLoginData({ ...loginData, password: event.target.value })
         }
         onKeyUp={handleKeyUp}
@@ -62,7 +62,7 @@ const LoginForm = ({ className, onLogin }) => {
 
       {/*<BaseButton onClick={handleLogin}>Continue</BaseButton>*/}
     </div>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;

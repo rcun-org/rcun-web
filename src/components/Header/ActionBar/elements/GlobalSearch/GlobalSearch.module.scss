@@ -1,0 +1,45 @@
+@import "src/shared/styles/colors";
+@import "src/shared/styles/indents";
+@import "src/shared/styles/radiuses";
+
+.container {
+  height: fit-content;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input {
+  padding: $indentLow $indentSm;
+  font-size: 14px;
+  border-radius: $brMd;
+  height: fit-content;
+  &:hover, &:focus, &:active {
+    font-size: 14px;
+    padding: $indentLow $indentSm;
+    border-radius: $brMd;
+  }
+}
+
+.inputEnter {
+  width: 0;
+  opacity: 0;
+}
+
+.inputEnterActive {
+  width: 100%;
+  opacity: 1;
+  transition: 0.4s ease;
+}
+
+.inputExit {
+  width: 100%;
+  opacity: 1;
+  transition: 0.4s ease;
+}
+
+.inputExitActive {
+  width: 0;
+  opacity: 0;
+}

@@ -1,0 +1,50 @@
+@import "src/shared/styles/colors";
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #a6a6a6;
+  opacity: 1; /* Firefox */
+}
+
+.fancy::placeholder {
+  color: $light-grey;
+  transition: 150ms;
+}
+
+.fancy:hover::placeholder {
+  color: black;
+  transition: 150ms;
+}
+
+.fancy {
+  transition: 150ms;
+  text-align: center;
+}
+
+.baseInput {
+  // padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem 2rem;
+  user-select: none;
+  border-radius: 75px;
+  border: 2px solid $light-grey;
+  background-color: $grey-400;
+  outline: none;
+  font-size: 1rem;
+  color: $light-grey;
+  transition: 150ms;
+}
+
+.baseInput:hover {
+  background-color: $light-grey;
+}
+
+.baseInput:focus {
+  padding: 1rem 2rem 1rem 2rem;
+  user-select: none;
+  border-radius: 75px;
+  border: 2px solid $light-grey;
+  background-color: $light-grey;
+  outline: none;
+  font-size: 1rem;
+  color: $grey-400;
+}
