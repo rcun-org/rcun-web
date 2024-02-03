@@ -15,7 +15,7 @@ export const createRoom = async ({
       API_URL + "room",
       {
         title,
-        backupVideo: videoUrl,
+        videoUrl,
         videoSource,
         playerMode,
       },

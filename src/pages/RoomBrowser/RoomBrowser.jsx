@@ -20,7 +20,7 @@ const RoomBrowser = () => {
 
   return (
     <div className={classes.container}>
-      <Header pageTitle={"Browse rooms"} />
+      <Header pageTitle={"Public rooms"} />
       <RoomsList className={classes.roomsList} />
     </div>
   )
