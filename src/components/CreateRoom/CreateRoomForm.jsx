@@ -16,7 +16,8 @@ const CreateRoomForm = ({ roomCreated }) => {
 
   const [roomData, setRoomData] = useState({
     title: "",
-    videoSource: "", // videocdn, youtube, mycima
+    videoUrl: "",
+    videoSource: "youtube", // videocdn, youtube, mycima
     playerMode: "youtube", // mp4, m3u8, youtube
   })
 
@@ -41,7 +42,7 @@ const CreateRoomForm = ({ roomCreated }) => {
       <BaseInput
         value={roomData.password}
         onChange={event =>
-          setRoomData({ ...roomData, videoSource: event.target.value })
+          setRoomData({ ...roomData, videoUrl: event.target.value })
         }
         type="text"
         placeholder="Youtube video link"
