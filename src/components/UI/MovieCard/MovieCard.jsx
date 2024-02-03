@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import classes from "./MovieCard.module.scss"
-import MovieCardDescription from "../MovieCardDescription/MovieCardDescription"
+import MovieCardDescription from "../MovieCardDescription/MovieCardDescription";
 
 import BaseModal from "../Modal/BaseModal"
 
@@ -21,6 +21,7 @@ export default ({ movie }) => {
   const [showDescription, setShowDescription] = useState(false)
   const [roomCreatedId, setRoomCreatedId] = useState(null)
   const [modalActive, setModalActive] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 960)
   // get language atom
   //  useAtom(languageAtom)
   const [language] = useAtom(languageAtom)
@@ -35,6 +36,18 @@ export default ({ movie }) => {
   useEffect(() => {
     setRoomCreatedId(null)
   }, [modalActive])
+
+  useEffect(() => {
+    function handleResize() {
+      setIsDesktop(window.innerWidth > 960);
+    }
+    // Слушатель события изменения размера окна
+    window.addEventListener('resize', handleResize);
+    // Убираем слушателя
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [])
 
   const handleMouseEnter = () => {
     setShowDescription(true)
@@ -62,8 +75,8 @@ export default ({ movie }) => {
             onMouseLeave={handleMouseLeave}
             onClick={handleMouseClick}
           />
+          {(showDescription || !isDesktop) && <MovieCardDescription movie={movie} />}
         </div>
-        {showDescription && <MovieCardDescription movie={movie} />}
       </div>
 
       <BaseModal active={modalActive} setActive={setModalActive}>

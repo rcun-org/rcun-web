@@ -1,5 +1,9 @@
 @import "../../../styles/colors.scss";
 
+$descriptionWidth:  calc(min(500px, 30vw) * 1.4);
+$rollWidth: max(16rem, 12vw);
+$rollMarginLeft: max(1.5rem, calc((100vw - (800px * 1.4) - $rollWidth)/2));
+
 .scrollContainer {
   height: 100%;
   overflow-y: scroll;
@@ -15,20 +19,20 @@
 // $containerHeight: 125rem;
 
 .movieRoll {
-  margin-left: 1.5rem;
+  margin-left: $rollMarginLeft;
   margin-top: 15rem;
   margin-bottom: 10rem;
   position: relative;
-  width: 16rem;
+  width: $rollWidth;
 
   overflow: visible;
   // height: $containerHeight;
 }
 
 .nextPage {
-  margin-left: 1.5rem;
+  margin-left: $rollMarginLeft;
   margin-top: -8rem;
-  width: 16rem;
+  width: $rollWidth;
 
   & > * {
     margin-left: auto;
@@ -36,15 +40,24 @@
   }
 }
 
-$startTileHeight: calc(16rem * 104 / 401 - 0.06rem);
+@media (max-width: 960px) {
+  .movieRoll {
+    margin: 1.5rem auto;
+  }
+  .nextPage {
+    margin: 1.5rem auto;
+  }
+}
+
+$startTileHeight: calc($rollWidth * 104 / 401 - 0.06rem);
 $offset: 2rem;
-$tileSize: calc(16rem * 98 / 401);
+$tileSize: calc($rollWidth * 98 / 401);
 
 .startTile,
 .middleTiles {
   position: absolute;
   left: 0;
-  width: 16rem;
+  width: $rollWidth;
 }
 
 .startTile {

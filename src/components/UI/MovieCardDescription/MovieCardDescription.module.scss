@@ -1,17 +1,16 @@
 @import "../../../styles/colors.scss";
 
+$descriptionWidth:  min(500px, 30vw);
+$rollWidth: max(16rem, 12vw);
 
-.descriptionHeader {
+.description {
   position: absolute;
-  transform: translateY(-100%);
-  left: 250px;
-  width: 30vw;
+  overflow: visible;
+  font-size: 0.7rem;
+  color: $white;
 }
 
 .movieTitle {
-  padding-bottom: 50px;
-  color: $white;
-  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -19,34 +18,95 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-width: 45px;
   gap: 5px;
-  font-size: 0.7rem;
   color: $yellow;
 }
 
 .movieRatingIcon {
   stroke: $yellow;
-  stroke-width: 5px;
+  stroke-width: 1px;
   fill: none;
 }
 
 .descriptionBody {
-  position: absolute;
-  z-index: 100;
-  left: 300px;
-  width: 30vw;
   color: $light-grey;
-}
-
-.movieDescription {
-  padding: 20px 0;
-  font-size: 0.8rem;
 }
 
 .movieAdditionalInformation {
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 5px;
-  font-size: 0.7rem;
   color: #bbb; // TODO: пока используем один раз (можно добавить в colors)
+}
+
+/* Для больших экранов */
+@media (max-width: 960px) {
+  .description {
+    bottom: 0;
+    left: 0;
+    height: 30%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    border-radius: 0 0 16px 16px;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* hide scrollbar for IE and Edge */
+    scrollbar-width: none;
+    /* hide scrollbar for Firefox */
+  }
+
+  .description::-webkit-scrollbar {
+    //hide scrollbar for Chrome, Safari, Opera
+    display: none;
+  }
+
+  .descriptionHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+    padding-bottom: 10px;
+    font-size: 0.9rem;
+  }
+
+  .movieTitle {
+    text-align: end;
+  }
+
+  .movieDescription {
+    text-align: justify;
+  }
+
+  .movieAdditionalInformation {
+    display: none;
+  }
+}
+
+
+@media (min-width: 960px) {
+  .descriptionHeader {
+    position: absolute;
+    transform: translateY(-100%);
+    left: $rollWidth;
+    width: calc($descriptionWidth + 50px);
+  }
+
+  .movieTitle {
+    padding-bottom: 50px;
+    font-size: 1.5rem;
+  }
+
+  .descriptionBody {
+    position: absolute;
+    left: calc($rollWidth + 50px);
+    width: $descriptionWidth;
+  }
+
+  .movieDescription {
+    padding: 20px 0;
+  }
 }
