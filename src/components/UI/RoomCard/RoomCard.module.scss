@@ -64,8 +64,8 @@ $card-height: $card-width / 1.75;
   transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   ///* From https://css.glass */
-  backdrop-filter: blur(13.9px);
-  -webkit-backdrop-filter: blur(13.9px);
+  backdrop-filter: blur(2.9px);
+  -webkit-backdrop-filter: blur(2.9px);
 }
 
 .cardTextSmall {
