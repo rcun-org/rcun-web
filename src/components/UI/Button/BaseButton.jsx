@@ -6,8 +6,10 @@ import useCursorFocused from "@/hooks/useCursorFocused";
 const BaseButton = (props) => {
   const { className, ...restProps } = props || {};
 
-  const { handleFocusCursor, handleUnfocusCursor } =
-    useCursorFocused("cursor-over-button");
+  const { handleFocusCursor, handleUnfocusCursor } = useCursorFocused(
+    false,
+    "cursor-over-button"
+  );
 
   return (
     <button
