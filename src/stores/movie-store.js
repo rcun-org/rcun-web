@@ -3,14 +3,14 @@ import { atom } from "jotai"
 import {languageAtom} from "./language-store";
 
 const API_URL = process.env["REACT_APP_API_SERVER"]
-const KP_API_URL = "https://kinopoiskapiunofficial.tech/api/v2.2"
-const KP_TOKEN = process.env["KP_TOKEN"]
+// const KP_API_URL = "https://kinopoiskapiunofficial.tech/api/v2.2"
+// const KP_TOKEN = process.env["KP_TOKEN"]
 
 async function fetchMoviesVCDN({ page, locale } = { page: 1,  locale: 'ar' }) {
   let movies = await axios.get(`${API_URL}movies`, {
     params: {
       page,
-      locale
+      locale,
     },
   })
   // if (locale === 'ar' || locale === 'en') {
@@ -22,29 +22,29 @@ async function fetchMoviesVCDN({ page, locale } = { page: 1,  locale: 'ar' }) {
   // console.log("locale", locale, "MOVIES:", movies)
 }
 
-// SOON should become deprecated SOON
-// we will just use fetchMovieMeta instead (and backend will choose source based on locale)
-async function fetchMovieMetaKP({ id }) {
-  let meta = await axios.get(`${KP_API_URL}/films/${id}`, {
-    headers: {
-      "X-API-KEY": KP_TOKEN,
-    },
-  })
-  return meta.data
-}
+// //  deprecated 
+// async function fetchMovieMetaKP({ id }) {
+//   let meta = await axios.get(`${KP_API_URL}/films/${id}`, {
+//     headers: {
+//       "X-API-KEY": KP_TOKEN,
+//     },
+//   })
+//   return meta.data
+// }
 
-async function fetchMovieMeta({title, locale}) {
+async function fetchMovieMeta({title, locale, id}) {
   // API_URL/api/movieMeta?title=minions&locale=en
-  let meta = await axios.get(`${API_URL}movieMeta`, {
+  let meta = await axios.get(`${API_URL}movieDetails`, {
     params: {
       title,
-      locale
+      locale,
+      id,
     },
   })
   return meta.data
 }
 
-async function fetchMovies({ page, locale } = { page: 1, locale: 'ar' }) {
+async function fetchMovies({ page, locale } = { page: 1, locale }) {
   let movies = await fetchMoviesVCDN({ page, locale })
   console.log("Got movies from VCDN:", movies)
 
@@ -58,18 +58,18 @@ async function fetchMovies({ page, locale } = { page: 1, locale: 'ar' }) {
 
     const promises = movieChunk.map(movie => {
       /// SOON deprecated
-      if (locale === 'ar' || locale === 'en') {
-        console.log("Movie original title:", movie.orig_title)
-        return fetchMovieMeta({ title: movie.orig_title, locale })
-      } else {
-        return fetchMovieMetaKP({ id: movie.kinopoisk_id })
-      }
+      // if (locale === 'ar' || locale === 'en') {
+      //   console.log("Movie original title:", movie.orig_title)
+      return fetchMovieMeta({ title: movie.orig_title, locale, id: movie.kinopoisk_id })
+      // } else {
+      //   return fetchMovieMetaKP({ id: movie.kinopoisk_id })
+      // }
       /// SOON deprecated
     })
     const metaResults = await Promise.all(promises)
 
     for (let i = 0; i < movieChunk.length; i++) {
-      movieChunk[i].kp = metaResults[i]
+      movieChunk[i].details = metaResults[i]
     }
   }
 

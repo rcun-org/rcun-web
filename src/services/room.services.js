@@ -8,6 +8,7 @@ export const createRoom = async ({
   videoSource,
   videoUrl,
   playerMode,
+  imdb,
 }) => {
   // videoSource = prepareData(videoSource);
   try {
@@ -18,6 +19,7 @@ export const createRoom = async ({
         videoUrl,
         videoSource,
         playerMode,
+        imdb,
       },
       {
         headers: authHeader(),

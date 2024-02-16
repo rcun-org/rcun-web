@@ -70,7 +70,7 @@ export default ({ movie }) => {
         <div className={classes.cardOuter}>
           <img
             className={classes.poster}
-            src={movie.kp.posterUrl}
+            src={movie.details.posterUrl}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleMouseClick}
@@ -89,6 +89,7 @@ export default ({ movie }) => {
               videoUrl={movie.media[0].qualities[0].url}
               videoSource={videoSource}
               roomCreated={roomId => setRoomCreatedId(roomId)}
+              imdb={movie.imdb_id}
             />
           </>
         ) : (

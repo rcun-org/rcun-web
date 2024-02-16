@@ -7,7 +7,7 @@ import { RoomsContext } from "../../context"
 import { useAtom } from "jotai"
 import { roomsAtom } from "../../stores/room-store"
 
-const CreateRoomFromMovieForm = ({ roomCreated, videoSource, videoUrl }) => {
+const CreateRoomFromMovieForm = ({ roomCreated, videoSource, videoUrl, imdb }) => {
   // const { rooms, setRooms } = useContext(RoomsContext)
 
   // TODO all atoms
@@ -18,6 +18,7 @@ const CreateRoomFromMovieForm = ({ roomCreated, videoSource, videoUrl }) => {
     videoUrl,
     videoSource, // videocdn, youtube, mycima
     playerMode: "mp4", // mp4, m3u8, youtube
+    imdb,
   })
 
   const handleCreate = async () => {
