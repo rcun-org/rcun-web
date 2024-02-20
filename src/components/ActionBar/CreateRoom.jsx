@@ -7,9 +7,11 @@ import RedirectToRoomConfirm from "../CreateRoom/RedirectToRoomConfirm"
 
 import FolderOpenIcon from "@mui/icons-material/FolderOpen"
 import SmartDisplayOutlinedIcon from "@mui/icons-material/SmartDisplayOutlined"
+import TheatersOutlinedIcon from '@mui/icons-material/TheatersOutlined';
+import TheatersRoundedIcon from '@mui/icons-material/TheatersRounded';
 
 import IconButton from "../UI/IconButton/IconButton"
-import { AddBoxOutlined } from "@mui/icons-material"
+import { AddBoxOutlined, OndemandVideoOutlined, PersonalVideoOutlined, } from "@mui/icons-material"
 import MovieBrowser from "../../pages/MovieBrowser/MovieBrowser"
 
 const CreateRoom = () => {
@@ -17,6 +19,7 @@ const CreateRoom = () => {
   const [modalActive, setModalActive] = useState(false)
   const [roomCreatedId, setRoomCreatedId] = useState(null)
   const [videoModel, setVideoModel] = useState("youtube")
+  const [actionsUnfolded, setActionsUnfolded] = useState(false)
 
   const redirectToVideo = () => {
     history.push(`/room/${roomCreatedId}`)
@@ -28,6 +31,7 @@ const CreateRoom = () => {
 
   const handleYoutube = () => {
     setVideoModel("youtube")
+    setModalActive(true)
   }
 
   const handleLibrary = () => {
@@ -38,9 +42,24 @@ const CreateRoom = () => {
 
   return (
     <>
-      <IconButton onClick={() => setModalActive(true)}>
-        <AddBoxOutlined />
-      </IconButton>
+      {
+      !actionsUnfolded ? (
+        <IconButton onClick={() => setActionsUnfolded(true)}>
+          <AddBoxOutlined />
+        </IconButton>
+      ) : (
+        <>
+        <IconButton>
+          <OndemandVideoOutlined onClick={handleYoutube} />
+        </IconButton>
+
+        <IconButton>
+          <PersonalVideoOutlined onClick={handleLibrary} />
+        </IconButton>
+        </>
+      )
+      }
+
       <BaseModal active={modalActive} setActive={setModalActive}>
         {!roomCreatedId ? (
           <div>

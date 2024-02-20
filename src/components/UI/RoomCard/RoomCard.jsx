@@ -14,7 +14,7 @@ const RoomCard = props => {
   function prepareData(s) {
     s ||= ""
     if (s.indexOf("?v=") === -1) {
-      console.log("Invalid link :c", s)
+      console.log("Invalid link:", s)
       return ""
     }
     s = s.substring(s.indexOf("?v=") + 3)
@@ -33,6 +33,18 @@ const RoomCard = props => {
     }
   }, [isFocused])
 
+  // console.log("Image yt fetched:", `https://img.youtube.com/vi/${prepareData(
+  //   props.room.backupVideo
+  // )}/hqdefault.jpg`, prepareData(
+  //   props.room.backupVideo
+  // ).length === 0)
+
+   // path to assets/imgs/raccoonCover.jpeg
+  const placeholderImg = `url(/imgs/raccoonCover.jpeg)`
+  const videoCoverImg = `url(${`https://img.youtube.com/vi/${prepareData(
+          props.room.backupVideo
+        )}/hqdefault.jpg`})`
+
   return (
     <div
       onMouseMove={e => setIsFocused(true)}
@@ -40,9 +52,9 @@ const RoomCard = props => {
       onClick={e => redirectToVideo(e)}
       className={classes.container}
       style={{
-        backgroundImage: `url(${`https://img.youtube.com/vi/${prepareData(
+        backgroundImage: prepareData(
           props.room.backupVideo
-        )}/hqdefault.jpg`})`,
+        ).length !== 0 ? videoCoverImg : placeholderImg,
         backgroundSize: "100%",
         backgroundPosition: "center",
       }}
