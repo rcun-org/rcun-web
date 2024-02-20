@@ -66,12 +66,13 @@ const CreateRoom = () => {
             <div className={classes.loginContainerHead}>
               <span>Create a new room</span>
               <span className={classes.row}>
-                <IconButton>
+                {/* <IconButton>
                   <SmartDisplayOutlinedIcon onClick={handleYoutube} />
                 </IconButton>
                 <IconButton>
                   <FolderOpenIcon onClick={handleLibrary} />
-                </IconButton>
+                </IconButton> */}
+                <small>YouTube</small>
               </span>
             </div>
             {videoModel === "youtube" ? (
