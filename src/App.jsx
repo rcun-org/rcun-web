@@ -1,22 +1,23 @@
-import { BrowserRouter } from "react-router-dom"
-import { AuthContext, ConnectionContext } from "./context"
-import { useEffect, useState, useMemo, Suspense } from "react"
-import AppRouter from "./components/AppRouter"
+import { BrowserRouter } from "react-router-dom";
+import { AuthContext, ConnectionContext } from "./context";
+import { useEffect, useState, useMemo, Suspense } from "react";
+import AppRouter from "./components/AppRouter";
 
-import AppLayout from "./components/AppLayout/AppLayout"
+import AppLayout from "./components/AppLayout/AppLayout";
 import {
   getCurrentUserToken,
-  getLocalCurrentUserToken,
-} from "./services/auth.service"
+  getLocalCurrentUserToken
+} from "./services/auth.service";
 
-import "./styles/index.scss"
-import { getUser } from "./services/api.user_service"
-import { getRooms } from "./services/room.services"
+import "./styles/index.scss";
+import { getUser } from "./services/api.user_service";
+import { getRooms } from "./services/room.services";
 
-import { Provider as JotaiProvider, useAtom } from "jotai"
-import { roomsAtom } from "./stores/room-store"
-import Splash from "./pages/Splash"
-import "./styles/globalVars.scss"
+import { Provider as JotaiProvider, useAtom } from "jotai";
+import { roomsAtom } from "./stores/room-store";
+import Splash from "./pages/Splash";
+import SplashIcon from "./components/Splash/SplashIcon";
+import "./styles/globalVars.scss";
 // import SplashContainer from "./components/Splash/SplashContainer"
 
 // import {
@@ -26,7 +27,7 @@ import "./styles/globalVars.scss"
 // } from "./stores/auth-store"
 
 const App = () => {
-  console.log("Build v1")
+  console.log("Build v1");
 
   // const [, setUserToken] = useAtom(userTokenAtom)
   // const [, setUserData] = useAtom(userDataAtom)
@@ -50,13 +51,16 @@ const App = () => {
     <JotaiProvider>
       <BrowserRouter>
         <AppLayout>
-          <Suspense fallback={Splash}>
+          <Suspense
+            className="w-screen flex justify-center"
+            fallback={<SplashIcon className="flex justify-center" />}
+          >
             <AppRouter />
           </Suspense>
         </AppLayout>
       </BrowserRouter>
     </JotaiProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

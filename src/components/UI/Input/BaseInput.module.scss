@@ -2,7 +2,7 @@
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #a6a6a6;
+  color: $grey-500;
   opacity: 1; /* Firefox */
 }
 
@@ -21,6 +21,9 @@
   text-align: center;
 }
 
+$enter-text-small: 0;
+$enter-text-big: 1.2em;
+
 .baseInput {
   // padding: 1rem 2rem 1rem 2rem;
   padding: 1rem 2rem;
@@ -29,13 +32,18 @@
   border: 2px solid $light-grey;
   background-color: $grey-400;
   outline: none;
-  font-size: 1rem;
+  font-size: $enter-text-small;
   color: $light-grey;
   transition: 150ms;
+
+  background-color: rgba(69, 69, 69, 0.5);
+  color: black;
+  backdrop-filter: blur(12px);
 }
 
 .baseInput:hover {
-  background-color: $light-grey;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: $enter-text-big;
 }
 
 .baseInput:focus {
@@ -45,6 +53,6 @@
   border: 2px solid $light-grey;
   background-color: $light-grey;
   outline: none;
-  font-size: 1rem;
+  font-size: $enter-text-big;
   color: $grey-400;
 }

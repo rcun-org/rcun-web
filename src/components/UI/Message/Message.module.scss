@@ -4,12 +4,11 @@
 .text {
   flex-grow: 1;
   padding: 10px 20px;
-  background-color: #E7E7E766;
+  background-color: #e7e7e766;
   color: black;
   backdrop-filter: blur(12px);
   border-radius: 10px;
   overflow-wrap: break-word;
-  font-size: 18px;
 }
 
 .selfText {
@@ -19,7 +18,7 @@
 
 .username {
   font-size: 16px;
-  color: #E7E7E766;
+  color: #e7e7e766;
   max-width: 20%;
   overflow: hidden;
   text-overflow: ellipsis;

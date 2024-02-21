@@ -1,6 +1,6 @@
 @import "../../../styles/colors.scss";
 
-$descriptionWidth:  min(500px, 30vw);
+$descriptionWidth: min(500px, 30vw);
 $rollWidth: max(16rem, 12vw);
 
 .description {
@@ -86,7 +86,6 @@ $rollWidth: max(16rem, 12vw);
   }
 }
 
-
 @media (min-width: 960px) {
   .descriptionHeader {
     position: absolute;
@@ -96,13 +95,13 @@ $rollWidth: max(16rem, 12vw);
   }
 
   .movieTitle {
-    padding-bottom: 50px;
+    padding-bottom: 0;
     font-size: 1.5rem;
   }
 
   .descriptionBody {
     position: absolute;
-    left: calc($rollWidth + 50px);
+    left: calc($rollWidth);
     width: $descriptionWidth;
   }
 

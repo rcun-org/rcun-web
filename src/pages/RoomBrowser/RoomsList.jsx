@@ -1,38 +1,37 @@
-import React, { useContext, useEffect, useState } from "react"
-import RoomCard from "../../components/UI/RoomCard/RoomCard"
-import styles from "../../components/UI/RoomCard/RoomCard.module.scss"
+import React, { useContext, useEffect, useState } from "react";
+import RoomCard from "../../components/UI/RoomCard/RoomCard";
+import styles from "../../components/UI/RoomCard/RoomCard.module.scss";
 
-import { AuthContext, RoomsContext } from "../../context"
-import { getRooms, getRoomsDetails } from "../../services/room.services"
-import { Skeleton } from "@mui/material"
-import { useAtom } from "jotai"
-import { roomsAtom, filteredRoomsAtom } from "../../stores/room-store"
+// import { AuthContext, RoomsContext } from "../../context";
+import { getRooms, getRoomsDetails } from "../../services/room.services";
+import { Skeleton } from "@mui/material";
+import { useAtom } from "jotai";
+import { roomsAtom, filteredRoomsAtom } from "../../stores/room-store";
 
-const API_URL = process.env["REACT_APP_API_SERVER"]
+// const API_URL = process.env["REACT_APP_API_SERVER"];
 
-const RoomsList = props => {
+const RoomsList = (props) => {
   // const { rooms, setRooms, searchedVideos } = useContext(RoomsContext)
 
-  const [, setRooms] = useAtom(roomsAtom)
-  const [searchedRooms] = useAtom(filteredRoomsAtom)
+  const [, setRooms] = useAtom(roomsAtom);
+  const [searchedRooms] = useAtom(filteredRoomsAtom);
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true);
 
   async function fetchRooms() {
-    setLoading(true)
-    let roomsData = await getRooms()
-    roomsData = await getRoomsDetails(roomsData)
-    setRooms(roomsData)
-    setLoading(false)
+    let roomsData = await getRooms();
+    roomsData = await getRoomsDetails(roomsData);
+    setRooms(roomsData);
+    setLoading(false);
   }
 
   useEffect(() => {
-    fetchRooms()
-  }, [])
+    fetchRooms();
+  }, []);
 
-  const cardHeightRem = styles.cardHeight
-  const cardWidthRem = `calc(${cardHeightRem} * 1.75)`
-  console.log("Card h calculated:", cardHeightRem)
+  const cardHeightRem = styles.cardHeight;
+  const cardWidthRem = `calc(${cardHeightRem} * 1.75)`;
+  console.log("Card h calculated:", cardHeightRem);
 
   return (
     <div {...props}>
@@ -47,17 +46,17 @@ const RoomsList = props => {
               width: cardWidthRem,
               height: cardHeightRem,
               zIndex: -100,
-              borderRadius: "16px",
+              borderRadius: "16px"
             }}
             animation="wave"
             variant="rounded"
           />
         ) : (
           <RoomCard key={index} index={index} room={room} />
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default RoomsList
+export default RoomsList;

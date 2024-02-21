@@ -2,10 +2,10 @@
 @import "src/styles/radiuses.scss";
 @import "src/styles/indents.scss";
 
-$chat-text-font-size: 13px;
+$chat-text-font-size: 0.75em;
 
 .chat_window {
-  width: 400px;
+  width: 25%;
   // height: 80vh;
   display: flex;
   flex-direction: column;
@@ -14,11 +14,12 @@ $chat-text-font-size: 13px;
   top: 24%;
   bottom: 24%;
   right: 2%;
-  //border: 2px rgba(93, 93, 93, 0.2) dashed;
+  // border: 2px rgba(93, 93, 93, 1) dashed;
   color: #c4c4c4;
-  font-size: $chat-text-font-size;
+  font-size: $chat-text-font-size !important;
   font-family: "Exo 2", sans-serif;
   z-index: 1600;
+  pointer-events: none;
 }
 
 .history_wrapper::-webkit-scrollbar {
@@ -42,9 +43,9 @@ $chat-text-font-size: 13px;
   position: absolute;
   transition: all 0.5s;
 
-   display: flex;
-   justify-content: flex-end;
-   flex-direction: column;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 
   // border-radius: 5px;
   // background-color: rgba(0, 0, 0, 0.8);
@@ -69,6 +70,8 @@ $chat-text-font-size: 13px;
   text-align: center;
   justify-content: center;
   gap: $indentSm;
+
+  pointer-events: auto !important;
 }
 
 .btn {

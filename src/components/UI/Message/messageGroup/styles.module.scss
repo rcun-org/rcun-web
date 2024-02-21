@@ -4,13 +4,13 @@
 
 .text {
   padding: 10px 20px;
-  background-color: #E7E7E766;
-  color: black;
-  backdrop-filter: blur(12px);
   overflow-wrap: break-word;
-  font-size: 18px;
+  // font-size: 0.7em;
   min-width: 70%;
   max-width: 70%;
+  background-color: #e7e7e766;
+  color: black;
+  backdrop-filter: blur(12px);
 }
 
 .firstMsg {
@@ -32,8 +32,8 @@
 }
 
 .username {
-  font-size: 16px;
-  color: #E7E7E766;
+  // font-size: 16px;
+  color: #e7e7e766;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -44,6 +44,8 @@
   flex-direction: row-reverse;
   justify-content: flex-start;
   gap: $indentMd;
+
+  pointer-events: auto !important;
 }
 
 .selfEntry {
@@ -54,5 +56,5 @@
   margin-bottom: $indentSm;
   display: flex;
   flex-direction: column;
-  gap: $indentLow;
+  gap: 0;
 }

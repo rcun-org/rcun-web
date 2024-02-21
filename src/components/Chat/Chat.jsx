@@ -144,7 +144,7 @@ function Chat(props) {
           value={enterText}
           onChange={handleInputChange}
           onKeyUp={handleEnterPush}
-          placeholder="Enter text . . ."
+          placeholder="Type a message"
         />
 
         <BaseButton onClick={handleUpdateVideo} className={classes.btn}>
