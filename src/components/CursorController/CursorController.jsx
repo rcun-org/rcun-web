@@ -1,5 +1,6 @@
 import CursorZone from "../CursorZone";
 import classes from "./CursorController.module.scss";
+import cx from "classnames";
 
 const CursorController = ({
   handlePlayPausePush,
@@ -19,15 +20,11 @@ const CursorController = ({
 
   return (
     <div
-      className={classes.container}
+      className={cx(classes.container)}
       tabIndex="0"
       onMouseLeave={handleUnfocus}
     >
-      <CursorZone
-        className="zone1"
-        handler={handleBackArrowPush}
-        zoneType={"back"}
-      />
+      <CursorZone handler={handleBackArrowPush} zoneType={"back"} />
       <CursorZone
         handler={handlePlayPausePush}
         zoneType={isPaused ? "paused" : "playing"}

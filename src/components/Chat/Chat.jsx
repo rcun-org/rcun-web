@@ -11,22 +11,20 @@ import { useAtom } from "jotai";
 import { userDataAtom, userTokenAtom } from "@/stores/auth-store";
 import transformMsgHistoryToGroup from "./utils";
 import MessageGroup from "../UI/Message/messageGroup";
+// import jotai
+import { isChatCollapsedAtom } from "../../stores/chat-store";
+import cx from "classnames";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 
 function Chat(props) {
   let autoScroll = useRef();
   const { id } = useParams();
-  // let { userToken } = useContext(AuthContext)
-
-  // let {
-  //   userData: { username },
-  // } = useContext(AuthContext)
 
   const [userData] = useAtom(userDataAtom);
   const myUsername = userData.username;
 
-  // let userNameRef = useRef(username);
+  const [isChatCollapsed] = useAtom(isChatCollapsedAtom);
 
   let [msgHistory, setMsgHistory] = useState([]);
 
@@ -119,9 +117,11 @@ function Chat(props) {
   const msgHistoryGroup = transformMsgHistoryToGroup(msgHistory);
 
   return (
-    <div className={classes.chat_window}>
-      <div className={classes.history_wrapper}>
-        <div className={classes.msg_history} tabIndex="0">
+    <div
+      className={cx(classes.chat_window, isChatCollapsed && classes.collapsed)}
+    >
+      <div className={cx(classes.history_wrapper)}>
+        <div className={cx(classes.msg_history)} tabIndex="0">
           {msgHistoryGroup.map((messages, index) => {
             return (
               <MessageGroup
@@ -137,8 +137,12 @@ function Chat(props) {
           ></div>
         </div>
       </div>
-
-      <div className={classes.enterSection}>
+      <div
+        className={cx(
+          classes.enterSection,
+          isChatCollapsed && classes.collapsed
+        )}
+      >
         <BaseInput
           className={classes.input}
           value={enterText}

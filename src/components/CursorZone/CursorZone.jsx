@@ -83,14 +83,14 @@ const CursorZone = ({ handler, zoneType }) => {
           }, opacityAnimationDuration);
         }
       } else if (zoneType === "chatToggle") {
-        if (!subCursor.classList.contains("cursor-play")) {
-          subCursor.style.opacity = 0;
-          setTimeout(() => {
-            subCursor.classList = [];
-            subCursor.classList.add("cursor-play");
-            subCursor.style.opacity = 1;
-          }, opacityAnimationDuration);
-        }
+        // if (!subCursor.classList.contains("cursor-play")) {
+        subCursor.style.opacity = 0;
+        setTimeout(() => {
+          subCursor.classList = [];
+          // subCursor.classList.add("cursor-play");
+          subCursor.style.opacity = 1;
+        }, opacityAnimationDuration);
+        // }
       }
       doCursorSize(e);
 

@@ -11,6 +11,7 @@ import { io } from "socket.io-client";
 import CursorController from "../../components/CursorController/CursorController";
 import { useAtom } from "jotai";
 import { userDataAtom } from "../../stores/auth-store";
+import { isChatCollapsedAtom } from "../../stores/chat-store";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 const ALLOWED_DELAY = 3;
@@ -186,8 +187,10 @@ const Room = () => {
     playerRef.current.seekTo(currentTime + 5);
   }
 
+  const [isChatCollapsed, setIsChatCollapsed] = useAtom(isChatCollapsedAtom);
   function handleChatToggle(event) {
-    console.log("Chat toggle!");
+    setIsChatCollapsed(!isChatCollapsed);
+    console.log("Chat is now collapsed?", isChatCollapsed);
   }
 
   function handlePlayPausePush(event) {

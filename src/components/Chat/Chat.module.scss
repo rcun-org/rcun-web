@@ -22,6 +22,17 @@ $chat-text-font-size: 0.75em;
   pointer-events: none;
 }
 
+.collapsed {
+  // translate to the right but leave like 1rem
+  transform: translateX(90%);
+  opacity: 0.95;
+  pointer-events: none !important;
+}
+
+.disabled {
+  pointer-events: none !important;
+}
+
 .history_wrapper::-webkit-scrollbar {
   width: 0;
 }
