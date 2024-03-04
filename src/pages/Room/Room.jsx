@@ -2,9 +2,8 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import VideoPlayer from "../VideoPlayer";
 import { useParams } from "react-router-dom";
 import Chat from "../../components/Chat";
-import { getRoomById, loadParts } from "../../services/room.services";
+import { getRoomById } from "../../services/room.services";
 // import PlayerController from "../../components/PlayerController"
-import { AuthContext } from "../../context";
 
 import classes from "./room.module.scss";
 import { io } from "socket.io-client";
@@ -12,6 +11,8 @@ import CursorController from "../../components/CursorController/CursorController
 import { useAtom } from "jotai";
 import { userDataAtom } from "../../stores/auth-store";
 import { isChatCollapsedAtom } from "../../stores/chat-store";
+import { cursorsAtom } from "../../stores/cursor-store";
+import CursorSpawner from "../../components/CursorController/CursorSpawner";
 
 const WS_URL = process.env["REACT_APP_WS_SERVER"];
 const ALLOWED_DELAY = 3;
@@ -21,14 +22,12 @@ const Room = () => {
 
   const [roomData, setRoomData] = useState(null);
 
-  // let {
-  //   userData: { username },
-  // } = useContext(AuthContext)
-
   const [userData] = useAtom(userDataAtom);
   const username = userData.username;
 
   let userNameRef = useRef(username);
+
+  const [cursors, setCursors] = useAtom(cursorsAtom);
 
   // ws connection
   let socketRef = useRef(0);
@@ -65,6 +64,7 @@ const Room = () => {
         socketRef.current.io.opts.transports = ["polling", "websocket"];
       });
 
+      /// receive room events
       socketRef.current.on("room:stateUpdate", function (e) {
         console.log("received room update", e, typeof e);
         let roomEventChange = e;
@@ -82,7 +82,7 @@ const Room = () => {
         // fetchRoomData()
       });
 
-      // on receive event
+      /// receive player events
       socketRef.current.on("player:event", function (e) {
         console.log("received socket msg", JSON.parse(e));
         let playerEventChange = JSON.parse(e);
@@ -99,6 +99,28 @@ const Room = () => {
           playerRef.current.seekTo(newState.playerTimecode);
         }
         setPlayerState({ ...newState });
+      });
+
+      /// receive cursor events
+      socketRef.current.on("cursor:move", function (data) {
+        let cursorData = data.data;
+        if (cursorData.sender === userNameRef.current) {
+          return;
+        }
+
+        console.log("received cursor move", cursorData, cursors);
+        cursors[cursorData.sender] = cursorData;
+        setCursors({ ...cursors });
+      });
+
+      /// send cursor events
+      window.addEventListener("mousemove", (event) => {
+        const data = {};
+        data.sender = userNameRef.current;
+        data.x = event.clientX;
+        data.y = event.clientY;
+        socketRef.current.emit("cursor:move", { data });
+        // console.log("cursor:move event sent", data);
       });
     }
 
@@ -118,37 +140,12 @@ const Room = () => {
     }
   }, [roomData]);
 
-  // same for roomData.backupPlayerState.mode
   const playerModeRef = useRef(null);
   useEffect(() => {
     if (roomData) {
       playerModeRef.current = roomData.backupPlayerState.mode;
     }
   }, [roomData]);
-
-  useEffect(() => {
-    // const partsToLoad = 5
-    // let isPartFirst = true
-    // const intervalId = setInterval(() => {
-    //   if (!backupVideoRef.current) return
-    //   console.log("player mode:", playerModeRef.current)
-    //   if (!playerRef.current) return
-    //   if (playerModeRef.current === "youtube") {
-    //     clearInterval(intervalId)
-    //   }
-    //   const maxt = playerRef.current.getDuration()
-    //   const t = playerRef.current.getCurrentTime()
-    //   const pos = Math.round(t / 6)
-    //   if (pos !== 0 || isPartFirst) {
-    //     isPartFirst = false
-    //     const l = Math.max(pos - partsToLoad, 0)
-    //     const r = Math.min(pos + partsToLoad, maxt)
-    //     console.log("t:", t, "req parts from", l, "to", r)
-    //     loadParts({ m3u8: backupVideoRef.current, posL: l, posR: r })
-    //   }
-    // }, 1000) // выполняет каждую секунду
-    // return () => clearInterval(intervalId)
-  }, []);
 
   // send function
   function broadcastChange(change) {
@@ -216,6 +213,8 @@ const Room = () => {
       ) : (
         <div style={{ height: "100%" }}>
           <div className={classes.video_player_container}>
+            <CursorSpawner />
+
             <CursorController
               handleBackArrowPush={handleBackArrowPush}
               handlePlayPausePush={handlePlayPausePush}

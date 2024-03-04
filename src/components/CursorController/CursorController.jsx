@@ -1,4 +1,6 @@
+import { useAtom } from "jotai";
 import CursorZone from "../CursorZone";
+import CursorSpawner from "./CursorSpawner";
 import classes from "./CursorController.module.scss";
 import cx from "classnames";
 
