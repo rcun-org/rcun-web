@@ -54,16 +54,23 @@ function Chat(props) {
         transports: ["websocket", "polling"]
       });
       socketRef.current.on("connect", function () {
-        console.log("chat connection open");
-        socketRef.current.emit("room:join", roomData["_id"]);
-        sendMessage("connected.");
+        socketRef.current.emit("room:join", {
+          roomId: roomData["_id"],
+          username: myUsername
+        });
+        sendMessage("joined.");
       });
       socketRef.current.on("chat:msg", function (msg) {
         setMsgHistory((prev) => [...prev, msg]);
         console.log("new chat msg", msg);
       });
-      socketRef.current.on("close", function () {
-        console.log("close");
+      socketRef.current.on("room:leave", (d) => {
+        const { username } = d;
+        sendMessage(username + " left the room.");
+      });
+
+      window.addEventListener("beforeunload", () => {
+        sendMessage("left.");
       });
     }
   }, [roomData]);

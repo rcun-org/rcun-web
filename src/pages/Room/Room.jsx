@@ -54,10 +54,10 @@ const Room = () => {
       socketRef.current.on("connect", function () {
         console.log("on connect success");
         console.log("room data", roomData);
-        socketRef.current.emit("room:join", roomData["_id"]);
-      });
-      socketRef.current.on("close", function () {
-        console.log("close");
+        socketRef.current.emit("room:join", {
+          roomId: roomData["_id"],
+          username: userNameRef.current
+        });
       });
       socketRef.current.on("connect_error", (e) => {
         console.error("socketIO ERROR connecting!", e);
@@ -80,6 +80,13 @@ const Room = () => {
         console.log("setting new roomstate:", newState);
         setRoomData({ ...newState });
         // fetchRoomData()
+      });
+
+      socketRef.current.on("room:leave", (d) => {
+        const { username } = d;
+        // cursors[username] = undefined;
+        delete cursors[username];
+        setCursors({ ...cursors });
       });
 
       /// receive player events
