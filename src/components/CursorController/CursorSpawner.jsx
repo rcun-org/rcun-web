@@ -6,12 +6,15 @@ import { cursorsAtom } from "../../stores/cursor-store";
 import { useEffect } from "react";
 
 const CursorEntity = ({ cursorData }) => {
+  const x = cursorData.x;
+  const y = cursorData.y;
+
   return (
     <div
       className={cx(classes.cursorEntity)}
       style={{
-        top: `calc(${cursorData.y}px + 20px)`,
-        left: `calc(${cursorData.x}px - 20px)`
+        top: `calc(${y}vh + 20px)`,
+        left: `calc(${x}vw - 20px)`
       }}
     >
       {cursorData.sender}

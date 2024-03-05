@@ -117,8 +117,21 @@ const Room = () => {
       window.addEventListener("mousemove", (event) => {
         const data = {};
         data.sender = userNameRef.current;
-        data.x = event.clientX;
-        data.y = event.clientY;
+
+        let vw = Math.max(
+          document.documentElement.clientWidth || 0,
+          window.innerWidth || 0
+        );
+        let vh = Math.max(
+          document.documentElement.clientHeight || 0,
+          window.innerHeight || 0
+        );
+
+        const x = (event.clientX / vw) * 100;
+        const y = (event.clientY / vh) * 100;
+
+        data.x = x;
+        data.y = y;
         socketRef.current.emit("cursor:move", { data });
         // console.log("cursor:move event sent", data);
       });
