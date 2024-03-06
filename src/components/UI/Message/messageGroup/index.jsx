@@ -74,7 +74,7 @@ const MessageGroup = ({ messages, selfUsername, ...wrapperProps }) => {
               {text}
             </div>
             {isLastMessage && (
-              <div className={cx(classes.username)}>
+              <div className={cx(classes.usertotemContainer)}>
                 <img
                   className={cx(classes.usertotem)}
                   src={getTotemByUsername(username)}

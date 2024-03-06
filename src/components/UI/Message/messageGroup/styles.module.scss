@@ -38,6 +38,11 @@
   text-overflow: ellipsis;
 }
 
+.usertotemContainer {
+  background-color: #1e1e1e;
+  border-radius: 12%;
+}
+
 .usertotem {
   $totemSize: 30px;
   width: $totemSize;
@@ -47,7 +52,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
-  background-color: violet;
+  // filter: grayscale(100%);
 }
 
 .messageEntry {
