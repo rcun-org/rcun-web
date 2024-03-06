@@ -38,6 +38,18 @@
   text-overflow: ellipsis;
 }
 
+.usertotem {
+  $totemSize: 30px;
+  width: $totemSize;
+  height: $totemSize;
+
+  color: #e7e7e766;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  background-color: violet;
+}
+
 .messageEntry {
   display: flex;
   align-items: flex-end;

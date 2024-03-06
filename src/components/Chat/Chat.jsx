@@ -66,11 +66,7 @@ function Chat(props) {
       });
       socketRef.current.on("room:leave", (d) => {
         const { username } = d;
-        sendMessage(username + " left the room.");
-      });
-
-      window.addEventListener("beforeunload", () => {
-        sendMessage("left.");
+        sendMessage(username + " left.");
       });
     }
   }, [roomData]);
