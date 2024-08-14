@@ -106,7 +106,10 @@ const Room = () => {
         const timestampSender = playerEventChange.timestamp;
         const travelDelay = Math.abs(timestampReceiver - timestampSender);
         // if (registeredDelay > ALLOWED_DELAY) {
-        playerRef.current.seekTo(newState.playerTimecode + travelDelay / 1000);
+        playerRef.current.seekTo(
+          newState.playerTimecode + travelDelay / 1000 + 50 / 1000
+        );
+        //  + 50 / 1000
         // }
 
         console.log("event change:", playerEventChange);
@@ -215,12 +218,6 @@ const Room = () => {
     playerRef.current.seekTo(currentTime + 5);
   }
 
-  const [isChatCollapsed, setIsChatCollapsed] = useAtom(isChatCollapsedAtom);
-  function handleChatToggle(event) {
-    setIsChatCollapsed(!isChatCollapsed);
-    console.log("Chat is now collapsed?", isChatCollapsed);
-  }
-
   function handlePlayPausePush(event) {
     let change = {
       isPaused: !playerState.isPaused,
@@ -235,6 +232,12 @@ const Room = () => {
   }
 
   let playerRef = useRef();
+
+  const [isChatCollapsed, setIsChatCollapsed] = useAtom(isChatCollapsedAtom);
+  function handleChatToggle(event) {
+    setIsChatCollapsed(!isChatCollapsed);
+    console.log("Chat is now collapsed?", isChatCollapsed);
+  }
 
   // ui
   return (
