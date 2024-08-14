@@ -101,19 +101,19 @@ const Room = () => {
         }
         const timestampReceiver = new Date().getTime();
         const timestampSender = playerEventChange.timestamp;
-        const travelDelay = Math.abs(timestampReceiver - timestampSender);
+        const travelDelay =
+          (Math.abs(timestampReceiver - timestampSender) + 40) / 1000;
 
-        if (username !== playerEventChange.sender) {
-          playerRef.current.seekTo(
-            newState.playerTimecode + (1.0 * travelDelay) / 1000 + 40 / 1000
-          );
-          newState.playerTimecode =
-            playerEventChange.playerTimecode + travelDelay;
-        }
+        // if (username !== playerEventChange.sender) {
+        playerRef.current.seekTo(newState.playerTimecode + travelDelay);
+
+        newState.playerTimecode =
+          playerEventChange.playerTimecode + travelDelay;
+        // }
 
         console.log("event change received:", playerEventChange);
 
-        console.log("Travel delay in ms:", travelDelay);
+        console.log("Travel delay:", travelDelay, "s");
 
         setPlayerState({ ...newState });
       });
@@ -125,7 +125,7 @@ const Room = () => {
           return;
         }
 
-        console.log("received cursor move", cursorData, cursors);
+        // console.log("received cursor move", cursorData, cursors);
         cursors[cursorData.sender] = cursorData;
         setCursors({ ...cursors });
       });
