@@ -25,6 +25,7 @@ const totems = [
   // totemCrab,
   // totemPelican,
   // totemPig,
+  
   totemPeacock,
   totemHummingbird,
   totemBirb,

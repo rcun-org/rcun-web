@@ -102,9 +102,19 @@ const Room = () => {
         const registeredDelay = Math.abs(
           playerRef.current.getCurrentTime() - newState.playerTimecode
         );
-        if (registeredDelay > ALLOWED_DELAY) {
-          playerRef.current.seekTo(newState.playerTimecode);
-        }
+        const timestampReceiver = new Date().getTime();
+        const timestampSender = playerEventChange.timestamp;
+        const travelDelay = Math.abs(timestampReceiver - timestampSender);
+        // if (registeredDelay > ALLOWED_DELAY) {
+        playerRef.current.seekTo(newState.playerTimecode + travelDelay / 1000);
+        // }
+
+        console.log("event change:", playerEventChange);
+
+        newState.playerTimecode =
+          playerEventChange.playerTimecode + travelDelay;
+        console.log("Travel delay in ms:", travelDelay);
+
         setPlayerState({ ...newState });
       });
 
@@ -170,6 +180,7 @@ const Room = () => {
   // send function
   function broadcastChange(change) {
     change.sender = userNameRef.current;
+    change.timestamp = new Date().getTime();
     let msg = JSON.stringify(change);
     console.log("SENT socket msg", JSON.parse(msg));
     socketRef.current.emit("player:event", msg);
