@@ -99,23 +99,20 @@ const Room = () => {
             newState[k] = playerEventChange[k];
           }
         }
-        const registeredDelay = Math.abs(
-          playerRef.current.getCurrentTime() - newState.playerTimecode
-        );
         const timestampReceiver = new Date().getTime();
         const timestampSender = playerEventChange.timestamp;
         const travelDelay = Math.abs(timestampReceiver - timestampSender);
-        // if (registeredDelay > ALLOWED_DELAY) {
-        playerRef.current.seekTo(
-          newState.playerTimecode + travelDelay / 1000 + 50 / 1000
-        );
-        //  + 50 / 1000
-        // }
 
-        console.log("event change:", playerEventChange);
+        if (username !== playerEventChange.sender) {
+          playerRef.current.seekTo(
+            newState.playerTimecode + (1.0 * travelDelay) / 1000 + 40 / 1000
+          );
+          newState.playerTimecode =
+            playerEventChange.playerTimecode + travelDelay;
+        }
 
-        newState.playerTimecode =
-          playerEventChange.playerTimecode + travelDelay;
+        console.log("event change received:", playerEventChange);
+
         console.log("Travel delay in ms:", travelDelay);
 
         setPlayerState({ ...newState });
